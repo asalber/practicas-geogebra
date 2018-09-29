@@ -1,0 +1,329 @@
+%$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/derivadas.tex $
+%$LastChangedDate: 2008-12-08 17:44:27 +0100 (lun, 08 dic 2008) $
+%$LastChangedRevision: 4 $
+%$LastChangedBy: asalber $
+
+\chapter{Derivadas}
+
+\section{Fundamentos teóricos}
+El concepto de derivada es uno de los más importantes del Cálculo pues resulta
+de gran utilidad en el estudio de funciones y tiene multitud de aplicaciones.
+En esta práctica se introduce este concepto y se muestra cómo calcular derivadas con Derive.
+
+\subsection*{Tasa de variación media}
+Cuando queremos conocer la variación que experimenta una función real $y=f(x)$ en un intervalo $[a,b]$, se calcula la diferencia $f(b)-f(a)$ que se conoce como \emph{incremento} de $y$, y se nota $\Delta y[a,b]$, aunque a veces, simplemente se escribe $\Delta y$. Por ejemplo, si tenemos un móvil cuya posición en cada instante $t$ viene dada por la función $y=f(t)=t^2$, donde $y$ se mide en metros y $t$ se mide en segundos, entonces el camino recorrido durante el intervalo de tiempo que transcurre desde el segundo 2 hasta el segundo 5, será
+\[\Delta y[2,5]=f(5)-f(2)=5^2-2^2=25-4=21 \textrm{ m}.\].
+
+Muchas veces resulta interesante comparar la variación que experimenta la función $y$ con relación a la variación que experimenta su argumento $x$ en un intervalo $[a,a+\Delta x]$. Esto viene dado por la \emph{tasa de variación media}, que define como
+\[
+\textrm{TVM} f[a,a+\Delta x]=\frac{\Delta y}{\Delta x}=\frac{f(a+\Delta x)-f(a)}{\Delta x}.
+\]
+
+Así, en el ejemplo anterior, la tasa de variación media de la función que determina la posición del móvil en el intervalo $[2,5]$ es
+\[\textrm{TVM} f[2,5]=\frac{\Delta y}{\Delta x}=\frac{f(5)-f(2)}{5-2}=\frac{21}{3}=7\textrm{ m/s},\]
+que en realidad es la velocidad media del móvil durante ese intervalo de tiempo.
+
+Desde el punto de vista geométrico, la tasa de variación media de $f$ en el intervalo $[a , a+\Delta x]$ es la pendiente de la recta secante a $f$ en los puntos $(a , f(a))$ y $(a+\Delta x, f(a+\Delta x))$, tal y como se muestra en la figura~\ref{g:secante}.
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/derivadas/secante}}
+\caption{La tasa de variación media como la pendiente de la
+recta secante a una función en dos puntos.}
+\label{g:secante}
+\end{center}
+\end{figure}
+
+
+\subsection*{Tasa de variación instantánea y derivada}
+En muchas ocasiones, es interesante estudiar la tasa de variación que experimenta una función, no en un intervalo, sino en un punto. Por ejemplo, si tenemos una función que depende del tiempo, conocer la tasa de variación de la función en un determinado instante resulta muy útil para predecir lo que pasará en los próximos instantes.
+
+Podemos aproximar la tasa de variación de una función en un punto $a$ a partir de la tasa de variación media de la función en intervalos $[a,a+\Delta x]$ cada vez más pequeños. Se define así, la \emph{tasa de variación intantánea} de la función real $y=f(x)$ en un punto $a\in \mathbb{R}$ como
+\[
+\textrm{TVI} f(a)= \lim_{\Delta x\rightarrow 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}.
+\]
+
+Cuando este límite existe, se dice que la función $f$ es \emph{derivable} o \emph{diferenciable} en el punto $a$, y al valor del mismo se le llama \emph{derivada} de $f$ en $a$, y se denota por $f'(a)$, o bien por $\dfrac{df}{dx}(a)$.
+
+Así, siguiendo con el ejemplo anterior, la tasa de variación de la función que mide el espacio recorrido por el móvil, en el instante 2 es
+\begin{align*}
+\textrm{TVI} f(2) &= \lim_{\Delta x\rightarrow 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{f(2+\Delta x)-f(2)}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{(2+\Delta x)^2-2^2}{\Delta x}=\\
+&=
+\lim_{\Delta x\rightarrow 0}\frac{4+4\Delta x+\Delta x^2-4}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{\Delta x(4+\Delta x)}{\Delta x}=\lim_{\Delta x\rightarrow 0} 4+\Delta x = 4\textrm{ m/s}=f'(2),
+\end{align*}
+que en realidad se trata de la velocidad instantánea del móvil a los 2 segundos.
+
+Geométricamente, $f'(a)$ es la pendiente de la recta tangente a la curva de
+$f(x)$ en el punto $(a,f(a))$, tal y como se aprecia en la
+figura~\ref{g:tangente}.
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/derivadas/tangente}}
+\caption{La derivada como la pendiente de la
+recta tangente a una función en un punto.}
+\label{g:tangente}
+\end{center}
+\end{figure}
+
+
+El límite anterior define una nueva función $f'$ cuyo dominio está formado por los
+puntos en los que $f$ es diferenciable. La función $f'$ se llama \emph{primera
+derivada} de $f$. Puesto que $f'$ es una función, puede derivarse a su vez, y a
+la primera derivada de $f'$ se le conoce como segunda derivada de $f$, y se
+nota $f''(x)$ o $\dfrac{d^2f}{dx^2}$. Análogamente, la \emph{$n$-ésima
+derivada} de $f$, designada por $f^{(n}$ o $\dfrac{d^nf}{dx^n}$, es la primera
+derivada de $f^{(n-1}$, para $n=2,3,\ldots$, es decir
+\[
+\frac{d^nf}{dx^n}=\frac{d}{dx}\left(\frac{d^{n-1}f}{dx^{n-1}}\right)\
+n=2,3,\ldots
+\]
+
+\subsubsection*{Recta tangente y normal a una función en un punto}
+Teniendo en cuenta lo anterior, la ecuación de la recta tangente a una función
+$f(x)$ en el punto $(a,f(a))$ es
+\[
+y=f(a)+f'(a)(x-a).
+\]
+Del mismo modo, la ecuación de la recta normal a $f(x)$ en el punto $(a,f(a))$
+es
+\[
+y=f(a)-\frac{1}{f'(a)}(x-a).
+\]
+
+
+\section{Ejercicios resueltos}
+
+\begin{enumerate}[leftmargin=*]
+\item Dada la función $f(x)=\dfrac{x^3+x^2-2x-2}{x+3}$, se pide:
+\begin{enumerate}
+
+\item Calcular la tasa de variación media de $f$ en los intervalos
+$[-1,3]$, $[-1,0]$ y $[-1,-0.5]$, y calcular las correspondientes
+rectas secantes.
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Para calcular la tasa de variación media, definir
+previamente la función, y luego, por ejemplo para el intervalo
+$[-1,3]$, aplicamos la fórmula vista en la teoría:
+
+\[
+\textrm{TVM} f[-1,3]=\frac{\Delta y}{\Delta
+x}=\frac{f(3)-f(-1)}{3-(-1)}.
+\]
+
+\item Para calcular la ecuación de la recta secante, podemos
+utilizar, por ejemplo, la ecuación de la recta de la que conocemos
+un punto por el que pasa, $(x_0,y_0)$ y su pendiente, $m$:
+
+
+\[
+y - y_0  = m\left( {x - x_0 } \right)
+\]
+
+En nuestro caso, para el primero de los intervalos considerados,
+el punto puede ser, por ejemplo el $(-1,f(-1))$; y la pendiente
+viene dada por la tasa de variación media de la función en dicho
+intervalo. Es decir, la recta que buscamos tendrá como ecuación:
+
+
+\[
+y - f( - 1) = \textrm {TVM} f[ - 1,3]\left( {x - ( - 1)} \right)
+\]
+
+\item Después de calcular la ecuación de la recta secante, podemos
+comprobar que la misma corta a la función en los puntos adecuados
+sin más que representar en la misma gráfica tanto $f$ como la
+recta calculada.
+
+\end{enumerate}
+}
+\end{indicacion}
+
+
+\item Calcular la tasa de variación instantánea de $f$ en el punto
+$-1$ haciendo uso de límites, y calcular la correspondiente recta
+tangente.
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Como ya sabemos por la teoría, las tasa de variación
+instantánea de la función en un punto dado si existe, recibe el
+nombre de derivada de la función en el punto, y se calcula
+mediante el límite:
+
+
+\[
+f'(a) = \mathop {\lim }\limits_{h \to 0} \frac{{f(a + h) - f(a)}}
+{h}
+\]
+en donde, por aligerar la notación, hemos llamado $h$ a lo que en
+la teoría denominábamos $\Delta x$.
+
+Por lo tanto, para calcular la derivada de la función $f$ en
+$a=-1$ mediante la definición, procedemos con:
+
+\[
+f'(-1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(-1 + h) -
+f(-1)}} {h}
+\]
+
+Para calcular el límite, podemos utilizar el botón
+\texttt{Calcular un límite} de la barra de botones.
+
+\item Para el cálculo de la recta tangente, de nuevo sabemos que
+la misma pasa por el punto $(-1, f(-1))$, y que su pendiente vale
+$f'(-1)$. Por lo tanto su ecuación es:
+
+\[
+y - f( - 1) = f'(-1)\left( {x - ( - 1)} \right)
+\]
+
+\item De nuevo, conviene representar en la misma gráfica tanto la
+función como la recta tangente en el punto considerado, para
+comprobar que los cálculos han sido los correctos.
+
+\end{enumerate}
+}
+\end{indicacion}
+
+
+\end{enumerate}
+
+
+
+
+\item Estudiar mediante la definición de derivada la derivabilidad
+de las funciones siguientes:
+
+
+\[
+f(x)=|x-1| \quad \textrm{en $x=1$,}
+\]
+\[
+g(x)=\left\{%
+\begin{array}{ll}
+   x \sen\dfrac{1}{x}, & \hbox{si $x\neq 0$;} \\
+   0, & \hbox{si $x=0$.} \\
+\end{array}%
+\right. \quad \textrm{en $x=0$.}
+\]
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Para la función $f(x)$, podemos inicialmente definirla,
+teniendo en cuenta que la sintaxis de la función valor absoluto es
+$\operatorname{Abs}$, y después utilizar la definición de derivada
+en un punto dada en el problema anterior, y calcular el límite
+mediante el botón \texttt{Calcular un límite}. Por lo tanto, si
+existe la derivada en $x=1$ su valor es:
+
+
+\[
+f'(1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(1 + h) - f(1)}}
+{h}
+\]
+
+\item Para la función $g(x)$, podemos, para su definición,
+utilizar la función condicional de Derive
+\textsf{If(condición,opción 1,opción 2)}, de tal forma que si se
+cumple la \textsf{condición} el programa realizará la
+\textsf{opción 1}, y si no se cumple realizará la \textsf{opción
+2}. La función condicional de Derive, \textsf{If}, entre otras
+muchas posibilidades sirve para introducir funciones definidas a
+trozos. En nuestro caso la \textsf{condición} es $x\neq y$, la
+\textsf{opción 1} es $x\sin(1/x)$, y la \textsf{opción 2} es $0$.
+
+Así, la función $g(x)$ puede definirse mediante:
+
+\[
+g(x):=\operatorname{IF}(x\neq0,x\sin(1/x),0)
+\]
+
+
+Y con ello, para calcular la derivada en $x=0$, procedemos
+mediante la definición de derivada en un punto:
+
+
+\[
+g'(0) = \mathop {\lim }\limits_{h \to 0} \frac{{g(0 + h) - g(0)}}
+{h} 
+\]
+
+
+
+\end{enumerate}
+}
+\end{indicacion}
+
+
+\item  Calcular las derivadas de las siguientes funciones hasta el
+orden 4:
+
+\begin{enumerate}
+\item  $a^x\log a$.
+
+\item  $\dfrac{\sen x +\cos x}{2}$.
+
+\item  $\dfrac{1}{\sqrt{1+x}}$.
+\end{enumerate}
+
+A la vista de los resultados, ¿cual sería la expresión de la
+derivada $n$-ésima de cada una de estas funciones?
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Para cada una de las funciones, introducir la expresión de
+la misma, y proceder al cálculo de la sucesivas derivadas, desde
+orden 1 hasta orden 4, utilizando, por ejemplo, el botón
+\texttt{Hallar una derivada} de la barra de botones, escogiendo el
+orden adecuado.
+
+\item Para el cálculo de la derivada $n$-ésima, teniendo en cuenta
+que en el cuadro de diálogo que aparece al pinchar en el botón
+\texttt{Hallar una derivada} tan sólo podemos introducir como
+orden de la misma un número entero, pero nunca un parámetro como
+$n$, no queda otra posibilidad que proceder por inducción, y a la
+vista de las primeras derivadas suponer cuál sería el valor de la
+derivada de orden $n$. Posteriormente, podemos comprobar que
+nuestra suposición es correcta utilizando la fórmula que hemos
+encontrado para calcular una derivada de orden bastante alto y
+comparando con el valor que da Derive para esa misma derivada.
+
+\end{enumerate}
+}
+\end{indicacion}
+
+
+\end{enumerate}
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+
+\item Una circunferencia metálica de radio 10 cm  se somete a un proceso de calentamiento en el que aumenta su radio 2 cm por segundo. ¿Cuál será la tasa de variación media del área del círculo a los 5 segundos? ¿Cuál será la tasa de variación instantánea del area del círculo en el instante inicial en que comienza a calentarse?
+
+\item  Probar que no es derivable en $x=0$ la siguiente función:
+\[ f(x)=\left\{
+\begin{array}{ccl}
+    e^x-1 &  & \mbox{si } x\geq 0,  \\
+    x^3 &  & \mbox{si } x<0.
+\end{array}\right.
+\]
+
+\item  Para cada una de las siguientes curvas, hallar las ecuaciones
+de las rectas tangente y normal en el punto $x_{0}$ indicado.
+\begin{enumerate}
+    \item  $y=x^{\sen x},\quad x_{0}=\pi/2$.
+
+    \item  $y=(3-x^2)^4\sqrt[3]{5x-4},\quad x_{0}=1$.
+
+    \item  $y=\log \sqrt{\dfrac{1+x}{1-x}}+\arctg x, \quad x_{0}=0$.
+\end{enumerate}
+
+\end{enumerate}
+

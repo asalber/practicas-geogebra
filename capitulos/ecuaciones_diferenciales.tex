@@ -1,0 +1,294 @@
+% Author: Alfredo Sánchez Alberca (asalber@ceu.es)
+\chapter{Ecuaciones Diferenciales Ordinarias}
+
+\section{Fundamentos teóricos}
+
+Muchos fenómenos de la naturaleza como la desintegración radiactiva, algunas reacciones químicas, el crecimiento de
+poblaciones o algunos problemas gravitatorios responden a determinadas ecuaciones en las que se relaciona una función
+con sus derivadas. 
+Este tipo de ecuaciones se conocen como \emph{ecuaciones diferenciales} y en esta práctica
+estudiaremos cómo resolverlas.
+
+\subsection{Ecuaciones diferenciales ordinarias (E.D.O.)}
+Se llama \emph{ecuación diferencial ordinaria (E.D.O.)} a una relación entre una variable independiente $x$, una función
+desconocida $y(x)$, y alguna de las derivadas de $y$ con respecto a $x$. 
+Esto es, a una expresión de la forma
+\[
+F(x,y,y',y'',...,y^{(n})=0.
+\]
+
+Llamaremos \emph{orden de la ecuación diferencial ordinaria} al mayor orden de las derivadas que aparezcan en la
+ecuación. 
+Así, la forma más general de una E.D.O. de primer orden es $F(x,y,y')=0$, que puede quedar de la forma $y'=G(x,y)$ si se
+puede despejar $y'$.
+
+\subsubsection*{Solución de una E.D.O.}
+Diremos que una función $f(x)$ es \emph{solución} o \emph{integral} de la EDO $F(x,y,y',y'',...,y^{(n})=0$, si al
+sustituir en ella $y$ y sus derivadas por $f(x)$ y sus derivadas respectivas, la ecuación se satisface, es decir
+$F(x,f(x),f'(x),f''(x),...,f^{(n}(x))=0$.
+
+En general una ecuación diferencial admite infinitas soluciones, y se limita su número imponiendo condiciones iniciales.
+
+\subsection{Ecuaciones diferenciales ordinarias de primer orden}
+Una ecuación diferencial ordinaria de primer orden es una ecuación de la forma
+\[
+y'=F(x,y).
+\]
+Esta es la forma estándar de escribir la ecuación, aunque a veces, también se suele representar en la forma diferencial como
+\[
+M(x,y)dx+N(x,y)dy=0.
+\]
+
+\subsubsection*{Soluciones general y particular de una E.D.O. de primer orden}
+Se llama \emph{solución general} o \emph{integral general} de una ecuación diferencial ordinaria de primer orden a una
+función $y=f(x,c)$, donde $c$ es una constante real, tal que para cada valor de $c$, la función $y=f(x,c)$ es una
+solución de la ecuación diferencial. 
+A esta solución así obtenida para un valor concreto de $c$ se le denomina \emph{solución particular} o \emph{integral
+particular} de la ecuación diferencial.
+
+En la práctica, la determinación de las constantes que conducen a una solución particular se realiza imponiendo ciertas
+condiciones iniciales en el problema, que son los valores que debe tomar la solución en determinados puntos. 
+Así, para una ecuación diferencial ordinaria de primer orden $y'=F(x,y)$, una condición inicial se expresaría de la
+forma $y(x_{0})=y_{0}$, y la solución particular sería una función $y=f(x)$ tal que $f'(x)=F(x,f(x))$, y $f(x_0)=y_0$.
+
+Por ejemplo, si consideramos la ecuación diferencial $y'=y$, resulta sencillo comprobar que su solución general es
+$f(x)=ce^x$, ya que $f'(x)=ce^x$ y se cumple la ecuación. 
+Si para esta misma ecuación tenemos la condición inicial $y(0)=1$, entonces, al imponer dicha condición a la solución
+general, se tiene $f(0)=ce^0=1$, de donde se deduce que $c=1$, y por tanto la solución particular sería $f(x)=e^x$.
+
+Geométricamente, la solución general de una ecuación diferencial de primer orden representa una familia de curvas,
+denominadas \emph{curvas integrales}, una para cada valor concreto asignado a la constante arbitraria. 
+En la figura~\ref{g:curvas integrales} se muestran las curvas integrales de la ecuación diferencial $y'=y$.
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/ecuaciones_diferenciales/curvas_integrales}}
+\caption{Familia de curvas integrales que son solución de la ecuación $y'=y$.}
+\label{g:curvas integrales}
+\end{center}
+\end{figure}
+
+\subsubsection*{Existencia y unicidad de soluciones}
+El siguiente teorema aporta una condición suficiente, aunque no necesaria, para la existencia y la unicidad de la
+solución de una ecuación diferencial ordinaria de primer orden.
+
+\begin{teoremasn}
+Si $F(x,y)$ y $\partial F/\partial y$ son funciones continuas en un entorno del punto $(x_0,y_0)$, entonces la ecuación
+diferencial $y'=F(x,y)$ tiene una solución $y=f(x)$ que verifica $f(x_0)=y_0$, y además esa solución es única.
+\end{teoremasn}
+Cuando no se cumplen las condiciones del teorema hay que tener cuidado porque la ecuación puede no tener solución, o
+bien tener soluciones múltiples como ocurre con la ecuación $y'=3\sqrt[3]{y^2}$, que tiene dos soluciones $y=0$ y
+$y=x^3$ que pasan por el punto $(0,0)$, ya que $\frac{\partial}{\partial y}(3\sqrt[3]{y^2})=2/\sqrt[3]{y}$ que no existe
+en $(0,0)$.
+
+Desafortunadamente, el teorema anterior sólo nos habla de la existencia de una solución pero no nos proporciona la forma
+de obtenerla. 
+En general, no existe una única técnica de resolución de ecuaciones diferenciales ordinarias de primer orden
+$M(x,y)dx+N(x,y)dy=0$, sino que dependiendo de la forma que tengan $M(x,y)$ y $N(x,y)$, se utilizan distintas técnicas.
+
+
+\subsection{EDO de variables separables}
+Una E.D.O. de primer orden es de \emph{variables separables} si se puede poner de la forma $y'g(y)=f(x)$ o bien
+$M(x)dx+N(y)dy=0$, donde $M(x)$ es una función que sólo depende de $x$ y $N(y)$ sólo depende de $y$.
+
+La solución de una ecuación de este tipo se obtiene fácilmente integrando $M(x)$ y $N(y)$ por separado, es decir
+\[
+\int M(x)\,dx=-\int N(y)\,dy.
+\]
+
+\subsection{EDO Homogéneas}
+Se dice que una función $F(x,y)$ es \emph{homogénea} de grado $n$ si se cumple $F(kx,ky)=k^nF(x,y)$.
+
+Una E.D.O. de primer orden es \emph{homogénea} si se puede poner de la forma
+$y'=f\left(\dfrac{y}{x}\right)$ o bien $M(x,y)dx+N(x,y)dy=0$ donde $M(x,y)$ y $N(x,y)$ son funciones homogéneas del mismo grado.
+
+Las ecuaciones homogéneas son fácilmente reducibles a ecuaciones de variables separables mediante el cambio $y=ux$,
+siendo $u$ una función derivable de $x$.
+
+\subsection{EDO Lineales}
+Una E.D.O. de primer orden es \emph{lineal} si se puede poner de la forma $y'+ P(x)y = Q(x)$, donde $P$ y $Q$ son
+funciones continuas de $x$.
+
+Para resolver este tipo de ecuaciones se utiliza la técnica de los factores integrantes. 
+Un factor integrante es una función $u(x)$ cuya derivada sea $P(x)u(x)$, con lo que al multiplicar $u(x)$ por el lado
+izquierdo de la ecuación, el resultado es la derivada del producto $u(x)y$, es decir
+\[
+u(x)y'+u(x)P(x)y=\frac{d}{dx}(u(x)y).
+\]
+A partir de aquí, si también multiplicamos por $u(x)$ el lado derecho de la ecuación tenemos
+\[
+\frac{d}{dx}(u(x)y)=Q(x)u(x),
+\]
+por lo que integrando, resulta
+\[
+u(x)y=\int Q(x)u(x)\,dx
+\]
+de donde se puede despejar fácilmente $y$.
+
+Por último, resulta fácil comprobar que un factor integrante de esta ecuación es $u(x)=e^{\int P(x)\, dx}$, de manera
+que la solución quedaría
+\[
+y=e^{-\int P(x)\,dx}\int Q(x)e^{\int P(x)\,dx}\,dx+C.
+\]
+
+\newpage
+
+\section{Ejercicios resueltos}
+\begin{indicacion}
+Para resolver ecuaciones diferenciales ordinarias de primer orden utilizaremos los comandos
+\begin{quote}
+\texttt{DSOLVE1\_GEN(p,q,x,y,c)} proporciona la solución general de $p(x,y)+q(x,y)y'=0$.
+
+\texttt{DSOLVE1(p,q,x,y,$x_{0},y_{0}$)} proporciona la solución particular de $p(x,y)+q(x,y)y'=0$, con la condición inicial $y_{0}=y(x_{0})$.
+\end{quote}
+\end{indicacion}
+
+\begin{enumerate}[leftmargin=*]
+\item Resolver las siguientes ecuaciones diferenciales de variables separables y dibujar sus curvas integrales para las
+constantes de integración $c=-1$, $c=-2$ y $c=-3$:
+\begin{enumerate}
+\item $-2x(1+e^y)+e^y(1+x^{2})y'=0$.
+\begin{indicacion}
+Para resolver la ecuación diferencial observamos que ya está escrita en la forma $p(x,y)+q(x,y)y'=0$, con $p(x,y)=-2x(1+e^y)$ y
+$q(x,y)=e^y(1+x^{2})$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1\_GEN(-2x(1+\#e\^{}y),\#e\^{}y(1+x\^{}2),x,y,c)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+Para dibujar las curvas integrales:
+\begin{enumerate}[resume]
+\item Hacer clic en el botón \boton{Sustituir}, seleccionar la variable $c$, introducir el valor -1 y hacer clic en el
+botón \boton{Simplificar}.
+\item Hacer clic en el botón \boton{Ventana 2D} para pasar a la ventana gráfica 2D.
+\item Hacer clic en el botón \boton{Representar expresión}.
+\item Repetir el mismo procedimiento introduciendo los valores -2 y -3 para el valor de $c$.
+\end{enumerate}
+\end{indicacion}
+
+\item $y-xy'=1+x^2y'$.
+\begin{indicacion}
+Para resolver la ecuación diferencial primero hay que ponerla en la forma $p(x,y)+q(x,y)y'=0$,
+\[
+y-xy'=1+x^2y' \Leftrightarrow 1+x^2y'-y+xy'=0 \Leftrightarrow 1-y+(x^2+x)y'=0
+\]
+de manera que $p(x,y)=1-y$ y $q(x,y)=x^2+x$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1\_GEN(1-y,x\^{}2+x,x,y,c)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+Para dibujar las curvas integrales:
+\begin{enumerate}[resume]
+\item Hacer clic en el botón \boton{Sustituir}, seleccionar la variable $c$, introducir el valor -1 y hacer clic en el
+botón \boton{Simplificar}.
+\item Hacer clic en el botón \boton{Ventana 2D} para pasar a la ventana gráfica 2D.
+\item Hacer clic en el botón \boton{Representar expresión}.
+\item Repetir el mismo procedimiento introduciendo los valores -2 y -3 para el valor de $c$.
+\end{enumerate}
+\end{indicacion}
+\end{enumerate}
+
+
+\item Resolver las siguientes ecuaciones diferenciales con las condiciones iniciales dadas.
+\begin{enumerate}
+\item $x\sqrt{1-y^2}+y\sqrt{1-x^2} y'=0$, con la condición inicial $y(0)=1$.
+\begin{indicacion}
+Para resolver la ecuación diferencial observamos que ya está escrita en la forma $p(x,y)+q(x,y)y'=0$, con
+$p(x,y)=x\sqrt{1-y^2}$ y $q(x,y)=y\sqrt{1-x^2}$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1(xsqrt(1-y\^{}2),ysqrt(1-x\^{}2),x,y,0,1)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+\end{indicacion}
+
+
+\item $(1+e^x)yy'=e^y$, con la condición inicial $y(0)=0$.
+\begin{indicacion}
+Para resolver la ecuación diferencial primero hay que ponerla en la forma $p(x,y)+q(x,y)y'=0$,
+\[
+(1+e^x)yy'=e^y \Leftrightarrow -e^y+(1+e^x)yy'=0,
+\]
+de manera que $p(x,y)=-e^y$ y $q(x,y)=(1+e^x)y$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1(-\#e\^{}y,(1+\#e\^{}x)y,x,y,0,0)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+\end{indicacion}
+
+
+\item $y'+y\cos x=\sen x\cos x$ con la condición inicial $y(0)=1$.
+\begin{indicacion}
+Para resolver la ecuación diferencial primero hay que ponerla en la forma $p(x,y)+q(x,y)y'=0$,
+\[
+y'+y\cos x=\sen x\cos x \Leftrightarrow -\sen x\cos x+y\cos x+y'=0,
+\]
+de manera que $p(x,y)=-\sen x\cos x+y\cos x$ y $q(x,y)=1$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1(-sinxcosx+ycosx,1,x,y,0,1)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+\end{indicacion}
+\end{enumerate}
+
+\item El azúcar se disuelve en el agua con una velocidad proporcional a la cantidad que queda por disolver.
+Si inicialmente había $13.6$ kg de azúcar y al cabo de $4$ horas quedan sin disolver $4.5$ kg, ¿cuánto tardará en disolverse el $95\%$ del
+azúcar contando desde el instante inicial?
+\begin{indicacion}
+La ecuación diferencial que explica la disolución del azúcar es $y'=ky$, donde $y$ es la cantidad de azúcar que queda
+por disolver, $x$ es el tiempo y $k$ es la constante de disolución del azúcar. 
+Para resolver la ecuación diferencial primero hay que ponerla en la forma $p(x,y)+q(x,y)y'=0$,
+\[
+y'=ky \Leftrightarrow -ky+y'=0,
+\]
+de manera que $p(x,y)=-ky$ y $q(x,y)=1$.
+\begin{enumerate}
+\item Introducir la expresión \comando{DSOLVE1(-ky,1,x,y,0,13.6)}.
+\item Hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+Para obtener la constante de disolución se impone la otra condición $y(4)=4.5$:
+\begin{enumerate}[resume]
+\item Hacer clic en el botón \boton{Sustituir}, seleccionar la variable $x$ e introducir el valor $4$, seleccionar la
+variable $y$ e introducir el valor $4.5$, y hacer clic en el botón \boton{Simplificar} y después en el botón
+\boton{Aproximar}.
+\end{enumerate}
+Finalmente, para obtener el tiempo que tiene que pasar hasta que quede un $5\%$ del azúcar inical, es decir $13.6\cdot
+0.05=0.68$ kg:
+\begin{enumerate}[resume]
+\item Seleccionar la expresión correspondiente a la solución general de la ecuación diferencial.
+\item Hacer clic en el botón \boton{Sustituir}, seleccionar la variable $k$ e introducir el valor de la constante calculado antes,
+seleccionar la variable $y$ e introducir el valor $0.68$, y hacer clic en el botón \boton{Simplificar} y después en el botón
+\boton{Aproximar}.
+\end{enumerate}
+\end{indicacion}
+
+\end{enumerate}
+
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+
+\item Resolver las siguientes ecuaciones diferenciales:
+\begin{enumerate}
+\item $(1+y^{2})+xyy'=0$.
+\item $xy'-4y+2x^2+4=0$.
+\item $(y^{2}+xy^{2})y'+x^{2}-yx^{2}=0$.
+\item $(x^3-y^3)dx+2x^2ydy=0$.
+\item $(x^2+y^2+x)+xydy=0$.
+\end{enumerate}
+
+\item Hallar las curvas tales que en cada punto $(x,y)$ la pendiente de la recta tangente sea igual al cubo de la
+abscisa en dicho punto. 
+¿Cuál de estas curvas pasa por el origen?
+
+\item Al introducir glucosa por vía intravenosa a velocidad constante, el cambio de concentración global de glucosa con
+respecto al tiempo $c(t)$ se explica mediante la siguiente ecuación diferencial
+\[
+\frac{dc}{dt}=\frac{G}{100V}-kc,
+\]
+donde $G$ es la velocidad constante a la que se suministra la glucosa, $V$ es el volumen total de la sangre en el cuerpo y $k$ es una constante positiva que depende del paciente. Se pide calcular $c(t)$.
+
+\item En una reacción química, un cierto compuesto se transforma en otra sustancia a un ritmo proporcional a la cantidad
+no transformada. 
+Si había inicialmente 100 gr de sustancia original y 60 gr tras una hora, ¿cuanto tiempo pasará hasta
+que se haya transformado el 80\% del compuesto?
+\end{enumerate}
+

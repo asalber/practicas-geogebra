@@ -1,0 +1,432 @@
+% Author: Alfredo Sánchez Alberca (asalber@ceu.es)
+\chapter{Límites y Continuidad}
+
+\section{Fundamentos teóricos}
+En esta práctica se introducen los conceptos de límite y continuidad de una función real, ambos muy relacionados.
+
+\subsection{Límite de una función en un punto}
+El concepto de límite está muy relacionado con el de proximidad y tendencia de una serie de valores. De manera informal, diremos que $l\in \mathbb{R}$ es el \emph{límite} de una función $f(x)$ en un punto $a\in \mathbb{R}$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$, y se escribe
+\[ \lim_{x\rightarrow a} f(x)=l.\]
+
+Si lo que nos interesa es la tendencia de $f(x)$ cuando nos aproximamos al punto $a$ sólo por un lado, hablamos de \emph{límites laterales}. Diremos que $l$ es el \emph{límite por la izquierda} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la izquierda, es decir con valores $x<a$, y se denota por
+\[ \lim_{x\rightarrow a^-} f(x)=l.\]
+Del mismo modo, diremos que $l$ es el \emph{límite por la derecha} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la derecha, es decir con valores $x>a$, y se denota por
+\[ \lim_{x\rightarrow a^+} f(x)=l.\]
+
+Por supuesto, para que exista el límite global de la función $f(x)$ en el punto $a$, debe existir tanto el límite por la izquierda, como el límite por la derecha, y ser iguales, es decir
+\[
+\left.
+\begin{array}{l}
+\displaystyle \lim_{x\rightarrow a^-} f(x)=l\\
+\displaystyle \lim_{x\rightarrow a^+} f(x)=l
+\end{array}
+\right\}
+\Longrightarrow
+\lim_{x\rightarrow a} f(x)=l.
+\]
+
+\subsection{Álgebra de límites}
+Para el cálculo práctico de límites, se utiliza el siguiente
+teorema, conocido como Teorema de \emph{Álgebra de Límites}.
+
+Dadas dos funciones $f(x)$ y $g(x)$, tales que $\lim_{x\rightarrow
+a}f(x)=l_1$ y $\lim_{x\rightarrow a}g(x)=l_2$, entonces se cumple
+que:
+\begin{enumerate}
+\item $\displaystyle \lim_{x\rightarrow a}(f(x)\pm g(x))=l_1\pm l_2$.
+\item $\displaystyle \lim_{x\rightarrow a}(f(x)\cdot g(x))=l_1\cdot l_2$.
+\item $\displaystyle \lim_{x\rightarrow a}\dfrac{f(x)}{g(x)}=\dfrac{l_1}{l_2}$ si $l_2\neq 0$.
+\end{enumerate}
+
+\subsection{Asíntotas}
+Como interpretación geométrica de los límites, definiremos rectas
+particulares a las que tiende (se ``pega") la gráfica de una función
+cuando la variable tiende a un cierto valor, finito o infinito.
+\subsubsection*{Asíntotas verticales}
+La recta $x=a$ es una \emph{Asíntota Vertical} de la función $f(x)$
+si al menos uno de los límites laterales de $f$ en $a$ es $+\infty$
+ó $+\infty$. Es decir:
+
+\[
+\mathop {\lim }\limits_{x \to a} f(x) =  \pm \infty
+\]
+
+\subsubsection*{Asíntotas Horizontales}
+La recta $y=b$ es una \emph{Asíntota Horizontal} de la función
+$f(x)$ si se cumple:
+\[
+\mathop {\lim }\limits_{x \to  + \infty } f(x) = b\quad
+\text{ó}\quad\mathop {\lim }\limits_{x \to  - \infty } f(x) = b
+\]
+
+
+\subsubsection*{Asíntotas Oblicuas}
+
+La recta $y=mx+n$, donde $m\neq0$, es \emph{Asíntota Oblicua} de la
+función $f(x)$ si:
+
+
+\[
+\mathop {\lim }\limits_{x \to  + \infty } \left[ {f(x) - \left( {mx
++ n} \right)} \right] = 0\quad\text{ó}\quad\mathop {\lim }\limits_{x
+\to - \infty } \left[ {f(x) - \left( {mx + n} \right)} \right] = 0
+\]
+
+
+La determinación práctica de $m$ y $n$ se realiza del siguiente
+modo:
+
+\[
+m = \mathop {\lim }\limits_{x \to  + \infty } \frac{{f(x)}} {x}
+\]
+
+\[
+n = \mathop {\lim }\limits_{x \to  + \infty } \left[ {f(x) - mx}
+\right]
+\]
+o bien lo mismo con los límites en $-\infty$:
+\[
+m = \mathop {\lim }\limits_{x \to  - \infty } \frac{{f(x)}} {x}
+\]
+
+\[
+n = \mathop {\lim }\limits_{x \to  - \infty } \left[ {f(x) - mx}
+\right]
+\]
+
+En cualquiera de los casos, si obtenemos un valor real para $m$ (no
+puede ser ni $+\infty$ ni $-\infty$) distinto de $0$, procedemos
+después a calcular $n$, que también debe ser real (sí que puede ser
+$0$).
+
+Si $m=\pm\infty$ entonces la función crece (decrece) más deprisa que
+cualquier recta, y si $m=0$ la función crece (decrece) más despacio
+que cualquier recta, y en cualquiera de los dos casos decimos que la
+función tiene una \emph{Rama Parabólica}.
+
+\subsection{Continuidad de una función en un punto}
+Diremos que una función $f(x)$ es continua en un punto $a\in
+\mathbb{R}$, si se cumple
+\[ \lim_{x\rightarrow a}f(x)=f(a),\]
+donde $f(a)\in \mathbb{R}$.
+
+La definición anterior implica a su vez que se cumplan estas tres
+condiciones:
+
+\begin{itemize}
+
+\item Existe el límite de $f$ en $x=a$.
+
+\item La función está definida en $x=a$; es decir, existe $f(a)$.
+
+\item Los dos valores anteriores coinciden.
+
+\end{itemize}
+
+Si la función $f$ no es continua en $x=a$, diremos que es
+\emph{discontinua} en el punto $a$, o bien que $f$ tiene una
+\emph{discontinuidad} en $a$.
+
+Intuitivamente, una función es continua cuando puede dibujarse su
+gráfica sin levantar el lápiz.
+
+\subsubsection*{Continuidad lateral en un punto}
+
+Si nos restringimos a los valores que toma una función a la derecha
+de un punto $x=a$, o a la izquierda, se habla de continuidad por la
+derecha o por la izquierda según la siguiente definición.
+
+Una función es \emph{continua por la derecha} en un punto $x=a$, y
+lo notaremos como $f$ continua en $a^+$, si existe el límite por la
+derecha en dicho punto y coincide con el valor de la función en el
+mismo:
+\[
+\mathop {\lim }\limits_{x \to a^ +  } f\left( x \right) = f\left( a
+\right)
+\]
+
+De igual manera, la función es \emph{continua por la izquierda} en
+un punto $x=a$, y lo notaremos como $f$ continua en $a^-$, si existe
+el límite por la izquierda en dicho punto y coincide con el valor de
+la función en el mismo:
+
+\[
+\mathop {\lim }\limits_{x \to a^ -  } f\left( x \right) = f\left( a
+\right)
+\]
+
+
+\subsubsection*{Propiedades de la continuidad en un punto}
+
+Como consecuencia de la definición de continuidad en un punto,
+podrían demostrarse toda una serie de teoremas, algunos de ellos
+especialmente importantes.
+
+\begin{itemize}
+
+\item \textbf{Álgebra de funciones continuas}.
+Si $f$ y $g$ son funciones continuas en $x=a$, entonces $f\pm g$ y
+$f\cdot g$ son también continuas en $x=a$. Si además $g(a)\neq 0$,
+entonces $f/g$ también es continua en $x=a$.
+
+\item \textbf{Continuidad de funciones compuestas}. Si $f$ es continua en
+$x=a$ y $g$ es continua en $b=f(a)$, entonces la función compuesta
+$g\circ f$ es continua en $x=a$.
+
+\item \textbf{Continuidad y cálculo de límites}. Sean $f$ y $g$ dos
+funciones tales que existe $\mathop {\lim }\limits_{x \to a} f(x) =
+l$ $\in \mathbb{R}$ y $g$ es una función continua en $l$. Entonces:
+
+\[
+\mathop {\lim }\limits_{x \to a} g\left( {f\left( x \right)} \right)
+= g\left( l \right)
+\]
+
+\end{itemize}
+
+\subsubsection*{Tipos de discontinuidades}
+Puesto que la condición de continuidad puede no satisfacerse por
+distintos motivos, existen distintos tipos de discontinuidades:
+
+
+\begin{itemize}
+\item \textbf{Discontinuidad evitable}. Se dice que $f(x)$ tiene una \emph{discontinuidad evitable} en el punto $a$, si existe el límite de la función  pero no coincide con el valor de la función en el punto (bien porque sea diferente, bien por que la función no esté definida en dicho punto), es decir
+\[\lim_{x\rightarrow a}f(x)=l\neq f(a).\]
+
+\item \textbf{Discontinuidad de salto}. Se dice que $f(x)$ tiene una \emph{discontinuidad de salto} en el punto $a$, si existe el límite de la función por la izquierda  y por la derecha pero son diferentes, es decir,
+\[
+\lim_{x\rightarrow a^-}f(x)=l_1\neq l_2=\lim_{x\rightarrow a^+}f(x).
+\]
+A la diferencia entre ambos límites $l_1-l_2$, se le llama
+\emph{amplitud del salto}.
+
+\item \textbf{Discontinuidad esencial}. Se dice que $f(x)$ tiene una \emph{discontinuidad esencial} en el punto $a$, si no existe alguno de los límites laterales de la función.
+\end{itemize}
+
+\newpage
+
+\section{Ejercicios resueltos}
+\begin{enumerate}[leftmargin=*]
+\item  Dada la función
+\[
+f(x)=\left( 1+\frac 2x\right) ^{x/2},
+\]
+se pide:
+
+\begin{enumerate}
+\item  Dibujar su gráfica, y a la vista de misma conjeturar el resultado de los siguientes límites:
+\begin{multicols}{2}
+\begin{enumerate}
+\item  $\lim\limits_{x\rightarrow -\,\infty }\ f(x)$
+\item  $\lim\limits_{x\rightarrow +\,\infty }\ f(x)$
+\item  $\lim\limits_{x\rightarrow -\,2^{-}}\ f(x)$
+\item  $\lim\limits_{x\rightarrow -\,2^{+}}\ f(x)$
+\item  $\lim\limits_{x\rightarrow 2}\ f(x)$
+\item  $\lim\limits_{x\rightarrow 0}\ f(x)$
+\end{enumerate}
+\end{multicols}
+
+\begin{indicacion}
+\begin{enumerate}
+\item Para representar la gráfica de la función, introducir su expresión, acceder a la ventana 2D, y pinchar en el botón \boton{Representar
+Expresión}. Probablemente haya que cambiar la escala de la representación original pinchando en el botón de \boton{Zoom hacia fuera en ambos
+ejes}, para tener una perspectiva más amplia de la forma de la función.
+\item Para predecir cuáles pueden ser los valores de los límites pedidos, observar hacia qué valores tiende la función cuando la variable
+$x$ se acerca al valor que aparece en cada límite. Para ello, puede resultar conveniente pinchar en el botón \boton{Trazar gráficas}, para
+que el cursor sólo pueda desplazarse a lo largo de la misma.
+\end{enumerate}
+\end{indicacion}
+
+\item  Calcular los límites anteriores. ¿Coinciden los resultados con los conjeturados?.
+\begin{indicacion}
+\begin{enumerate}
+\item Utilizar el menú \menu{Cálculo > Límites}, o su correspondiente botón de la barra de botones.
+
+\item En el cuadro de diálogo que aparece, seleccionar tanto la variable del límite como el punto en el que queremos calcularlo, y la
+tendencia (izquierda, derecha, o ambas).
+\end{enumerate}
+\end{indicacion}
+\end{enumerate}
+
+
+\item Dada la función 
+\[
+f(x)=
+\begin{cases}
+\dfrac{x}{x-2} & \mbox{si $x\leq 0$;}\\
+\dfrac{x^2}{2x-6} & \mbox{si $x>0$;}
+\end{cases}
+\]
+\begin{enumerate}
+\item Dibujar la gráfica de $f$ y determinar gráficamente si existen asíntotas.
+\begin{indicacion}
+\begin{enumerate}
+\item Introducir la expresión \comando{f(x) := x/(x-2) CHI(-inf,x,0) + x\^{}2/(2x-6) CHI(0,x,inf)} en la ventana de Álgebra y seleccionarla.
+\item Abrir una nueva ventana de gráficos en 2D con el menú \menu{Ventana > Nueva Ventana 2D} y seleccionar el menú \menu{Ventana > Mosaico Vertical} para ver la ventana de Álgebra y la de gráficos al mismo tiempo.  
+\item Hacer clic en el botón \boton{Representar Expresión} en la ventana gráfica.
+\end{enumerate}
+\end{indicacion}
+
+\item Calcular las asíntotas verticales de $f$.
+\begin{indicacion}
+El único punto donde la función no está definida es $x=3$.
+Para ver si existe asíntota vertical en ese punto hay que calcular el límite en el punto.
+\begin{enumerate}
+\item Seleccionar el nombre de la función en la ventana de Álgebra.
+\item Seleccionar el menú \menu{Cálculo > Limites} o hacer clic en el botón \boton{Límites}.
+\item En el cuadro de diálogo que aparece introducir 3 en el campo \campo{Punto}, seleccionar la opción \opcion{Izquierda} en la lista \campo{Tendiendo por} y hacer clic en el botón \boton{Simplificar}. 
+\item Repetir los tres pasos anteriores pero seleccionando la opción \opcion{Derecha} en la lista \campo{Tendiendo por}.
+\item Comprobar si el resultado tiene sentido mirando la gráfica.
+\end{enumerate}
+Existe una asíntota vertical en $x=3$ si alguno de los límites es infinito.
+En tal caso, introducir la expresión de la asíntota en la ventana de Álgebra y hacer clic en el botón \boton{Representar expresión} de la ventana gráfica.
+\end{indicacion}
+
+\item Calcular las asíntotas horizontales de $f$.
+\begin{indicacion}
+Para ver si existen asíntotas horizontales hay que calcular los límites en infinito.
+\begin{enumerate}
+\item Seleccionar el nombre de la función en la ventana de Álgebra.
+\item Seleccionar el menú \menu{Cálculo > Limites} o hacer clic en el botón \boton{Limite}.
+\item En el cuadro de diálogo que aparece introducir \comando{-inf} en el campo \campo{Punto} y hacer clic en el \boton{Simplificar}. 
+\item Repetir los tres pasos anteriores pero introduciendo \comando{inf} en el campo \campo{Punto}.
+\item Comprobar si el resultado tiene sentido mirando la gráfica.
+\end{enumerate}
+Existe una asíntota horizontal $y=a$ si alguno de los límites es $a$.
+En tal caso, introducir la expresión de la asíntota en la ventana de Álgebra y hacer clic en el botón \boton{Representar expresión} de la ventana gráfica.
+\end{indicacion}
+
+\item Calcular las asíntotas oblicuas de $f$.
+\begin{indicacion}
+Para ver si existen asíntotas oblicuas hay que calcular el límite en infinito de la función divida por $x$.
+Para ver si existe asíntota oblicua en $-\infty$, seguir los pasos siguientes:
+\begin{enumerate}
+\item Introducir la expresión \comando{f(x)/x} en la ventana de Álgebra y seleccionarla.
+\item Seleccionar el menú \menu{Cálculo > Limites} o hacer clic en el botón \boton{Limite}.
+\item En el cuadro de diálogo que aparece introducir \comando{-inf} en el campo \campo{Punto} y hacer clic en el \boton{Simplificar}. 
+\end{enumerate}
+Existe asíntota oblicua $y=ax+b$ si el resultado del límite es $a$.
+En tal caso $a$ es la pendiente de la asíntota. 
+Para obtener el término independiente hay que calcular el límite en infinito de la función menos $ax$.
+\begin{enumerate}
+\item Introducir la expresión \comando{f(x)-ax}, donde \comando{a} es el valor del límite anterior, en la ventana de Álgebra y seleccionarla.
+\item Seleccionar el menú \menu{Cálculo > Limites} o hacer clic en el botón \boton{Limite}.
+\item En el cuadro de diálogo que aparece introducir \comando{-inf} en el campo \campo{Punto} y hacer clic en el \boton{Simplificar}. 
+\end{enumerate}
+El término independiente de la asíntota oblicua es el resultado del límite. 
+
+Para ver si hay asíntota oblicua en $\infty$ repetir todos los pasos pero introduciendo \comando{inf} en el campo \campo{Punto}.
+ 
+Si existe alguna asíntota oblicua introducir la expresión de la asíntota en la ventana de Álgebra y hacer clic en el botón \boton{Representar expresión} de la ventana gráfica.
+\end{indicacion}
+\end{enumerate}
+
+\item  Clasificar las discontinuidades de las siguientes funciones en los puntos que se indica.
+\begin{multicols}{2}
+\begin{enumerate}
+\item  $f(x)=\dfrac{\sen x}{x}$ en $x=0$.
+\item $g(x)=\dfrac{1}{2^{1/x}}$ en $x=0$.
+\item $h(x)=\dfrac{1}{1+e^{\frac{1}{1-x}}}$ en $x=1$.
+\end{enumerate}
+\end{multicols}
+
+\begin{indicacion}
+Para clasificar las discontinuidades en los puntos que se indican, además de definir cada una de las funciones, conviene representar su
+gráfica, lo cual, aunque no sirve para demostrar la presencia de una discontinuidad, sí que nos puede dar una idea sobre las
+discontinuidades presentes y su tipo (las discontinuidades evitables apenas aparecen visibles en la gráfica, aunque sí que Derive deja un
+pequeño hueco en la misma):
+\begin{enumerate}
+\item Calcular el valor del límite en el punto. Para ello, se puede utilizar el botón \boton{Calcular un límite} de la barra de botones, y
+activar la tendencia por \opcion{Ambas} en el cuadro de diálogo que aparece. Si dicho límite existe, entonces la discontinuidad es evitable.
+\item Si el límite no existe, puede que sí que existan los laterales. Para calcularlos utilizar el botón \boton{Calcular un límite} y
+activar la tendencia por la \opcion{Izquierda} y luego por la \opcion{Derecha}. Si ambos límites laterales existen pero no son iguales, la
+discontinuidad será de salto.
+\item Si alguno de los límites laterales no existe, entonces la discontinuidad es esencial.
+\end{enumerate}
+\end{indicacion}
+
+
+\item  Hallar los puntos de discontinuidad y estudiar el carácter
+de dichas discontinuidades en la función:
+\[
+f(x)=
+\left\{
+\begin{array}{ll}
+\dfrac{x+1}{x^2-1}, & \hbox{si $x<0$;} \\
+\dfrac{1}{e^{1/(x^2-1)}}, & \hbox{si $x\geq 0$.} \\
+\end{array}
+\right.
+\]
+
+\begin{indicacion}
+\begin{enumerate}
+\item Para delimitar los posibles puntos de discontinuidad, previamente definir la función teniendo en cuenta que se trata de una función
+definida a trozos. Por lo tanto, habrá que multiplicar el primer tramo por \comando{CHI}$(\infty,x,0)$, y el segundo por
+\comando{CHI}$(0,x,\infty)$.
+\item Aunque no sirve para demostrar la presencia o no de una discontinuidad, si representamos la gráfica de la función podemos darnos una
+idea sobre los puntos en los que aparecen las discontinuidades, teniendo muy presente que las discontinuidades evitables apenas resultan
+visibles en la gráfica, aunque sí que Derive deja un pequeño hueco en la misma.
+\item Una vez definida la función, hay que encontrar los puntos que quedan fuera del dominio de cada uno de los tramos. Para ello, hay que
+analizar dónde se anulan los denominadores presentes en las definiciones de ambos tramos. Por ejemplo, si $x<0$, el denominador $x^2-1$ se
+anula en $x=\pm1$; sin embargo tan sólo nos interesa $x=-1$ ya que la definición impone que $x<0$.
+\item Cuando ya hemos descubierto cuáles son los puntos que están fuera del dominio, y por tanto son discontinuidades de la función, hay que
+analizar cual es su tipo. Para ello, aplicamos el mismo proceso que en el ejercicio anterior (vemos si existe el límite, con lo cual sería
+discontinuidad evitable, y si no existe analizamos los laterales para ver si es discontinuidad de salto; si no existe alguno de los
+laterales es discontinuidad esencial).
+\item Por último, también hay que analizar los puntos en los que hay un cambio de definición de la función. En nuestro caso, en $x=0$, y, de
+nuevo, analizando el límite general y los límites laterales.
+\end{enumerate}
+\end{indicacion}
+
+\end{enumerate}
+
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+\item  Calcular los siguientes límites si existen:
+\begin{multicols}{2}
+\begin{enumerate}
+\item  $\displaystyle \lim_{x\rightarrow 1}\dfrac{x^3-3x+2}{x^4-4x+3}$.
+\item  $\displaystyle \lim_{x\rightarrow a}\dfrac{\sen x-\sen a}{x-a}$.
+\item $\displaystyle \lim_{x\rightarrow\infty}\dfrac{x^2-3x+2}{e^{2x}}$.
+\item $\displaystyle \lim_{x\rightarrow\infty}\dfrac{\log(x^2-1)}{x+2}$.
+\item $\displaystyle \lim_{x\rightarrow 1}\dfrac{\log(1/x)}{\tg(x+\dfrac{\pi}{2})}$.
+\item $\displaystyle \lim_{x\rightarrow a}\dfrac{x^n-a^n}{x-a}\quad n\in \mathbb{N}$.
+\item $ \displaystyle \lim_{x\rightarrow 1}\dfrac{\sqrt[n]{x}-1}{\sqrt[m]{x}-1}\quad n,m \in \mathbb{Z}$.
+\item $\displaystyle \lim_{x\rightarrow 0}\dfrac{\tg x-\sen x}{x^3}$.
+\item $\displaystyle \lim_{x\rightarrow \pi/4}\dfrac{\sen x-\cos x}{1-\tg x}$.
+\item $\displaystyle \lim_{x\rightarrow 0}x^2e^{1/x^2}$.
+\item $\displaystyle \lim_{x\rightarrow \infty}\left(1+\dfrac{a}{x}\right)^x$.
+\item $\displaystyle \lim_{x\rightarrow \infty} \sqrt[x]{x^2}$.
+\item $\displaystyle \lim_{x\rightarrow 0}\left(\dfrac{1}{x}\right)^{\tg x}$.
+\item $\displaystyle \lim_{x\rightarrow 0}(\cos x)^{1/\mbox{\footnotesize sen}\, x}$.
+\item $\displaystyle \lim_{x\rightarrow 0}\dfrac{6}{4+e^{-1/x}}$.
+\item $\displaystyle \lim_{x\rightarrow \infty}\left(\sqrt{x^2+x+1}-\sqrt{x^2-2x-1}\right)$.
+\item $\displaystyle \lim_{x\rightarrow \pi/2}\sec x-\tg x$.
+\end{enumerate}
+\end{multicols}
+
+\item Dada la función:
+\[
+\renewcommand{\arraystretch}{2}
+f(x) = \left\{
+\begin{array}{*{20}c}{
+\dfrac{{x^2  + 1}}{{x + 3}}} & {\text{si}\;x < 0}  \\
+{\dfrac{1}{{e^{1/(x^2  - 1)} }}} & {\text{si}\;x \geqslant 0\;}  \\
+\end{array} 
+\right.
+\]
+Calcular todas sus asíntotas.
+
+\item  Las siguientes funciones no están definidas en $x=0$.
+Determinar, cuando sea posible, su valor en dicho punto de modo que sean continuas.
+\begin{multicols}{2}
+\begin{enumerate}
+\item  $f(x)=\dfrac{(1+x)^n-1}{x}$.
+\item  $h(x)=\dfrac{e^x-e^{-x}}{x}$.
+\item  $j(x)=\dfrac{\log(1+x)-\log(1-x)}{x}$.
+\item  $k(x)=x^2\sen\dfrac{1}{x}$.
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}

@@ -1,0 +1,243 @@
+%$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/primitivas.tex $
+%$LastChangedDate: 2009-11-16 16:11:46 +0100 (lun, 16 nov 2009) $
+%$LastChangedRevision: 5 $
+%$LastChangedBy: asalber $
+
+\chapter{Cálculo de primitivas}
+
+\section{Fundamentos teóricos}
+El cálculo de primitivas se puede considerar como un proceso inverso
+al cálculo de derivadas, y por eso también se suele llamar
+antiderivada a la primitiva de una función. Desgraciadamente, y a
+diferencia del cálculo de derivadas, no existe un procedimiento
+infalible que permita calcular la primitiva de una función siempre
+que exista. En esta práctica se presentan las técnicas más
+habituales para el cálculo de primitivas, las cuales, con un poco de
+pericia, permiten calcular gran parte de las primitivas de las
+funciones más habituales.
+
+\subsection*{Primitivas e Integrales}
+\subsubsection*{Función Primitiva}
+
+Se dice que la función $F(X)$ es una \emph{función primitiva} de
+$f(x)$ si se verifica que $F'(x)=f(x)$ $\forall x \in \dom f$.
+
+Como dos funciones que difieran en una constante tienen la misma
+derivada, si $F(x)$ es una función primitiva de $f(x)$ también lo será toda función de la forma $F(x)+k$ $\forall k \in \mathbb{R}$.\\
+
+
+\subsubsection*{Función integral indefinida}
+
+Se llama \emph{función integral indefinida} de la función $f(x)$ al
+conjunto de todas sus funciones primitivas y se representa como:
+
+\[
+\ \int{f(x)}\,dx=F(x)+C
+\]
+siendo $F(x)$ una función primitiva de $f(x)$ y $C$ una constante arbitraria.\\
+
+
+\subsubsection*{Linealidad de la integral}
+
+Dadas dos funciones $f(x)$ y $g(x)$ que admiten primitiva, y una
+constante $k \in \mathbb{R}$ se verifica que:
+
+\[
+\ \int{(f(x)+g(x))}\,dx=\int{f(x)}\,dx+\int{g(x)}\,dx
+\]
+y:
+\[
+\ \int{kf(x)}\,dx=k\int{f(x)}\,dx
+\]\\
+
+
+\subsection*{Técnicas generales de integración}
+
+\subsubsection*{Integración por partes}
+
+Dadas $f$ y $g$, dos funciones derivables de $x$, se verifica:
+
+\[
+\ \int{f'(x)g(x)}\,dx=f(x)g(x)-\int{g'(x)f(x)}\,dx\overline{}
+\]
+o con notación diferencial, si $u$ y $v$ son funciones derivables de
+$x$:
+
+\[
+\ \int{u}\,dv=uv-\int{v}\,du
+\]
+
+
+Al emplear el método de integración por partes se debe realizar la
+elección de $u$ y $dv$ de tal forma que las integrales que haya que
+realizar sean lo más sencillas posibles. Así, si se tiene que
+calcular $\int{x \sen x}\,dx$ se deberá elegir $u=x$ y $dv=\sen x\,
+dx$, con lo que $du=dx$ y $v=-\cos x$, resultando:
+
+\[
+\ \int{x \sen x}\,dx=-x\cos x+\sen x
+\]
+
+\subsubsection*{Fórmulas de reducción}
+
+Las fórmulas de reducción permiten simplificar el cálculo cuando hay
+que aplicar la integración por partes varias veces consecutivas. Si
+se tiene que calcular una integral indefinida $I_{n}$ que depende de
+un número natural $n$, las fórmulas de reducción nos permitirán
+expresar $I_{n}$ en función de $I_{n-1}$, es decir se obtendrá una
+relación recurrente del tipo:
+
+\[
+\ I_{n}=f(I_{n-1},x,n)
+\]
+con lo que calculando una integral se pueden obtener fácilmente las
+demás.
+
+Si se desea calcular $I_{n}=\int{x^{n}e^{x}}\,dx$, se debe elegir
+$u=x^{n}$ y $dv=e^{x}\,dx$, con lo que $du=nx^{n-1}\,dx$ y
+$v=e^{x}$, obteniéndose:
+
+\[
+\ I_{n}=\int{x^{n}e^{x}}\,dx=x^{n}e^{x}-n\int{x^{n-1}e^{x}}\,dx=x^{n}e^{x}-nI_{n-1}
+\]
+
+\subsubsection*{Cambio de variable}
+
+Al calcular una integral de la forma $\int f(g(x))g'(x)\,dx$, donde
+$g$ es una función con derivada continua y $f$ es una función
+continua, haciendo el cambio de variable $u=g(x)$ se obtiene:
+
+\[
+\ \int{f(g(x))g'(x)}dx=\int{f(u)\,du}
+\]
+y una vez calculada esta integral se deshace el cambio de variable
+efectuado para obtener la integral deseada.
+
+Así, si se desea calcular:
+
+
+\[
+\ \int{\frac{dx}{x\log x}}
+\]
+puede hacerse el cambio de variable $u=\log x$ con lo que:
+
+\[
+\ \int{\frac{dx}{x\log x}}=\int{\frac{du}{u}}=\log |u|+ C= \log |\log x| + C
+\]
+
+\subsubsection*{Integración de funciones racionales}
+
+Toda función racional se puede escribir como suma de un polinomio (que tiene primitiva inmediata) más una función racional propia, es decir, una función racional en la que el grado del numerador sea menor que el grado del denominador. A su vez, toda función racional propia puede expresarse como suma de fracciones simples de los tipos siguientes:
+\[
+\begin{array}{cl}
+\dfrac{A}{(x-a)}& \textrm{: Correspondiente a raíces reales simples del denominador.}\\
+\dfrac{A}{(x-a)^{n}}& \textrm{: Correspondiente a raíces reales múltiples del denominador.}\\
+\dfrac{Ax+B}{(x-r)^{2}+s^{2}}& \textrm{: Correspondiente a raíces complejas simples del denominador.}\\
+\dfrac{Ax+B}{((x-r)^{2}+s^{2})^{n}} & \textrm{: Correspondiente a raíces complejas múltiples del denominador.}
+\end{array}
+\]
+con $n>1$, por lo que usando la linealidad de la integral, basta saber calcular una primitiva de cada una de estas fracciones simples para que se pueda calcular la primitiva de cualquier función racional.
+
+Las primitivas de las dos primeras fracciones simples son inmediatas
+ya que:
+\[
+\int \frac{A}{x-a}\,dx=A\log|x-a|+C
+\quad \textrm{y} \quad
+\int \frac{A}{(x-a)^n}\,dx=\frac{-A}{(n-1)(x-a)^{n-1}}+C \textrm{ si $n\neq 1$}.
+\]
+
+En cuanto a las dos últimas fracciones simples, con ligeras
+transformaciones, siempre se obtienen primitivas que combinan
+logaritmos con arcotangentes.
+
+\newpage
+
+\section{Ejercicios resueltos}
+
+\begin{indicacion}
+{Para obtener primitivas de funciones se puede utilizar el menú
+\menu{Cálculo->Integrales}, en el que se selecciona
+\opcion{Indefinida} y se introduce el valor de la constante de
+integración deseado. En lugar de utilizar el menú indicado se puede
+pinchar en el botón \boton{Integrales}.
+
+También se pueden obtener primitivas de funciones introduciendo en
+la línea de edición \comando{INT(u,x)}, que nos da la primitiva de
+la función $u$ respecto de la variable $x$ sin incluir constante de
+integración, o bien \comando{INT(u,x,c)}, que incluye dicha
+constante.
+
+Aunque la mayor parte de las primitivas se pueden obtener con los
+procedimientos indicados, en algunas ocasiones puede ser necesario
+emplear procedimientos especiales de integración, como pueden ser la
+integración por partes o por sustitución. Para ello se pueden
+emplear las funciones:\comando{INT\_PARTS(u,v,x)}, que emplea la
+integración por partes para encontrar la primitiva de $uv$ respecto
+a $x$; y \comando{INT\_SUBST(y,x,u)}, que obtiene la primitiva de la
+función $y(x)$ haciendo el cambio de variable $u=f(x)$, calculando
+la integral de $y(u)$ y sustituyendo $u$ por $f(x)$ en el resultado.
+
+}
+\end{indicacion}
+
+\begin{enumerate}[leftmargin=*]
+\item Calcular las siguientes integrales:
+
+\begin{enumerate}
+\item $ \int{x^{2} \log{x}\,dx}$
+
+\begin{indicacion}
+{Introducir $x^{2}\log(x)$ en la línea de edición. Utilizar el menú
+\menu{Cálculo->Integrales}, eligiendo \opcion{Integral Indefinida},
+\opcion{Constante} $c$ y pinchar en el botón \boton{Simplificar}. }
+\end{indicacion}
+
+\item $ \int{\dfrac{5x^{2}+4x+1}{x^{5}-2x^{4}+2x^{3}-2x^{2}+x}\,dx}$
+\begin{indicacion}
+{Proceder de la forma indicada en el apartado \emph{a}). }
+\end{indicacion}
+
+\item $ \int{\dfrac{6x+5}{(x^{2}+x+1)^{2}}\,dx}$
+\begin{indicacion}
+{Proceder de la forma indicada en el apartado \emph{a}). }
+\end{indicacion}
+\end{enumerate}
+
+\item Calcular la primitiva de la función $f(x)=x^{2}\log x$ mediante integración por partes.
+\begin{indicacion}
+{Introducir sucesivamente en la línea de edición $u:=x^{2}$ y
+$v:=\log(x)$, para definir $u$ y $v$ respectivamente y
+\comando{INT\_PARTS(u,v,x)}, para obtener mediante integración por
+partes la primitiva de $u \cdot v$ respecto a $x$, y aplicar el
+símbolo $=$ para obtener el resultado. Una vez hecho esto, se
+introduce sucesivamente en la línea de edición $u:=$ y $v:=$ para
+anular las definiciones de $u$ y $v$. También podía haberse hecho el
+cálculo deseado sin necesidad de definir $u$ y $v$, introduciendo
+\comando{INT\_PARTS}$(x^2,\log(x),x)$. }
+\end{indicacion}
+
+\item Calcular la primitiva de la función $g(x)=x\sen x^2$ mediante sustitución.
+\begin{indicacion}
+{ Introducir sucesivamente en la línea de edición $y:=x\sin(x^{2})$
+y $u:=x^{2}$, para definir $y$ y $u$ respectivamente y
+\comando{INT\_SUBST(y,x,u)}, para obtener mediante integración por
+sustitución la primitiva de $y(x)$ respecto a $x$ haciendo el cambio
+$u=f(x)$, y aplicar el símbolo $=$ para obtener el resultado. Una
+vez hecho esto, se introduce sucesivamente en la línea de edición
+$y:=$ y $u:=$ para anular las definiciones de $y$ y $u$. También
+podía haberse hecho el cálculo deseado sin necesidad de definir $y$
+y $u$, introduciendo \comando{INT\_SUBST}$(x \sin(x^{2}),x,x^2)$. }
+\end{indicacion}
+\end{enumerate}
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+\item Calcular las siguientes integrales:
+\begin{enumerate}
+\item $ \int{\dfrac{2x^{3}+2x^{2}+16}{x(x^{2}+4)^{2}}\,dx}$
+\item $ \int{\dfrac{1}{x^{2}\sqrt{4+x^{2}}}\,dx}$
+\end{enumerate}
+\item Calcular la primitiva de $f(x)=3^{x}\cos{x}$ mediante integración por partes.
+\item Calcular la primitiva de $g(x)=\sen({\log{x}})$ mediante integración por sustitución.
+\item Obtener una fórmula de reducción para la integral $I_{n}=\int{x^{n}e^{x}\,dx}$.
+\end{enumerate}

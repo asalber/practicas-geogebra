@@ -1,0 +1,247 @@
+\documentclass[a4paper]{article}
+\usepackage{svn-multi}
+% Version control information:
+\svnidlong
+{$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/discusion_sistemas_ecuaciones.tex $}
+{$LastChangedDate: 2008-11-13 12:37:02 +0100 (jue, 13 nov 2008) $}
+{$LastChangedRevision: 3 $}
+{$LastChangedBy: asalber $}
+\svnid{$Id: discusion_sistemas_ecuaciones.tex 3 2008-11-13 11:37:02Z asalber $}
+\pdfinfo{/CreationDate (D:\svnpdfdate)}
+\svnRegisterAuthor{alf}{Alfredo Sánchez Alberca}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{macros}
+\usepackage[dvips]{graphicx}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage[small,bf]{caption2}
+\usepackage[top=3cm, bottom=3cm, left=2.54cm, right=2.54cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{\textsc{Universidad San Pablo CEU}} \rhead{\textsl{\textsf{Departamento de Métodos Cuantitativos}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\floatpagefraction}{.8}
+\renewcommand{\textfraction}{.1}
+\setcaptionwidth{\textwidth} \addtolength{\captionwidth}{-40pt}
+\captionstyle{indent} \setlength\captionindent{\parindent}
+
+\makeatletter
+\let\savees@listquot\es@listquot
+\def\es@listquot{\protect\savees@listquot}
+\makeatletter
+
+\begin{document}
+\practica{Práctica de Álgebra con DERIVE}{Discusión de Sistemas de Ecuaciones Lineales}
+
+\bigskip
+\section*{Fundamentos Teóricos}
+
+Los sistemas de ecuaciones lineales forman parte del corazón del álgebra y aparecen continuamente en multiples problemas de distintas disciplinas como la física, la química o la economía. En esta práctica se introduce el concepto de sistema de ecuaciones lineales, y se muestra cómo discutirlo atendiendo al número de soluciones que tenga.
+
+\subsection*{Ecuaciones lineales y sistemas de ecuaciones}
+Una \emph{ecuación lineal} con las variables $x_1,\ldots,x_n$ es una ecuación que puede escribirse de la forma
+\[
+a_1x_1+a_2x_2+\cdots+a_nx_n=b,
+\]
+donde $a_1,\ldots,a_n$ y $b$ son números reales o complejos conocidos como \emph{coeficientes} y \emph{término independiente} respectivamente. A las variables que intervienen en la ecuación se les llama \emph{incógnitas} de la ecuación.
+
+Un sistema de ecuaciones lineales es una colección de ecuaciones lineales en las que intervienen las mismas variables $x_1,\ldots,x_n$, y que suele escribirse de la forma
+\[\left\{
+\begin{array}{c}
+ a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
+ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
+                  \vdots                  \\
+ a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m \\
+\end{array}
+\right.
+\]
+
+\subsubsection*{Notación Matricial}
+Un sistema de ecuaciones lineales como el anterior puede representarse utilizando matrices mediante la ecuación matricial
+\[\begin{array}{c}
+\underbrace{\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{mn} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right)}\\
+A
+\end{array}
+\begin{array}{c}
+\underbrace{\left(
+\begin{array}{c}
+  x_1   \\
+  x_2   \\
+ \vdots \\
+  x_ n  \\
+\end{array}
+\right)}\\
+X
+\end{array}
+=
+\begin{array}{c}
+\underbrace{\left(
+\begin{array}{c}
+  b_1   \\
+  b_2   \\
+ \vdots \\
+  b_m   \\
+\end{array}
+\right)}\\
+B
+\end{array}
+\]
+
+donde $A$ es la matriz de coeficientes, $X$ la matriz columna formada por las incógnitas y $B$ la matriz columna formada por los términos independientes.
+
+Se llama \emph{solución del sistema} a un vector columna que colocado en el lugar de $X$ cumple la ecuación matricial $AX=B$.
+
+
+
+\subsection*{Discusión de sistemas}
+Un sistema de ecuaciones lineales puede no tener solución, o bien tener exactamente una solución o bien tener un número infinito de soluciones. Si un sistema tiene solución se denomina \emph{compatible} y si carece de solución \emph{incompatible}. Cuando la solución es única se llama \emph{compatible determinado} y si tiene varias soluciones \emph{compatible indeterminado}.
+
+Discutir un sistema consiste en ver si tiene soluciones y cuántas, y suele hacerse de acuerdo al siguiente teorema.
+
+\begin{teorema}[Rouché-Fröbenius]
+Un sistema es compatible si y sólo si el rango de la matriz de coeficientes es igual al rango de dicha matriz ampliada con la columna de los términos independientes. 
+
+En los sistemas compatibles, si el número de incógnitas es igual al rango de la matriz de coeficientes, el sistema se llama \emph{compatible determinado} y si es mayor que el rango \emph{compatible indeterminado}.
+\end{teorema}
+
+
+\section*{Ejercicios Prácticos}
+
+Antes de hacer ejercicios relacionados con sistemas de ecuaciones es conveniente cargar el fichero \texttt{vector.mth} ya que se utilizarán funciones definidas en este fichero. 
+
+\begin{enumerate}[leftmargin=*]
+\item Dados los sistemas:
+
+\[\left\{
+\begin{array}{l}
+x+2y=1 \\
+2x-y=-2
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x-2y=-1 \\
+-2x+4y=2
+\end{array}\right.
+\]
+
+Se pide:
+\begin{enumerate}
+\item Introducir los sistemas en forma matricial.
+\item Discutir los sistemas (utilizar la función \texttt{Rank} para calcular los rangos de la matriz de coeficiente y de la matriz ampliada con los términos independientes).
+\item Para cada sistema, representar gráficamente las rectas que determinan cada una de las ecuaciones del sistema, y ver el número de soluciones del sistema mediante los puntos de corte de dichas rectas.
+\end{enumerate}
+
+\item Discutir los siguientes sistemas:
+\[
+\left\{
+\begin{array}{l}
+x+3y-2z=4 \\
+2x+2y+z=3 \\
+3x+2y+z=5 
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x-2y+z=0 \\
+x+y-2z=2 \\
+-2x+y+z=-2 
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x+y+2z=0 \\
+-2x+y-z=-4 \\
+3x-2y+z=-4 
+\end{array}\right.
+\]
+
+\item Dado el sistema:
+
+\[
+\left\{
+\begin{array}{l}
+mx+y-z=0 \\
+x+3y+z=0 \\
+3x+10y+4z=0  
+\end{array}\right.
+\]
+Se pide:
+\begin{enumerate}
+\item Introducir el sistema en forma matricial.
+\item Discutir el sistema en función de los valores del parámetro $m$ (calcular el determinante de la matriz de coeficientes, y para que valores de $m$ que lo anulan, sustituir el parámetro por dichos valores y calcular los rangos de la matriz de coeficientes y la matriz ampliada).
+\end{enumerate}
+
+\item Discutir los siguientes sistemas en función de los valores de sus parámetros:
+
+\[
+\left\{
+\begin{array}{l}
+2x+my+4z=0 \\
+x+y+7z=0 \\
+mx-y+13z=0   
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+2x+y  =1 \\
+x+y-2z=1 \\
+3x+y+mz=p   
+\end{array}\right.
+\]
+\end{enumerate}
+
+
+
+
+\section*{Problemas}
+\begin{enumerate}[leftmargin=*]
+
+\item Discutir los siguientes sistemas en función de los valores de sus parámetros:
+\[
+\left\{
+\begin{array}{l}
+x+y+2z=2 \\
+2x-y+3z=2 \\
+5x-y+mz=6  
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+(m+1)x+y+z=3 \\
+x+2y+mz=4 \\
+x+my+2z=2  
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+3x-y+2z=1 \\
+x+4y+z=p \\
+2x-5y+mz=-2  
+\end{array}\right.
+\] 
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

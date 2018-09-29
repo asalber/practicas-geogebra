@@ -1,0 +1,273 @@
+\documentclass[a4paper]{article}
+\usepackage{svn-multi}
+% Version control information:
+\svnidlong
+{$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/resolucion_sistemas_ecuaciones.tex $}
+{$LastChangedDate: 2008-11-13 12:37:02 +0100 (jue, 13 nov 2008) $}
+{$LastChangedRevision: 3 $}
+{$LastChangedBy: asalber $}
+\svnid{$Id: resolucion_sistemas_ecuaciones.tex 3 2008-11-13 11:37:02Z asalber $}
+\pdfinfo{/CreationDate (D:\svnpdfdate)}
+\svnRegisterAuthor{alf}{Alfredo Sánchez Alberca}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{macros}
+\usepackage[dvips]{graphicx}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage[small,bf]{caption2}
+\usepackage[top=3cm, bottom=3cm, left=2.54cm, right=2.54cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{\textsc{Universidad San Pablo CEU}} \rhead{\textsl{\textsf{Departamento de Métodos Cuantitativos}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\floatpagefraction}{.8}
+\renewcommand{\textfraction}{.1}
+\setcaptionwidth{\textwidth} \addtolength{\captionwidth}{-40pt}
+\captionstyle{indent} \setlength\captionindent{\parindent}
+
+\makeatletter
+\let\savees@listquot\es@listquot
+\def\es@listquot{\protect\savees@listquot}
+\makeatletter
+
+\begin{document}
+\practica{Práctica de Álgebra con DERIVE}{Resolución de Sistemas de Ecuaciones Lineales}
+
+\bigskip
+\section*{Fundamentos Teóricos}
+
+Los sistemas de ecuaciones lineales forman parte del corazón del álgebra y aparecen continuamente en multiples problemas de distintas disciplinas como la física, la química o la economía. En esta práctica se introduce el concepto de sistema de ecuaciones lineales, y se muestra cómo discutirlo atendiendo al número de soluciones que tenga.
+
+\subsection*{Ecuaciones lineales y sistemas de ecuaciones}
+Una \emph{ecuación lineal} con las variables $x_1,\ldots,x_n$ es una ecuación que puede escribirse de la forma
+\[
+a_1x_1+a_2x_2+\cdots+a_nx_n=b,
+\]
+donde $a_1,\ldots,a_n$ y $b$ son números reales o complejos conocidos como \emph{coeficientes} y \emph{término independiente} respectivamente. A las variables que intervienen en la ecuación se les llama \emph{incógnitas} de la ecuación.
+
+Un sistema de ecuaciones lineales es una colección de ecuaciones lineales en las que intervienen las mismas variables $x_1,\ldots,x_n$, y que suele escribirse de la forma
+\[\left\{
+\begin{array}{c}
+ a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\
+ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
+                  \vdots                  \\
+ a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m \\
+\end{array}
+\right.
+\]
+
+\subsubsection*{Notación Matricial}
+Un sistema de ecuaciones lineales como el anterior puede representarse utilizando matrices mediante la ecuación matricial
+\[\begin{array}{c}
+\underbrace{\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{mn} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right)}\\
+A
+\end{array}
+\begin{array}{c}
+\underbrace{\left(
+\begin{array}{c}
+  x_1   \\
+  x_2   \\
+ \vdots \\
+  x_ n  \\
+\end{array}
+\right)}\\
+X
+\end{array}
+=
+\begin{array}{c}
+\underbrace{\left(
+\begin{array}{c}
+  b_1   \\
+  b_2   \\
+ \vdots \\
+  b_m   \\
+\end{array}
+\right)}\\
+B
+\end{array}
+\]
+
+donde $A$ es la matriz de coeficientes, $X$ la matriz columna formada por las incógnitas y $B$ la matriz columna formada por los términos independientes.
+
+Se llama \emph{solución del sistema} a un vector columna que colocado en el lugar de $X$ cumple la ecuación matricial $AX=B$.
+
+\section*{Resolución de sistemas}
+
+Antes de proceder a la resolución de un sistema de ecuaciones lineales es conveniente quedarnos con un sistema formado por ecuaciones linealmente independientes, lo cual se consigue fácilmente calculando el rango la matriz de coeficientes ampliada con la de términos independientes con la función \texttt{Rank}, y seleccionando tantas ecuaciones como valga el rango. 
+
+La resolución con Derive de un sistema de ecuaciones lineales de la forma $AX=B$, puede hacerse de varias maneras, entre las que cabe citar:
+
+\begin{enumerate}
+
+\item Multiplicación por la inversa de la matriz de coeficientes $A^{-1}$.
+
+La solución se obtiene multiplicando por la izquierda a los dos miembros de la ecuación matricial por $A^{-1}$, con lo que queda 
+\[A^{-1}AX=A^{-1}B \Leftrightarrow X=A^{-1}B.\]
+
+Este procedimiento tiene el inconveniente de que no se puede aplicar cuando la matriz $A$ no sea cuadrada, por lo que en estos casos habrá que considerar un sistema a resolver cuya matriz de coeficientes sea cuadrada. Tampoco se puede aplicar cuando la matriz $A$ sea singular, es decir, cuando $|A|=0$, ya que no existiría $A^{-1}$. 
+
+Así, si se presenta un sistema con más incógnitas que ecuaciones linealmente independientes, habrá que seleccionar tantas incógnitas como ecuaciones linealmente independientes se tengan, de manera que la matriz de coeficientes correspondiente a las incógnitas seleccionadas sea no singular. Se pasan los términos correspondientes a las otras incógnitas al otro miembro, para formar parte de la matriz columna de términos independientes, y se resuelve el sistema así obtenido. Obviamente la solución obtenida vendrá expresada en función de las variables no seleccionadas, que pasan a ser parámetros de la solución de la ecuación de partida.
+
+Si hubiera más ecuaciones linealmente independientes que variables, es claro, a partir del teorema de Rouché-Fröbenius, que el sistema sería incompatible.
+
+ 
+\item Utilizando el menú \texttt{Solve->System}.
+
+El menú \texttt{Solve->System} proporciona expresiones finales en las que las variables aparecen despejadas con un valor numérico o en función de otras variables o parámetros. Una vez seleccionado dicho menú y el número de ecuaciones a resolver, se introduce una ecuación en cada línea y se indica cuáles son las incógnitas, es decir, las variables en las que se quiere resolver el sistema. El resto de las variables aparecerán como parámetros en la solución.
+
+Esta posibilidad de seleccionar las variables en las que se quiere resolver el sistema tiene interés principalmente cuando hay más incógnitas que ecuaciones linealmente independientes. 
+
+Puede ocurrir que no se resuelva un sistema que sea compatible, porque los coeficientes de las variables que se dan como incógnitas constituyan una submatriz singular, por lo que debe intentarse la resolución proponiendo otras variables como incógnitas.
+
+\item Utilizando la función \texttt{Solve}.
+
+Para evitar resultados incorrectos que se pueden producir con el empleo del menú \texttt{Solve->System} cuando el número de ecuaciones linealmente independientes es menor que el de incógnitas, puede utilizarse la función \texttt{solve}, cuya sintaxis es de la forma \texttt{Solve([ecuación 1, ecuación 2,..., ecuación m],[x1,x2,...,xn])}
+
+\item Utilizando la función \texttt{Row\_reduce}.
+
+La función \texttt{Row\_reduce(A,B)} permite resolver el sistema de manera equivalente al método de Gauss-Jordan,  reduciendo $A$ a la matriz identidad, y quedando en $B$ la solución del sistema. Este procedimiento transforma el sistema dado en otro equivalente, a partir del cual se obtiene fácilmente la solución o se pone de manifiesto la no existencia de la misma.
+
+\end{enumerate}
+
+
+\section*{Ejercicios Prácticos}
+
+Antes de hacer ejercicios relacionados con sistemas de ecuaciones es conveniente cargar el fichero \texttt{vector.mth} ya que se utilizarán funciones definidas en este fichero. 
+
+\begin{enumerate}[leftmargin=*]
+\item Dados los sistemas:
+
+\[\left\{
+\begin{array}{l}
+x+2y=1 \\
+2x-y=-2
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x-2y=-1 \\
+-2x+4y=2
+\end{array}\right.
+\]
+
+Se pide:
+\begin{enumerate}
+\item Para cada sistema, representar gráficamente las rectas que determinan cada una de las ecuaciones del sistema y calcular sus soluciones de forma gráfica.
+\item Introducir los sistemas en forma matricial y resolver los sistemas mediante la multiplicación por la  inversa de la matriz de coeficientes.
+\item Resolver el sistema mediante el menú \texttt{Solve->System}.
+\item Resolver el sistema mediante la función \texttt{Solve}.
+\item Resolver el sistema mediante la función \texttt{Row\_reduce}.
+\end{enumerate}
+
+\item Resolver los siguientes sistemas mediante las distintas técnicas de resolución de sistemas:
+
+\[
+\left\{
+\begin{array}{l}
+x+3y-2z=4 \\
+2x+2y+z=3 \\
+3x+2y+z=5 
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x-2y+z=0 \\
+x+y-2z=2 \\
+-2x+y+z=-2 
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+x+y+2z=0 \\
+-2x+y-z=-4 \\
+3x-2y+z=-4 
+\end{array}\right.
+\]
+
+\item Resolver, mediante el menú \texttt{Solve->System}, el sistema:
+
+\[
+\left\{
+\begin{array}{l}
+x+y+z=4\\
+-2x-2y+z=-2 
+\end{array}\right.
+\]
+
+Comprobar que dependiendo de las variables incógnita que se elijan, el sistema tiene o no solución. ¿A qué es debido esto?
+
+\item Resolver los siguientes sistemas en función del valor de sus parámetros:
+\[
+\left\{
+\begin{array}{l}
+mx+y-z=0 \\
+x+3y+z=0 \\
+3x+10y+4z=0  
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+2x+my+4z=0 \\
+x+y+7z=0 \\
+mx-y+13z=0   
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+2x+y  =1 \\
+x+y-2z=1 \\
+3x+y+mz=p   
+\end{array}\right.
+\]
+
+\end{enumerate}
+
+
+\section*{Problemas}
+\begin{enumerate}[leftmargin=*]
+
+
+\item Resolver los siguientes sistemas en función del valor de sus parámetros:
+
+\[
+\left\{
+\begin{array}{l}
+x+y+2z=2 \\
+2x-y+3z=2 \\
+5x-y+mz=6  
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+(m+1)x+y+z=3 \\
+x+2y+mz=4 \\
+x+my+2z=2  
+\end{array}\right.
+\qquad
+\left\{
+\begin{array}{l}
+3x-y+2z=1 \\
+x+4y+z=p \\
+2x-5y+mz=-2  
+\end{array}\right.
+\] 
+ 
+\end{enumerate}
+\end{document}
+
+
+
+
+
+

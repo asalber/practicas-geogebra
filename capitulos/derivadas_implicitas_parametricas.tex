@@ -1,0 +1,211 @@
+% Author: Alfredo Sánchez Alberca (asalber@ceu.es)
+\chapter{Derivadas implícitas y paramétricas}
+
+\section{Fundamentos teóricos}
+La forma habitual de representar una función real de variable real
+es mediante la \emph{representación explícita} $y=f(x)$, donde la
+variable $y$ aparece despejada a la izquierda de la igualdad, y a la
+derecha aparece una expresión que sólo depende de la variable $x$, y
+que expresa la dependencia de $y$ con respecto a $x$. No obstante,
+esta no es la única forma de representar una función, ni todas las
+funciones pueden representarse de forma explícita. Además de las
+representación gráficas, las otras representaciones más habituales
+de funciones son las representaciones \emph{implícitas} y
+\emph{paramétricas}. En esta práctica se introducen estas
+representaciones y se muestra cómo calcular derivadas de funciones
+con estas representaciones.
+
+\subsection*{Funciones implícitas}
+
+Dada una función $F$ de las variables $x$ e $y$, se dice que la ecuación $F(x,y)=0$ expresa de una manera implícita la relación que existe entre dichas variables. Así, se puede decir que $F(x,y)=0$ define implícitamente la dependencia de $y$ con respecto a $x$ y la de $x$ con respecto a $y$. Pero no siempre se puede expresar explícitamente $y$ como función de $x$, de la forma $y=f(x)$, ni siquiera a nivel local, por lo que es importante saber hacer el cálculo de la derivada de $y$ con respecto a $x$ sin necesidad de despejarla.
+
+Para ello se deriva $F$ respecto a $x$, teniendo en cuenta que, como $y$ es función de $x$, cuando derivemos algún término que contenga la $y$ tendremos que aplicar la regla de la cadena, escribiendo $y'$ para designar $\dfrac{dy}{dx}$.
+
+Así, por ejemplo, supongamos que se quiere calcular $y'$, sabiendo que $x$ e $y$ están relacionadas por la ecuación $x^2-2y^3+4y-2=0$. Es claro que a partir de la ecuación dada resultará difícil expresar $y$ como función explícita de $x$, por lo que tendremos que realizar la derivación respecto a $x$ de la propia ecuación, con lo que se obtiene:
+
+\[
+\ 2x-6y^{2}y'+4y'=0
+\]
+y, despejando $y'$ queda:
+
+\[
+\ y'=\frac{x}{3y^{2}-2}
+\]
+
+\subsection*{Funciones paramétricas}
+
+Se considera una función $y=f(x)$, que se puede expresar en un
+entorno de $(x_{0},y_{0})$ siendo $y_{0}=f(x_{0})$, mediante la
+expresión de $x$ e $y$ como funciones de un parámetro $t$:
+\[
+\left\{
+\begin{array}{l}
+x=x(t)\\
+y=y(t)
+\end{array}
+\right.
+\]
+con $x_{0}=x(t_{0})$.
+
+Si $x(t)$ es derivable en $t_{0}$ y $f(x)$ es derivable en $x_{0}$,
+aplicando la regla de la cadena se verifica que:
+\[
+\ y'(t_{0})=f'(x_{0})x'(t_{0})
+\]
+con lo que, si $x'(t_{0})\neq0$, obtenemos:
+\[
+\ f'(x_{0})=\frac{y'(t_{0})}{x'(t_{0})}.
+\]
+
+Por ejemplo, supongamos que tenemos la siguiente función
+paramétrica:
+\[
+\left\{
+\begin{array}{l}
+x(t)=t^{2}+3\\
+y(t)=\log t
+\end{array}
+\right.
+\]
+y se desea calcular la derivada de $y$ respecto a $x$ para $t_{0}=1$.
+
+El valor de $x$ que corresponde al valor $t_{0}=1$ es
+$x_{0}=x(1)=4$. Derivando $x$ e $y$ respecto a $t$ se obtiene:
+
+\begin{align*}
+x'(t) &=2t\\
+y'(t) &=\frac{1}{t}
+\end{align*}
+con lo que:
+\begin{align*}
+x'(t_{0})&=x'(1)=2\\
+y'(t_{0})&=y'(1)=1
+\end{align*}
+y por consiguiente:
+\[
+\frac{dy}{dx}(t_0)=f'(x_{0})=f'(4)=\frac{y'(t_{0})}{x'(t_{0})}=\frac{y'(1)}{x'(1)}=\frac{1}{2}.
+\]
+
+\newpage
+
+\section{Ejercicios resueltos}
+\begin{indicacion}
+Para calcular Derivadas de Funciones Implícitas o Paramétricas es
+preciso:
+\begin{enumerate}
+\item Abrir previamente el archivo \variable{DifferentiationApplications} Para ello se ejecuta el menú \menu{Archivo > Abrir} y aparece un
+cuadro que en el campo \opcion{Buscar en} tiene \opcion{Users}. Se pulsa el botón \boton{Subir un nivel}, se selecciona \opcion{Math} y se
+abre el archivo \variable{DifferentiationApplications}.
+
+\item Una vez hecho esto, si se desea realizar una derivación implícita se empleará la función \comando{IMP\_DIF(u,x,y,n)} para calcular la
+derivada de orden $n$ de $y$ con respecto a $x$, siendo $u(x,y)=0$ la ecuación que expresa la relación entre $x$ e $y$ de manera implícita;
+y si se desea realizar una derivación en paramétricas, se utilizará la función \comando{PARA\_DIF(v,t,n)} para calcular la derivada de orden
+$n$ de $y$ con respecto a $x$ en términos del parámetro $t$, siendo $v$ un vector de la forma $v=[x(t),y(t)]$, donde $x(t)$ e $y(t)$ son
+expresiones que dependen del parámetro $t$.
+\end{enumerate} 
+\end{indicacion}
+
+\begin{enumerate}[leftmargin=*]
+\item Calcular la derivada de $y$ con respecto a $x$, sabiendo que $x^{2}+y^{2}=1$.
+\begin{indicacion}
+Según la indicación anterior, introducir sucesivamente en la línea de edición, $u:=x^{2}+y^{2}-1$ para definir la variable $u$ como
+$x^2+y^2-1$, y \comando{IMP\_DIF(u,x,y,1)} para calcular la derivada de orden 1 de $y$ con respecto a $x$, y aplicar el símbolo \boton{=}
+para obtener el resultado. Una vez hecho esto, se introduce en la línea de edición $u:= $ para anular la definición de $u$.
+\end{indicacion}
+
+\item Calcular la derivada de $y$ con respecto a $x$, sabiendo que $x^{3}-3xy^{2}+y^{3}=1$.
+\begin{indicacion}
+Hacer lo mismo que en el ejercicio $1$ definiendo $u$ como $x^3-3xy^2+y^3-1$.
+\end{indicacion}
+
+
+\item Calcular la ecuación de la tangente a la curva $x^{3}-3xy^{2}+y^{3}=1$ en el punto de abscisa $0$.\\
+\begin{indicacion}
+\begin{enumerate}
+\item En primer lugar se calcularía la derivada de $y$ con respecto a $x$, lo que ya se ha hecho en el ejercicio $2$.
+
+\item A continuación se calcula el valor de $y$ correspondiente a $x=0$. Para ello se introduce $x:=0$ en la línea de edición, se selecciona
+$x^{3}-3xy^{2}+y^{3}-1$ y se utiliza el menú \menu{Resolver > Expresión}, apareciendo un cuadro. En el campo \opcion{Variables} se deja $y$,
+en el \opcion{Método} se selecciona \opcion{Algebraico}, en el \opcion{Dominio} se elige \opcion{Real} y se pincha en el botón
+\boton{Resolver}.
+\item A continuación se introduce $y:=$ al valor de $y$ obtenido en el punto anterior; y, una vez hecho esto, se selecciona la expresión
+obtenida de la derivada y se utiliza el botón \boton{$\approx$} para obtener el valor de la derivada en el punto deseado. Con esto se
+dispone de las coordenadas del punto y del valor de la derivada en dicho punto, y se puede escribir la ecuación de la tangente. Para anular
+la asignación de valores a $x$ e $y$ se introduce en la línea de edición sucesivamente $x:= $ e $y= $.
+\end{enumerate}
+\end{indicacion}
+
+\item Un punto se mueve en el plano siguiendo una trayectoria
+\[\left\{
+\begin{array}{l}
+x=\sen t\\
+y=t^{2}-1
+\end{array}
+\right.\]
+Se pide:
+\begin{enumerate}
+\item Hallar la derivada de la función $y(x)$, es decir la derivada de $y$ con respecto a $x$, para $t=0$ y $t=2$.
+\begin{indicacion}
+\begin{enumerate}
+\item Introducir sucesivamente en la línea de edición $x:=\sin{t}$, $y:=t^{2}-1$, $v:=[x,y]$ y la función \comando{PARA\_DIF(v,t,1)} para
+calcular la derivada de $y$ con respecto a $x$ y pinchar en el símbolo \boton{=} para obtener el resultado.
+\item A continuación se introduce $t:=0$ en la línea de edición, se selecciona la expresión de la derivada obtenida y se aplica el símbolo
+\boton{$\approx$} para obtener el valor de la derivada en $t=0$, repitiéndose esto mismo para $t=2$. Una vez hecho esto escribir $t:= $ en
+la línea de edición para eliminar las asignaciones de valores a $t$.
+\end{enumerate}
+\end{indicacion}
+
+\item Hallar la ecuación de la tangente a la trayectoria en el punto $(0,-1)$
+\begin{indicacion}
+\begin{enumerate}
+\item Para calcular el valor de $t$ que corresponde al citado punto, se utiliza el menú \menu{Resolver > Sistema}. En el primer cuadro que
+aparece se introduce un $2$ en el campo \opcion{Número de Ecuaciones} y se pincha el botón \boton{Sí}, apareciendo otro cuadro en el que se
+escribe $x=0$ e $y=-1$ en las líneas $1$ y $2$ respectivamente y se pincha en el campo \opcion{Variable} apareciendo en el mismo la variable
+$t$. A continuación se pincha en \boton{Resolver} y se obtiene el valor de $t$ correspondiente al punto $(0,-1)$.
+\item Conocido el valor de $t$ en el punto, podemos calcular fácilmente el valor de la derivada de $y$ con respecto a $x$ aprovechando la
+derivada paramétrica obtenida en el primer apartado del problema, y con las coordenadas del punto y el valor de la derivada se puede
+escribir la ecuación de la tangente. Una vez hecho esto, se anulan las asignaciones de valores realizadas de la misma forma que se hizo en
+los ejercicios anteriores.
+\end{enumerate}
+\end{indicacion}
+\end{enumerate}
+\end{enumerate}
+
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+\item Derivar implícitamente la siguiente expresión tomando $y$ como función de $x$
+\[
+\ y=\frac{\sen(x+y)}{x^{2}+y^{2}}.
+\]
+\item Dada la función $xy+e^{x}-\log{y}=0$, calcular las rectas tangente y normal a ella en el punto $x=0$.
+
+\item Una partícula se mueve a lo largo de una curva $y=\cos{2x+1}$ siendo $x=t^2+1$ y $t$ el tiempo. Calcular las componentes horizontal y vertical del vector velocidad cuando $t=2$.
+
+\item  Una partícula se mueve a lo largo de la curva
+\[\left\{
+\begin{array}{l}
+x=2\sen t\\
+y=\sqrt{3}\cos{t}
+\end{array}
+\right.
+\]
+donde $x$ e $y$ están medidos en metros y el tiempo $t$ en segundos.
+Se pide:
+\begin{enumerate}
+\item Hallar la ecuación de la recta tangente a la trayectoria en el punto (1,3/2).
+\item ¿Cuáles son las componentes horizontal y vertical del vector velocidad en dicho punto?
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,210 @@
+% Author: Alfredo Sánchez Alberca (asalber@ceu.es)
+% !TEX program = xelatex
+%----------------------------------------------------------------------------------------
+%    DOCUMENT CLASS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,openright]{book}
+  %----------------------------------------------------------------------------------------
+  %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+  %----------------------------------------------------------------------------------------
+  
+  % Language settings
+  \usepackage{polyglossia}
+  \setdefaultlanguage{spanish}
+  
+  % Margins and layout
+  \usepackage[top=3cm, bottom=3cm, left=2.54cm, right=2.54cm]{geometry}
+  
+  % Math support
+  \usepackage{amsmath, amssymb}
+  \usepackage{mathspec}
+
+  % Font settings
+  % \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
+  %\setmathfont{TeX Gyre Pagella Math}
+  \setmathfont[math-style=ISO,bold-style=ISO]{texgyrepagella-math.otf}
+  
+  % Color
+  \usepackage{xcolor} % Required for specifying colors by name
+  \definecolor{color1}{RGB}{5,161,230}
+  \definecolor{color2}{RGB}{238,50,36}
+  \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+  \definecolor{blueceu}{RGB}{5,161,230} % Blue color of CEU logo
+  \definecolor{greenceu}{RGB}{185,209,16} % Green color of CEU logo
+  \definecolor{redceu}{RGB}{238,50,36} % Red color of CEU logo
+  \definecolor{grayceu}{RGB}{111,107,83} % Gray color of CEU logo
+  \definecolor{coral}{rgb}{1,0.5,0.31} % Orange color for graphics
+  \definecolor{royalblue1}{rgb}{0.28,0.46,1} % Blue color for graphics
+  \definecolor{mygreen}{rgb}{0,0.8,0} % Green color for graphics
+  \definecolor{chaptergrey}{RGB}{5,161,230} % Blue color of CEU logo
+
+  % Line breaking
+  \usepackage{microtype} 
+  \setlength{\emergencystretch}{2em}
+  
+  % Graphics
+  \usepackage{graphicx}
+  \usepackage{tikz} 
+  \usepackage{eso-pic} % Required for specifying an image background in the title page
+  
+  % Arrays and tables
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{colortbl}
+  \usepackage{booktabs}
+  \newcommand{\tcrule}{\arrayrulecolor{color1!50!white}\toprule}
+  \newcommand{\mcrule}{\arrayrulecolor{color1!50!white}\midrule}
+  \newcommand{\bcrule}{\arrayrulecolor{color1!50!white}\bottomrule}
+  
+  % Captions
+  \usepackage[margin=20pt, font=small, labelfont=bf, labelsep=endash]{caption}
+  
+  % Floating figures
+  \usepackage{subfigure}
+  
+  % Lists
+  \usepackage[shortlabels]{enumitem} % Customize lists
+  %\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+  \setlist[description]{style=sameline,leftmargin=0cm}
+  
+  \makeatletter
+  \let\savees@listquot\es@listquot
+  \def\es@listquot{\protect\savees@listquot}
+  \makeatletter
+  
+  \renewcommand{\theenumiii}{\arabic{enumiii}}
+  
+  % Flush floating 
+  \usepackage{afterpage}
+  
+  % Creative common icons
+  \usepackage[scale=2]{ccicons}
+  
+  % hyperlinks
+  \usepackage{hyperref}
+  \hypersetup{
+  pdfauthor = {Alfredo S\'anchez Alberca},
+  pdftitle = {Prácticas de Cálculo con Geogebra},
+  pdfsubject = {Cálculo},
+  pdfkeywords = {Matemáticas, Cálculo, Geogebra},
+  pdfcreator = {XeLaTeX with hyperref package},
+  pdfproducer = {pdfLaTeX},
+  colorlinks = true,
+linkcolor = red,          % color of internal links
+citecolor = green,        % color of links to bibliography
+filecolor = magenta,      % color of file links
+urlcolor = magenta,          % color of external links
+  }
+  %\usepackage{breakurl}
+  
+  % Indentation
+  %\setlength\parindent{0pt}
+  
+  % Control of widow orphan lines
+  \clubpenalty=10000
+  \widowpenalty=10000 
+  
+  %Code listing formatting
+  \usepackage{listings}
+  \lstdefinelanguage{morejava}{morekeywords={String}}
+  \definecolor{vollgrau}{rgb}{0.9,0.9,0.9}
+  \definecolor{colKeys}{rgb}{0,0,1}
+  \definecolor{colIdentifier}{rgb}{0,0,0}
+  \definecolor{colComments}{rgb}{1,0.5,0}
+  \definecolor{colString}{rgb}{0,0.5,0}
+  \definecolor{colbackground}{rgb}{0.9,0.9,1}
+  \lstset{%
+       language=R,
+       float=hbp,%
+       basicstyle=\ttfamily,%
+       identifierstyle=\color{colIdentifier},%
+       keywordstyle=\color{colKeys},%
+       stringstyle=\color{colString},%
+       commentstyle=\color{colComments},%
+  %    columns=flexible,%
+  %    columns=fullflexible,%
+       columns=fixed,
+       tabsize=1,%
+       extendedchars=true,%
+       showspaces=false,%
+       showstringspaces=false,%
+       breaklines=true,%
+       breakindent=10pt,%
+       backgroundcolor=\color{colbackground},%
+       breakautoindent=true,%
+       captionpos=t,%
+       xleftmargin=1em,%
+  %    xrightmargin=.5\fboxsep,%
+       numbersep=1em,%
+       escapechar=\#
+  }
+  
+  % Set short or long depending on the version desired
+  % \usepackage[corto]{optional}
+  
+  \input{preambulo/comandos-libro} % Insert the commands_book.tex file which contains the majority of the structure behind
+  % the template
+  
+  %----------------------------------------------------------------------------------------
+  %	COMMANDS FOR INDICATIONS
+  %----------------------------------------------------------------------------------------
+  \usepackage{menukeys}
+  \newmenucolortheme{mycolors}{named}{white}{color1}{black}
+  \changemenucolortheme{menus}{mycolors}
+  \renewmenumacro{\menu}[>]{menus}
+  %\newmenustylesimple*{botonstyle}{\textbf{\CurrentMenuElement}}
+  %\renewmenumacro{\keys}{botonstyle}
+  \newcommand{\button}[1]{\textsf{\small #1}}
+  \newcommand{\option}[1]{\textsf{\small #1}}
+  \newcommand{\mtab}[1]{\textsf{\small #1}}
+  \newcommand{\field}[1]{\textsf{\small #1}}
+  \newcommand{\command}[1]{\texttt{#1}}
+  \newcommand{\variable}[1]{\textsf{\small #1}}
+  \newcommand{\result}[1]{\texttt{#1}}
+  
+  % OTHERS
+  \newcommand{\resetcounters}{\setcounter{page}{1} \setcounter{section}{0} \setcounter{footnote}{0} \setcounter{figure}{0} \setcounter{table}{0}}
+  
+  
+  %========================================================================================
+  %   DOCUMENT BODY
+  %========================================================================================
+  \begin{document}
+  \frontmatter 
+  % Add two blank pages at the begining
+  %\null\thispagestyle{empty}\newpage
+  %\null\thispagestyle{empty}\newpage
+  %----------------------------------------------------------------------------------------
+  %	TITLE PAGE
+  %----------------------------------------------------------------------------------------
+  % \input{preambulo/titulo} 
+  %\input{preamble/titlepage_book} 
+   
+  %----------------------------------------------------------------------------------------
+  %	COPYRIGHT PAGE
+  %----------------------------------------------------------------------------------------
+  % \input{preambulo/licencia}
+  
+  %----------------------------------------------------------------------------------------
+  %	TABLE OF CONTENTS
+  %----------------------------------------------------------------------------------------
+  %\chapterimage{img/chapter_head.png} % Table of contents heading image
+  {\pagestyle{plain} % No headers
+  %\input{registro}
+  \tableofcontents\thispagestyle{empty}
+    % Print the table of contents itself
+  \cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+  }
+  
+  \mainmatter
+  %----------------------------------------------------------------------------------------
+  %	CHAPTERS 
+  %----------------------------------------------------------------------------------------
+  \input{capitulos/introduccion}
+  %\input{capitulos/funciones-elementales}
+  
+  \end{document}
+  

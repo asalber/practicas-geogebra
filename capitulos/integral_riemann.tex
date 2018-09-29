@@ -1,0 +1,470 @@
+%$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/integral_riemann.tex $
+%$LastChangedDate: 2009-11-16 16:11:46 +0100 (lun, 16 nov 2009) $
+%$LastChangedRevision: 5 $
+%$LastChangedBy: asalber $
+
+\chapter[La integral de Riemman: Cálculo de áreas y volúmenes]{La integral de Riemann:\\ Cálculo de áreas y volúmenes}
+
+\section{Fundamentos teóricos}
+Junto al concepto de derivada, el de integral es otro de los más
+importantes del cálculo matemático. Aunque dicho concepto surge, en
+principio, como técnica para el cálculo de áreas, el teorema
+fundamental del cálculo establece su relación con la derivada, de
+manera que, en cierto sentido, la diferenciación y la integración
+son operaciones inversas.
+
+En esta práctica se estudia la integral de Riemann, que permite
+calcular áreas por debajo de funciones acotadas en un intervalo.
+
+\subsection*{Integral de Riemann}
+
+Se llama \emph{partición} de un intervalo $[a,b]\subset\mathbb{R}$,
+a una colección finita de puntos del intervalo,
+$P=\{x_{0},x_{1},...,x_{n}\}$,  tales que
+$x_{0}=a<x_{1}<...<x_{n}=b$, con lo que el intervalo $[a,b]$ queda
+dividido en $n$ subintervalos $[x_{i},x_{i+1}]$, $i=0,...,n-1$.
+
+Dada una función $f:[a,b]\rightarrow\mathbb{R}$ acotada y una
+partición $P=\{x_{0},x_{1},...,x_{n}\}$ de $[a,b]$, se llama
+\emph{suma inferior} de $f$ en relación a $P$, y se designa por
+$L(P,f)$, a:
+
+\[
+\ L(P,f)=\sum_{i=1}^{n} m_{i}(x_{i}-x_{i-1})
+\]
+donde $  m_{i}=\inf\{f(x):x_{i-1}\leq x \leq x_{i}\}$.
+
+Análogamente se llama \emph{suma superior} de $f$ en relación a $P$,
+y se designa por $U(P,f)$, a:
+
+\[
+\ U(P,f)=\sum_{i=1}^{n} M_{i}(x_{i}-x_{i-1})
+\]
+donde $ M_{i}=\sup\{f(x):x_{i-1}\leq x \leq x_{i}\}$.
+
+La \emph{suma inferior} y la \emph{suma superior} así definidas representan las sumas de las áreas de los rectángulos que tienen por bases los subintervalos de la partición, y por alturas los valores mínimo y máximo respectivamente de la función $f$ en los subintervalos considerados, tal y como se muestra en la figura~\ref{g:sumassupinf}. Así, los valores de $L(P,f)$ y $U(P,f)$ serán siempre menores y mayores respectivamente, que el área encerrada por la función $f$ y el eje de abscisas en el intervalo $[a,b]$.
+
+\begin{figure}[htbp]
+\centering \subfigure[Suma inferior $L(P,f)$.]{
+\label{g:sumainferior}
+\scalebox{1}{\input{img/integrales/suma_inferior}}}\qquad\qquad
+\subfigure[Suma superior$U(P,f)$.]{
+\label{g:sumasuperior}
+\scalebox{1}{\input{img/integrales/suma_superior}}}
+\caption{Áreas medidas por las sumas superior e inferior
+correspondientes a una partición.} \label{g:sumassupinf}
+\end{figure}
+
+Una función $f:[a,b]\rightarrow\mathbb{R}$ acotada es
+\emph{integrable} en el intervalo $[a,b]$ si se verifica que:
+
+\[
+\ \sup\{L(P,f): P \textrm{ partición de } [a,b]\}=\inf\{U(P,f): P \textrm{
+partición de }[a,b]\}
+\]
+y ese número se designa por $\int_{a}^{b}f(x)\,dx$ o simplemente por
+$\int_{a}^{b}f$.
+
+
+\subsubsection*{Propiedades de la Integral}
+
+\begin{enumerate}
+
+\item \textbf{Linealidad}
+
+Dadas dos funciones $f$ y $g$ integrables en $[a,b]$ y $k \in
+\mathbb{R}$ se verifica que:
+
+\[
+\ \int_{a}^{b}(f(x)+g(x))\,dx=\int_{a}^{b}f(x)\,dx+\int_{a}^{b}g(x)\,dx
+\]
+y
+\[
+\ \int_{a}^{b}{kf(x)}\,dx=k\int_{a}^{b}{f(x)}\,dx
+\]
+
+\item \textbf{Monotonía}
+
+Dadas dos funciones $f$ y $g$ integrables en $[a,b]$ y tales que
+$f(x)\leq g(x)$ $\forall x \in [a,b]$ se verifica que:
+
+
+\[
+\ \int_{a}^{b}{f(x)\,dx} \leq \int_{a}^{b}{g(x)\,dx}
+\]
+
+\item \textbf{Acotación}
+
+Si $f$ es una función integrable en el intervalo $[a,b]$, existen
+$m,M\in\mathbb{R}$ tales que:
+
+\[
+\ m(b-a)\leq\int_{a}^{b}{f(x)\,dx} \leq \ M(b-a)
+\]
+
+\item \textbf{Aditividad}
+
+Si $f$ es una función acotada en $[a,b]$ y $c\in(a,b)$, entonces $f$
+es integrable en $[a,b]$ si y sólo si lo es en $[a,c]$ y en $[c,b]$,
+verificándose además:
+
+\[
+\ \int_{a}^{b}{f(x)\,dx} = \int_{a}^{c}{f(x)\,dx}+\int_{c}^{b}{f(x)\,dx}
+\]\\
+
+\end{enumerate}
+
+\subsubsection*{Teorema Fundamental del Cálculo}
+
+Sea $f : [a,b]\rightarrow\mathbb{R}$ continua y sea $G$ una función
+continua en $[a,b]$. Entonces $G$ es derivable en $(a,b)$ y
+$G'(x)=f(x)$ para todo $x\in(a,b)$ si y sólo si:
+
+\[
+\ G(x)-G(a) = \int_{a}^{x}f(t)\,dt
+\]
+
+\subsubsection*{Regla de Barrow}
+
+Si $f$ es una función continua en $[a,b]$ y $G$ es continua en
+$[a,b]$, derivable en $(a,b)$ y tal que $G'(x)=f(x)$ para todo
+$x\in(a,b)$ entonces:
+
+\[
+\  \int_{a}^{b}{f} = G(b)-G(a)
+\]
+
+
+De aquí se deduce que:
+
+\[
+\  \int_{a}^{b}{f} = -\int_{b}^{a}{f}
+\]
+
+
+\subsection*{Integrales impropias}
+
+La integral $ \int_{a}^{b}{f(x)\,dx}$ se llama \emph{impropia} si el intervalo
+$(a,b)$ no está acotado o si la función $f(x)$ no está acotada en el intervalo
+$(a,b)$.
+
+Si el intervalo $(a,b)$ no está acotado, se denomina integral impropia de primera especie mientras que si la función no está acotada en el intervalo se denomina integral impropia de segunda especie.
+
+\subsection*{Cálculo de áreas}
+Una de las principales aplicaciones de la integral es el cálculo de áreas.
+
+\subsubsection*{Area de una región plana encerrada por dos curvas}
+
+Si $f$ y $g$ son dos funciones integrables en el intervalo $[a,b]$ y
+se verifica que $g(x)\leq f(x)$ $\forall x\in[a,b]$, entonces el
+área de la región plana limitada por las curvas $y=f(x)$, $y=g(x)$,
+y las rectas $x=a$ y $x=b$ viene dada por:
+
+\[
+\ A = \int_{a}^{b}{(f(x)- g(x))\,dx}
+\]\\
+
+\noindent \textbf{Observaciones}
+
+\begin{enumerate}
+
+\item El intervalo $(a,b)$ puede ser infinito y la definición sería análoga, pero en ese caso es preciso que la integral impropia sea convergente.
+
+\item Si $f(x)\geq0$ y $g(x)=0$ al calcular la integral entre $a$ y $b$ se obtiene el área encerrada por la función $f(x)$ y el eje de abscisas entre las rectas verticales $x=a$ y $x=b$ (figura~\ref{g:integraldefinida}).
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/integrales/integral_definida}}
+\caption{Cálculo de área encerrada por la función $f(x)$ y el eje de
+abscisas entre las rectas verticales $x=a$ y $x=b$  mediante la
+integral definida.} \label{g:integral_definida}
+\end{center}
+\end{figure}
+
+\item Si $f(x)\geq 0$ $\forall x\in[a,c]$ y $f(x)\leq 0$ $\forall x\in[c,b]$, el área de la región plana encerrada por $f$, las rectas verticales $x=a$ y $x=b$ y el eje de abscisas se calcula
+mediante:
+\[
+\ A= \int_{a}^{c}{f(x)\,dx} - \int_{c}^{b}{f(x)\,dx}.
+\]
+
+\item Si las curvas $y=f(x)$ e $y=g(x)$ se cortan en los puntos de abscisas $a$ y $b$, no cortándose en ningún otro punto cuya abscisa esté comprendida entre $a$ y $b$, el área encerrada por dichas curvas entre esos puntos de corte puede calcularse
+mediante:
+\[
+\ A= \int_{a}^{b}{|f(x)-g(x)|dx}
+\]
+\end{enumerate}
+
+
+\subsection*{Cálculo de Volúmenes}
+
+\subsubsection*{Volumen de un sólido}
+Si se considera un cuerpo que al ser cortado por un plano
+perpendicular al eje $OX$ da lugar, en cada punto de abscisa $x$, a
+una sección de área $A(x)$, el volumen de dicho cuerpo comprendido
+entre los planos perpendiculares al eje $OX$ en los puntos de
+abscisas $a$ y $b$ es:
+
+\[
+\ V = \int_{a}^{b}{A(x)\,dx}
+\]
+
+\subsubsection*{Volumen de un cuerpo de revolución}
+Si se hace girar la curva $y=f(x)$ alrededor del eje $OX$ se genera un sólido
+de revolución cuyas secciones perpendiculares al eje $OX$ tienen áreas
+$A(x)=\pi(f(x))^{2}$, y cuyo volumen comprendido entre las abscisas $a$ y $b$
+será:
+
+\[
+\ V = \int_{a}^{b}{\pi(f(x))^{2}\,dx}=
+\pi\int_{a}^{b}{(f(x))^{2}\,dx}
+\]
+
+
+En general, el volumen del cuerpo de revolución engendrado al girar
+alrededor del eje $OX$ la región plana limitada por las curvas
+$y=f(x)$, $y=g(x)$ y las rectas verticales $x=a$ y $x=b$ es:
+
+\[
+\ V = \int_{a}^{b}{\pi|(f(x))^{2}-(g(x))^{2}|\,dx}
+\]
+
+De manera análoga se calcula el volumen del cuerpo de revolución
+engendrado por la rotación de una curva $x=f(y)$ alrededor del eje
+$OY$, entre los planos $y=a$ e $y=b$, mediante:
+
+\[
+\ V = \int_{a}^{b}{\pi(f(y))^{2}dy} = \pi \int_{a}^{b}{(f(y))^{2}dy}
+\]
+
+\newpage
+
+\section{Ejercicios resueltos}
+\begin{enumerate}[leftmargin=*]
+\item Calcular las siguientes integrales:
+\begin{enumerate}
+\item $ \dint^{0}_{-\frac{1}{2}}{\frac{x^{3}}{x^{2}+x+1}}\,dx$
+\begin{indicacion}
+{Introducir:
+\[
+\frac{x^{3}}{x^{2}+x+1}
+\]
+en la línea de edición. Utilizar el menú \menu{Cálculo->Integrales}
+y elegir \opcion{Integral Definida}. Introducir $-\frac{1}{2}$ en
+\opcion{Límite Inferior} y 0 en \opcion{Límite Superior}, y pinchar
+en \boton{Simplificar}. }
+\end{indicacion}
+
+\item $ \dint^{4}_{2}{\frac{\sqrt{16-x^{2}}}{x}\,dx}$
+
+\begin{indicacion}
+{Seguir las indicaciones realizadas en el apartado $a)$,
+introduciendo:
+
+\[
+\frac{\sqrt{16-x^{2}}}{x}
+\]
+en la línea de edición y los valores 2 y 4 en \opcion{Límite
+Inferior} y \opcion{Límite Superior} respectivamente.}
+\end{indicacion}
+
+\item $ \dint^{\frac{\pi}{2}}_{0}{\frac{dx}{3+\cos{2x}}}$
+
+\begin{indicacion}
+{Seguir las indicaciones realizadas en el apartado $a)$,
+introduciendo:
+
+\[
+\frac{1}{3+\cos{2x}}
+\]
+
+en la línea de edición y los valores 0 y $\pi/2$ en \opcion{Límite
+Inferior} y \opcion{Límite Superior} respectivamente.}
+\end{indicacion}
+\end{enumerate}
+
+\item Calcular la siguiente integral
+\[
+\  \dint_{2}^{\infty}{x^{2}e^{-x}\,dx}.
+\]
+
+\begin{indicacion}
+{Seguir las indicaciones realizadas en el apartado $a)$ del
+ejercicio $1$, introduciendo $x^{2}e^{-x}$ en la línea de edición y
+los valores $2$ e ${\infty}$ en \opcion{Límite Inferior}
+ y \opcion{Límite Superior} respectivamente.}
+\end{indicacion}
+
+\item Representar la parábola $y=x^{2}-7x+6$, y calcular el área
+limitada por dicha parábola, el eje de abscisas y las rectas $x=2$ y $x=6$.
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Se introduce $x^{2}-7x+6$ en la línea de edición, se pincha en el botón \boton{Ventana 2D} de la barra de botones para acceder al entorno de
+gráficos de dos dimensiones, y una vez allí se pincha en el botón
+\boton{Representar Expresión}.
+
+\item Para volver a la Ventana de Álgebra se pincha en el botón
+\boton{Activar la Ventana de Álgebra}, y una vez en ella se realiza
+lo indicado en el apartado anterior sucesivamente con las
+expresiones $x=2$ y $x=6$ para obtener sus representaciones
+gráficas.
+
+\item Puede observarse en la gráfica que, entre $x=2$ y $x=6$,
+la parábola $y=x^{2}-7x+6$ se encuentra por debajo del eje de
+abscisas, por lo que si se calcula el valor de la integral definida
+de $x^{2}-7x+6$ entre esos límites el resultado será negativo. Para
+hallar el área encerrada habrá que cambiar el signo al resultado.
+
+\item Seleccionar $x^{2}-7x+6$. Utilizar el menú \menu{Cálculo->Integrales} y elegir
+\opcion{Integral Definida}. Introducir $2$ en \opcion{Límite
+Inferior} y $6$ en \opcion{Límite Superior}, y pinchar en
+\boton{Simplificar}. El área buscada será el número obtenido
+cambiado de signo.
+
+\item También podría haberse hallado el área pedida calculando la integral definida de $-(x^{2}-7x+6)$, o la de
+$|x^{2}-7x+6|$, entre $x=2$ y $x=6$.
+\end{enumerate}
+}
+\end{indicacion}
+
+\item Calcular el área encerrada por la curva $y=x^{2}+2x-2$, las rectas $x=-3$ y $x=2$ y el eje de abscisas.
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Como la función no tiene el mismo signo en todo el intervalo, habrá que descomponer
+ el intervalo de integración en intervalos donde la función tenga el mismo
+ signo y calcular la suma de las integrales en cada uno de estos intervalos, teniendo en
+cuenta que cuando el signo de la función
+ sea negativo en un intervalo, se deberá cambiar el signo de la integral
+ según se indicó en el ejercicio anterior. También se puede calcular el area
+ directamente, sin descomponer el intervalo, integrando $|y(x)|$.
+
+\item Se introduce $x^{2}+2x-2$ en la línea de edición, se pincha en el botón
+ \boton{Ventana 2D} de la barra de botones para acceder al entorno de gráficos de dos dimensiones, y
+una vez allí se pincha en el botón \boton{Representar Expresión}.
+
+\item Para volver a la Ventana de Álgebra se pincha en el botón
+\boton{Activar la Ventana de Álgebra}, y una vez en ella se realiza
+lo indicado en el apartado anterior sucesivamente con las
+expresiones $x=-3$ y $x=2$ para obtener sus representaciones
+gráficas.
+
+\item Puede observarse en la gráfica, que entre $x=-3$ y $x=2$,
+la parábola $y=x^{2}+2x-2$ no se encuentra totalmente por encima ni
+por debajo del eje de abscisas, por lo que si se calcula el valor de
+la integral definida de $x^{2}+2x-2$ entre esos límites, el
+resultado no será el área buscada.
+
+\item Para hallar dicha área, habrá que calcular en primer lugar los valores
+de $x$ en los que la parábola cambia de signo. Para ello se
+selecciona la expresión $x^{2}+2x-2$ y se utiliza el menú
+\menu{Resolver->Expresión}. Se elige \opcion{Método Algebraico} y
+\opcion{Dominio Real}, y se pincha en \boton{Resolver} para obtener
+los valores de $x$ en que la parábola corta al eje de abscisas.
+Dichos valores son $-\sqrt{3}-1$ y $\sqrt{3}-1$. En la gráfica se
+observa que la parábola está por encima del eje de abscisas entre
+$-3$ y $-\sqrt{3}-1$, y entre $\sqrt{3}-1$ y $2$, y está por debajo
+del eje de abscisas entre $-\sqrt{3}-1$ y $\sqrt{3}-1$.
+
+\item Para calcular el área encerrada entre la parábola y el eje de
+abscisas, habrá que sumar los valores de las integrales entre $-3$ y
+$-\sqrt{3}-1$, entre $\sqrt{3}-1$ y $2$, y entre $-\sqrt{3}-1$ y
+$\sqrt{3}-1$, éste último cambiado de signo. Éstas integrales se
+hacen siguiendo las indicaciones incluidas en el ejercicio $1$
+apartado $a)$.
+
+\item El cálculo del área se podía haber hecho de una forma más rápida
+calculando el valor de la integral de $|x^{2}+2x-2|$ entre $x=-3$ y
+$x=2$, sin necesidad de saber en qué zonas es positiva o negativa la
+función que se desea integrar.
+
+\end{enumerate}
+}
+\end{indicacion}
+
+\item Calcular el área encerrada por la curva $y=x^{2}e^{-x}$ y el eje de abscisas.
+\begin{indicacion}
+{
+\begin{enumerate}
+
+\item Se representa la función $x^{2}e^{-x}$ siguiendo las indicaciones realizadas en el ejercicio
+$3$, y se observa en la gráfica que la zona encerrada por la función
+y el eje de abscisas se extiende desde el origen de coordenadas
+hasta el $\infty$.
+
+\item Para volver a la Ventana de Álgebra se pincha en el botón
+\texttt{Activar la Ventana de Álgebra}, y una vez en ella se
+calculan los valores de $x$ en que se anula la función $x^{2}e^{-x}$
+para confirmar lo observado en la gráfica. Para ello se selecciona
+la expresión $x^{2}e^{-x}$ y se utiliza el menú
+\menu{Resolver->Expresión}. Se elige \opcion{Método Algebraico} y
+\opcion{Dominio Real}, y se pincha en \boton{Resolver} para obtener
+los valores de $x$ en que se anula la función. Dichos valores son
+$0$ e $\infty$.
+
+\item Para calcular el área encerrada por la curva $y=x^{2}e^{-x}$ y el eje de abscisas, se
+calcula la integral de $x^{2}e^{-x}$ entre $0$ e $\infty$, siguiendo
+las indicaciones incluidas en el ejercicio $1$ apartado $a)$.
+\end{enumerate}
+}
+\end{indicacion}
+\item Hallar el área comprendida entre las parábolas $y=6x-x^{2}$ e $y=x^{2}-2x$
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Se representan las parábolas $y=6x-x^2$ e $y=x^{2}-2x$ siguiendo
+las indicaciones realizadas en el ejercicio $3$, y se observa en la
+gráfica que, en la zona encerrada entre ambas parábolas, la función
+que está por encima es $y=6x-x^2$.
+
+\item Se vuelve a la Ventana de Álgebra, y una vez en ella se
+calculan los valores de $x$ correspondientes a los puntos de
+intersección de las parábolas. Para ello se utiliza el menú
+\menu{Resolver->Sistema}, se introduce $2$ en el campo
+\opcion{Número} y se pincha en el botón \boton{Sí}. Se escriben las
+ecuaciones de las parábolas en los campos $1$ y $2$ de la ventana
+siguiente, y se pincha en \boton{Resolver}, con lo que se obtienen
+las coordenadas de los puntos de intersección de las parábolas. Las
+abscisas de dichos puntos son $0$ y $4$ respectivamente.
+
+\item Para calcular el área comprendida entre las parábolas, se
+ calcula la integral de $(6x-x^{2})-(x^2-2x)$ entre $0$ y $4$, siguiendo
+ las indicaciones incluidas en el ejercicio $1$ apartado $a)$.
+\end{enumerate}
+}
+\end{indicacion}
+
+\item  Representar gráficamente la región del primer cuadrante limitada
+por la parábola $y^{2}=8x$, la recta $x=2$ y el eje $OX$, y hallar el volumen
+generado en la rotación alrededor del eje $OX$ de la región anterior.
+
+\begin{indicacion}
+{
+\begin{enumerate}
+\item Se introduce $y^{2}=8x$ en la línea de edición, se pincha en el botón
+ \boton{Ventana 2D} de la barra de botones para acceder al entorno de gráficos de dos dimensiones, y
+una vez allí se pincha en el botón \boton{Representar Expresión}.
+
+\item Para volver a la Ventana de Álgebra se pincha en el botón
+\boton{Activar la Ventana de Álgebra}, y una vez en ella se realiza
+lo indicado en el apartado anterior con la expresión $x=2$ y se
+observa en la gráfica la región del primer cuadrante limitada por la
+parábola $y^{2}=8x$, la recta $x=2$ y el eje $OX$.
+
+\item Para calcular el volumen generado en la rotación alrededor del eje $OX$ de la región anterior, se
+ calcula la integral de $\pi8x$ entre $0$ y $2$, siguiendo
+ las indicaciones incluidas en el ejercicio $1$ apartado $a)$.
+\end{enumerate}
+}
+\end{indicacion}
+\end{enumerate}
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+\item Hallar el área encerrada la parábola $y=9-x^{2}$ y la recta $y=-x$.
+\item Hallar el área encerrada por la curva $y=e^{-|x|}$ y su asíntota.
+\item Hallar el volumen generado en la rotación alrededor del eje $OX$ de la región plana limitada por la parábola $y=2x^{2}$, las rectas $x=0$, $x=5$ y el eje $OX$, representando previamente dicha región plana.
+\item Hallar el volumen generado en la rotación alrededor del eje $OY$ del área limitada por la parábola $y^{2}=8x$ y la recta $x=2$.
+\end{enumerate}

@@ -1,0 +1,340 @@
+\documentclass[a4paper]{article}
+\usepackage{svn-multi}
+% Version control information:
+\svnidlong
+{$HeadURL: https://practicas-derive.googlecode.com/svn/trunk/matrices.tex $}
+{$LastChangedDate: 2008-11-13 12:37:02 +0100 (jue, 13 nov 2008) $}
+{$LastChangedRevision: 3 $}
+{$LastChangedBy: asalber $}
+\svnid{$Id: matrices.tex 3 2008-11-13 11:37:02Z asalber $}
+\pdfinfo{/CreationDate (D:\svnpdfdate)}
+\svnRegisterAuthor{alf}{Alfredo Sánchez Alberca}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{macros}
+\usepackage[dvips]{graphicx}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage[small,bf]{caption2}
+\usepackage[top=3cm, bottom=3cm, left=2.54cm, right=2.54cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{\textsc{Universidad San Pablo CEU}} \rhead{\textsl{\textsf{Departamento de Métodos Cuantitativos}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\floatpagefraction}{.8}
+\renewcommand{\textfraction}{.1}
+\setcaptionwidth{\textwidth} \addtolength{\captionwidth}{-40pt}
+\captionstyle{indent} \setlength\captionindent{\parindent}
+
+\makeatletter
+\let\savees@listquot\es@listquot
+\def\es@listquot{\protect\savees@listquot}
+\makeatletter
+
+\begin{document}
+\practica{Práctica de Álgebra con DERIVE}{Matrices}
+
+\bigskip
+\section*{Fundamentos Teóricos}
+Las matrices son, junto a los vectores, las otras estructuras elementales del álgebra.
+En esta práctica se introduce el concepto de matriz y se muestran las operaciones básicas 
+del cálculo matricial. En prácticas posteriores se mostrarán algunas de las múltiples
+aplicaciones de las matrices. 
+
+\subsection*{Matrices}
+Una matriz es un conjunto de números $a_{ij}$, $i=1,\ldots,m$, $j=1,\ldots,n$ ordenados 
+en $m$ filas y $n$ columnas, de la forma
+\[
+\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right).
+\]
+
+Dependiendo del conjunto al que pertenezcan los números que constituyen la matriz, hablaremos
+de matrices, reales, complejas, etc.
+
+El número de filas y el número de columnas de una matriz determinan \emph{dimensión}. Así, una matriz de $m$ filas y $n$ columnas tendrá dimensión $m\times n$. Cuando $n=m$ se dice que la matriz tiene \emph{orden} $n$.
+
+En álgebra, una matriz suele interpretarse como un conjunto de vectores cuyas componentes se ponen en forma de columnas, aunque a veces también se colocan como filas, y por eso se habla de vectores fila o vectores columna.
+
+\subsection*{Tipos de matrices}
+Algunos tipos de matrices especiales son:
+%\subsubsection*{Según la disposición de sus elementos}
+\begin{description}
+\item [Matriz nula] Es aquella cuyos elementos valen todos 0.
+\item [Matriz cuadrada] Es aquella matriz que tiene el mismo número de filas que columnas.
+\item [Matriz diagonal] Es una matriz cuadrada cuyos elementos son todos nulos excepto los
+de la diagonal principal, es decir $a_{ij}=0$ si $i\neq j$.
+\item [Matriz identidad] Es una matriz diagonal cuyos elementos de la diagonal valen 1, es decir
+$a_{ij}=0$ si $i\neq j$ y $a_{ij}=1$ si $i=j$. Se representa como $I$ o $I_n$ si se quiere indicar el orden.
+\item [Matriz triangular] Es aquella matriz en la que todos los elementos por debajo de la diagonal principal
+son nulos, es decir, $a_{ij}=0$ $\forall i>j$ (matriz triangular superior). O bien es aquella matriz en la que todos los elementos por encima de la diagonal principal
+son nulos, es decir, $a_{ij}=0$ $\forall i<j$ (matriz triangular inferior).
+\item [Matriz traspuesta] Si $A$ es una matriz de dimensión $m\times n$, diremos que la matriz $B$ de dimensión $n\times m$ es la \emph{matriz traspuesta} de $A$, si las filas de $A$ son las columnas de $B$, es decir, si $a_{ij}=b_{ji}$, $i=1,\ldots,m$, $j=1,\ldots,n$. La matriz traspuesta de $A$ se representa como $A^\textrm{T}$ o bien $A'$.
+\item [Matriz simétrica] Es aquella matriz que coincide con su traspuesta, es decir, $a_{ij}=a_{ji}$, $i=1,\ldots,n$, $j=1,\ldots,n$. Resulta evidente que una matriz simétrica es cuadrada.
+\item [Matriz antisimétrica] Es aquella matriz que coincide con su traspuesta cambiada de signo, es decir, $a_{ij}=-a_{ji}$, $i=1,\ldots,n$, $j=1,\ldots,n$. También resulta evidente que una matriz antisimétrica es cuadrada. 
+\end{description}
+
+\subsection*{Traza y determinante de una matriz cuadrada}
+Dada una matriz $A$ de orden $n$, se llama \emph{traza} a la suma de los elementos de la diagonal principal
+\[
+tr(A)=\sum_{i=1}^{n}a_{ii}.
+\]
+Y se llama \emph{determinante} de $A$, y se nota $|A|$, a la suma de los $n!$ productos signados de $n$ factores que se obtienen considerando los elementos de la matriz, de forma que cada producto contenga un elemento y sólo uno de cada fila y cada columna de $A$.
+
+\subsection*{Rango de una matriz}
+Se llama rango de una matriz $A$ al orden de la submatriz cuadrada de $A$ de mayor orden cuyo determinante no se anule, y se denota como $\textrm{rg}(A)$. Según esto, resulta evidente que el rango de una matriz no puede ser mayor que su número de filas o columnas.
+
+\subsection*{Operaciones matrices}
+
+\begin{description}
+\item [Suma de matrices]
+Dadas dos matrices
+\[A=
+\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right)
+\quad \textrm{y} \quad
+B=\left(
+\begin{array}{cccc}
+ b_{11} & b_{12} & \cdots & b_{1n} \\
+ b_{21} & b_{22} & \cdots & b_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ b_{mn} & b_{m2} & \cdots & b_{mn} \\
+\end{array}
+\right)
+\]
+ambas con la misma dimensión $m\times n$, se define su suma como
+\[
+A+B=
+\left(
+\begin{array}{cccc}
+ a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+ a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{m2} \\
+\end{array}
+\right).
+\]
+Como se ve la suma de matrices se realiza elemento a elemento, por lo que es necesario que las matrices que se suman tengan la misma dimensión.
+
+\item [Producto de una matriz por un escalar] Dada una matriz $A$ y un escalar $c$, se define su producto como  
+\[cA=c
+\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cccc}
+ ca_{11} & ca_{12} & \cdots & ca_{1n} \\
+ ca_{21} & ca_{22} & \cdots & ca_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ ca_{m1} & ca_{m2} & \cdots & ca_{mn} \\
+\end{array}
+\right)
+\]
+Como se ve la matriz resultante se obtiene multiplicando cada elemento de $A$ por el escalar $c$, y en consecuencia, la matriz resultante tiene la misma dimensión que $A$.
+
+
+\item [Producto de matrices]
+Dadas dos matrices
+\[A=
+\left(
+\begin{array}{cccc}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{array}
+\right)
+\quad \textrm{y} \quad
+B=\left(
+\begin{array}{cccc}
+ b_{11} & b_{12} & \cdots & b_{1p} \\
+ b_{21} & b_{22} & \cdots & b_{2p} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ b_{n1} & b_{n2} & \cdots & b_{np} \\
+\end{array}
+\right)
+\]
+con dimensiones $m\times n$ y $n\times p$ respectivamente, se define su producto como
+\[
+AB=
+\left(
+\begin{array}{ccc}
+ a_{11}b_{11}+\cdots+a_{1n}b_{n1} & \cdots & a_{11}b_{1p}+\cdots+a_{1n}b_{np} \\
+ a_{21}b_{11}+\cdots+a_{2n}b_{n1} & \cdots & a_{21}b_{1p}+\cdots+a_{2n}b_{np}\\
+ \vdots & \ddots & \vdots \\
+ a_{m1}b_{11}+\cdots+a_{mn}b_{n1} & \cdots & a_{m1}b_{1p}+\cdots+a_{mn}b_{np} \\
+\end{array}
+\right).
+\]
+En la matriz resultante, el elemento que ocupa la fila $i$ y la columna $j$ se obtiene como el producto escalar de el vector de la fila $i$ de $A$ por el vector de la columna $j$ de $B$. De este modo, para poder realizar el producto es necesario que el número columnas de $A$ sea igual al número de filas de $B$, y la matriz resultante tiene dimensión $m\times p$. 
+
+Según esta definición de producto resulta obvio que el producto de matrices no cumple la propiedad conmutativa.
+\end{description}
+
+\subsubsection*{Inversa de una matriz}
+Dada una matriz cuadrada $A$ de orden $n$, si existe otra matriz $B$ también de orden $n$, tal que $AB=I$, entonces se dice que $A$ es invertible, y a la matriz $B$ se le llama inversa de $A$. Si $A$ es invertible, su inversa es única y se suele notar como $A^{-1}$. Además se cumple $AA^{-1}=A^{-1}A=I$.
+
+Según esta definición, las matrices que no sean cuadradas no tienen inversa. Por otro lado, en el caso de que $A$ sea una matriz cuadrada, una condición necesaria y suficiente para que exista su inversa es que su determinante no se anule.
+
+\section*{Ejercicios Prácticos}
+\begin{enumerate}[leftmargin=*]
+\item Dadas las matrices
+\[
+A=\left(
+\begin{array}{rrr}
+ 2 & 1 & 0 \\
+ 1 & 2 & 1 \\
+ 3 & 3 & 1 \\
+\end{array}
+\right),
+\quad
+B=\left(
+\begin{array}{rrr}
+ -1 & 2 & 0 \\
+  2 & 0 & 1 \\
+  1 & 3 & 2 \\
+\end{array}
+\right),
+\quad
+C=\left(
+\begin{array}{rrr}
+ 2 &  x &    1 \\
+ 3 &  2 & 2x^2 \\
+ 6 & -1 &    y \\
+\end{array}
+\right),
+\]
+se pide:
+
+\begin{enumerate}
+\item Definir dichas matrices en Derive (menú \texttt{Author->Matrix}).
+\item Calcular las siguientes matrices:
+\begin{enumerate}
+\item $A+B$.
+\item $5A+6B-C$. 
+\end{enumerate}
+\item Calcular los siguientes productos:
+\begin{enumerate}
+\item $A\cdot B$.
+\item $B\cdot 5C$.
+\item $A\cdot(2B-C)$.
+\end{enumerate}
+
+\item Calcular la traza de $A$, $B$ y $C$ (utilizar la función \texttt{Trace}).
+
+\item Calcular el determinante de $A$, $B$ y $C$ (utilizar la función \texttt{Det}).
+
+\item Calcular el rango de $A$, $B$ y $C$ (cargar el fichero \texttt{vertor.mth} mediante el menú \texttt{File->Load->Math} y utilizar la función \texttt{Rank}).
+
+\item Calcular las siguientes matrices inversas si se puede:
+\begin{enumerate}
+\item $A^{-1}$.
+\item $B^{-1}$.
+\item $C^{-1}$.
+\item $(2B+3C)^{-1}$.
+\end{enumerate}
+
+\item Calcular las siguientes matrices traspuestas:
+\begin{enumerate}
+\item $A'$. Comprobar que $A+A'$ es una matriz simétrica. ¿Qué ocurre con $A-A'$?¿Y con $A'A$?
+\item $(A-2C+B)'$.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\section*{Problemas}
+\begin{enumerate}[leftmargin=*]
+\item Dadas las matrices
+\[
+A=\left(
+\begin{array}{rrc}
+  4 & 2 & 5 \\
+ -1 & 5 & 2 \\
+\end{array}
+\right) \quad \textrm{y} \quad
+B=\left(
+\begin{array}{rrc}
+ -1 &  4 & 1 \\
+  3 & -3 & 0 \\
+\end{array}
+\right)
+\]
+se pide:
+\begin{enumerate}
+\item Calcular $3A-2B$.
+\item Calcular $A'B$, $BA'$, $AB'$ y $B'A$.
+\item Calcular el determinante de las matrices calculadas en el apartado anterior y calcular su inversa cuando sea posible.
+\end{enumerate}
+
+
+
+
+\item  Dadas las matrices
+\[
+A=\left(
+\begin{array}{rrr}
+1 & 2 & 0 \\ -1 & 1 & 4
+\end{array}
+\right) ,\quad
+B=\left(
+\begin{array}{rrr}
+0 & 1 & 0 \\ 3 & -1 & 0
+\end{array}
+\right) \quad \mbox{y}\quad
+C=\left(
+\begin{array}{rr}
+2 & 1 \\ 3 & -2
+\end{array}
+\right) , \]
+calcular la matriz $X$ tal que $CX+AB'=BB'.$
+
+\item  Dada la matriz
+\[
+A=\left(
+\begin{array}{cccc}
+a & 2a-1 & 3 & 1 \\ 1 & 1 & 1 & 1 \\ 0 & -1 & 0 & 1 \\ 3 & 5 & 3 & a
+\end{array}
+\right) , \]
+determinar el rango de $A$ según los valores del parámetro $a$.
+
+\item Considérense siguientes matrices de espín de Pauli. 
+\[
+A=\left(
+\begin{array}{rr}
+ 1 &  0 \\
+ 0 & -1 \\
+\end{array}
+\right)
+\quad \textrm{y} \quad
+B=\left(
+\begin{array}{rr}
+ 0 & 1 \\
+ 1 & 0 \\
+\end{array}
+\right)
+\]
+Estas matrices se usan en el estudio del espín de electrones en mecánica cuántica. Demostrar que $A^2=I$, $B^2=I$, y $AB=-BA$ (las matrices que cumplen esta última propiedad se llaman anticonmutativas). 
+
+\end{enumerate}
+\end{document}

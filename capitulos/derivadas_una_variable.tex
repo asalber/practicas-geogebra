@@ -1,0 +1,455 @@
+% Author: Alfredo Sánchez Alberca (asalber@ceu.es)
+\chapter{Derivadas de funciones de una variable}
+
+\section{Fundamentos teóricos}
+El concepto de derivada es uno de los más importantes del Cálculo
+pues resulta de gran utilidad en el estudio de funciones y tiene
+multitud de aplicaciones. En esta práctica introducimos este
+concepto y presentamos algunas de sus aplicaciones, tanto en
+funciones de una como de varias variables.
+
+\subsection{Tasas de variación media e instantánea. La derivada}
+Cuando queremos conocer la variación que experimenta una función
+real $f(x)$ en un intervalo $[a,b]$, se calcula la diferencia
+$f(b)-f(a)$ que se conoce como \emph{incremento} de $f$, y se nota
+$\Delta f[a,b]$, aunque, a veces, simplemente se escribe $\Delta f$.
+
+En muchas otras ocasiones veces resulta importante comparar la
+variación que experimenta la función $f$ con relación a la variación
+que experimenta su argumento $x$ en un intervalo $[a,b]$. Si tenemos
+en cuenta que $b=a+\Delta x$, esto viene dado por la \emph{tasa de
+variación media}, que se define como:
+
+\[
+\textrm{TVM} f[a,b]=\textrm{TVM} f[a,a+\Delta x]=\frac{\Delta
+f}{\Delta x}=\frac{f(b)-f(a)}{b-a}=\frac{f(a+\Delta x )-f(a)}{\Delta
+x}.
+\]
+
+También resulta muy común llamar a $\Delta x$ con la letra $h$, por
+lo que la expresión anterior queda de la forma:
+
+\[
+\textrm{TVM} f[a,b]=\textrm{TVM} f[a,a+h]=\frac{\Delta f}{\Delta
+x}=\frac{f(a+h)-f(a)}{h}.
+\]
+
+Desde el punto de vista geométrico, la tasa de variación media de
+$f$ en el intervalo $[a , a+\Delta x]$ es la pendiente de la recta
+secante a $f$ en los puntos $(a , f(a))$ y $(a+\Delta x, f(a+\Delta
+x))$, tal y como se muestra en la figura~\ref{g:secante}.
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/derivadas/secante}}
+\caption{La tasa de variación media como la pendiente de la recta
+secante a una función en dos puntos.} \label{g:secante}
+\end{center}
+\end{figure}
+
+
+Y, a veces, incluso más importante que la tasa de variación media,
+es estudiar la tasa de variación que experimenta la función, no en
+un intervalo, sino en un punto, tomando para ello límites cuando el
+incremento en la variable independiente tiende 0. Definimos la tasa
+de variación de una función en un punto $a$, o también tasa de
+variación instantánea, a partir de la tasa de variación media de la
+función en el intervalo $[a,a+\Delta x]$. Dicha tasa, si existe,
+recibe el nombre de \emph{derivada} de la función real $f(x)$ en un
+punto $a\in \mathbb{R}$, y se nota como $f'(a)$, o bien
+$\dfrac{df}{dx}(a)$:
+
+\[
+f'(a)=\dfrac{df}{dx}(a)= \lim_{\Delta x\rightarrow 0}\frac{\Delta
+f}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{f(a+\Delta
+x)-f(a)}{\Delta x}=\lim_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}.
+\]
+
+Cuando este límite existe, se dice que la función $f$ es
+\emph{derivable} o \emph{diferenciable} en el punto $a$.
+
+Geométricamente, $f'(a)$ es la pendiente de la recta tangente a la
+curva de $f(x)$ en el punto $(a,f(a))$, tal y como se aprecia en la
+figura~\ref{g:tangente}.
+
+\begin{figure}[h!]
+\begin{center}
+\scalebox{1}{\input{img/derivadas/tangente}}
+\caption{La derivada como la pendiente de la recta tangente a una
+función en un punto.} \label{g:tangente}
+\end{center}
+\end{figure}
+
+\subsubsection*{Recta tangente y normal a una función en un punto}
+De la gráfica anterior, fácilmente se deduce que la ecuación de la
+recta tangente a una función $f(x)$ en el punto $(a,f(a))$ es:
+\[
+y=f(a)+f'(a)(x-a).
+\]
+
+Y teniendo en cuenta que la pendiente de la recta normal (recta
+perpendicular a la recta tangente) es la inversa cambiada de signo,
+la ecuación de la recta normal a $f(x)$ en el punto $(a,f(a))$ es:
+\[
+y=f(a)-\frac{1}{f'(a)}(x-a).
+\]
+
+\subsection{Función derivada y derivadas sucesivas}
+
+El límite que nos sirve para calcular la derivada de una función en
+un punto, define una nueva función $f'$ cuyo dominio está formado
+por los puntos en los que $f$ es diferenciable. La función $f'(x)$,
+o también $\dfrac{df}{dx}$, se llama \emph{primera derivada} de $f$.
+
+Puesto que $f'$ es una función, puede derivarse a su vez, y la
+primera derivada de $f'$ se conoce como segunda derivada de $f$, y
+se nota $f''(x)$ o $\dfrac{d^2f}{dx^2}$. Análogamente, la
+\emph{$n$-ésima derivada} de $f$, designada por $f^{(n}$ o
+$\dfrac{d^nf}{dx^n}$, es la primera derivada de $f^{(n-1}$, para
+$n=2,3,\ldots$, es decir
+\[
+\frac{d^nf}{dx^n}=\frac{d}{dx}\left(\frac{d^{n-1}f}{dx^{n-1}}\right)\
+n=2,3,\ldots
+\]
+
+
+\subsection{Estudio del crecimiento de una función}
+Una función $f(x)$ es \emph{creciente} en un intervalo $I$ si
+$\forall\, x_1, x_2 \in I$ tales que $x_1<x_2$ se verifica que
+$f(x_1)\leq f(x_2)$.
+
+Del mismo modo, se dice que una función $f(x)$ es \emph{decreciente}
+en un intervalo $I$ si $\forall\, x_1, x_2 \in I$ tales que
+$x_1<x_2$ se verifica que $f(x_1)\geq f(x_2)$. En la
+figura~\ref{g:crecimiento_derivada} se muestran estos conceptos.
+
+\begin{figure}[h!]
+\centering \subfigure[Función creciente.] {\label{g:funcion_creciente}
+\scalebox{1}{\input{img/funciones_elementales/funcion_creciente}}}\qquad
+\subfigure[Función decreciente.]{\label{g:funcion_decreciente}
+\scalebox{1}{\input{img/funciones_elementales/funcion_decreciente}}}
+\caption{Crecimiento de una función.}
+\label{g:crecimiento_derivada}
+\end{figure}
+
+Si $f$ es una función derivable en el intervalo $I$, el signo de la
+derivada puede utilizarse para estudiar el crecimiento de la función
+ya que se cumple:
+\begin{itemize}
+\item $f$ es creciente en $x_0\in I$, si y sólo si, $f'(x_0)\geq 0$.
+\item $f$ es decreciente en $x_0\in I$, si y sólo si, $f'(x_0)\leq 0$.
+\end{itemize}
+
+Desde el punto de vista geométrico, esto es evidente, ya en los
+intervalos donde $f$ es creciente, cualquier recta tangente tiene
+pendiente positiva, mientras que en los intervalos donde $f$ es
+decreciente, las tangentes tienen pendiente negativa, tal y como se
+observa en la figura~\ref{g:crecimiento_derivada}.
+
+\subsection{Determinación de los extremos relativos}
+Una función $f(x)$ tiene un \emph{máximo relativo} en $x_0$ si
+existe un entorno $A$ de $x_0$ tal que $\forall x \in A$ se verifica
+que $f(x)\leq f(x_0)$.
+
+Una función $f(x)$ tiene un \emph{mínimo relativo} en $x_0$ si
+existe un entorno $A$ de $x_0$ tal que $\forall x\in A$ se verifica
+que $f(x)\geq f(x_0)$.
+
+Diremos que la función $f(x)$ tiene un \emph{extremo relativo} en un
+punto si tiene un \emph{máximo o mínimo relativo} en dicho punto.
+
+Cuando $f$ es una función continua, entonces también se puede
+definir un extremo relativo como aquel punto donde cambia el
+crecimiento de la función. Así, un máximo relativo es un punto donde
+la función pasa de ser creciente a ser decreciente, y un mínimo
+relativo es un punto donde la función pasa de ser decreciente a ser
+creciente, tal y como se muestra en la figura~\ref{g:extremos_derivada}.
+
+\begin{figure}[h!]
+\centering \subfigure[Máximo relativo.] {\label{g:maximo}
+\scalebox{1}{\input{img/funciones_elementales/maximo}}}\qquad
+\subfigure[Mínimo relativo.]{\label{g:minimo}
+\scalebox{1}{\input{img/funciones_elementales/minimo}}}
+\caption{Extremos relativos de una función.}
+\label{g:extremos_derivada}
+\end{figure}
+
+Si $f$ tiene un extremo relativo en un punto $x_0$ y existe la
+derivada en dicho punto, entonces se cumple que $f'(x_0)=0$, es
+decir, la tangente a la gráfica de $f$ en dicho punto es horizontal
+(figura~\ref{g:extremos_derivada}). El recíproco no es cierto en general, de
+modo que esta es una condición necesaria pero no suficiente. No
+obstante, si $f$ es una función derivable en un intervalo $I$,
+podemos utilizar esta propiedad para detectar los puntos entre los
+que se encontrarán los extremos relativos del intervalo $I$. Los
+puntos donde se anula la primera derivada, se conocen como
+\emph{puntos críticos} y serán candidatos a extremos. Una vez
+detectados los puntos críticos, para ver si se trata de un extremo
+relativo o no, basta con estudiar el crecimiento de la función a la
+izquierda y a la derecha del punto tal y como se indicaba en la
+sección anterior. Resumiendo, si $f'(x_0)=0$, entonces:
+\begin{itemize}
+\item Si existe un $\delta>0$ tal que $f'(x)>0\ \forall\, x\in (x_0-\delta,x_0)$ (derivada positiva a la izquierda de $x_0$) y $f'(x)<0\ \forall\, x\in (x_0,x_0+\delta)$ (derivada negativa a la derecha de $x_0$), $x_0$ es un máximo relativo.
+
+\item Si existe un $\delta>0$ tal que $f'(x)<0\ \forall\, x\in (x_0-\delta,x_0)$ (derivada negativa a la izquierda de $x_0$) y $f'(x)>0\ \forall\, x\in (x_0,x_0+\delta)$ (derivada positiva a la derecha de $x_0$), $x_0$ es un mínimo relativo.
+
+\item En cualquier otro, $x_0$ es un \emph{punto de inflexión}.
+\end{itemize}
+
+\subsection{Estudio de la concavidad de una función}
+Se dice que una función $f(x)$ es \emph{cóncava} en un intervalo $I$
+si $\forall\, x_1, x_2 \in I$, el segmento de extremos
+$(x_1,f(x_1))$ y $(x_2,f(x_2))$ queda por encima de la gráfica de
+$f$.
+
+Análogamente se dirá que es \emph{convexa} si el segmento anterior
+queda por debajo de la gráfica de $f$.
+
+Diremos que la función $f(x)$ tiene un \emph{punto de inflexión} en
+$x_0$ si en ese punto la función pasa de cóncava a convexa o de
+convexa a cóncava. Estos conceptos se ilustran en la
+figura~\ref{g:concavidad_derivada}.
+
+\begin{figure}[h!]
+\centering \subfigure[Función cóncava.] {\label{g:funcion_concava_arriba}
+\scalebox{1}{\input{img/funciones_elementales/funcion_concava_arriba}}}\qquad
+\subfigure[Función convexa.]{\label{g:funcion_concava_abajo}
+\scalebox{1}{\input{img/funciones_elementales/funcion_concava_abajo}}}
+\caption{Concavidad de una función.}
+\label{g:concavidad_derivada}
+\end{figure}
+
+
+Si $f$ es una función derivable en el intervalo $I$, el signo de la
+segunda derivada puede utilizarse para estudiar la concavidad de la
+función ya que se cumple:
+\begin{itemize}
+\item $f$ es cóncava en $x_0\in I$, si y sólo si, $f''(x_0)\geq 0$.
+\item $f$ es convexa en $x_0\in I$, si y sólo si, $f''(x_0)\leq 0$.
+\end{itemize}
+
+\newpage
+
+\section{Ejercicios resueltos}
+\begin{enumerate}[leftmargin=*]
+% \item Dada la función $f(x)=\dfrac{x^3+x^2-2x-2}{x+3}$, se pide:
+% \begin{enumerate}
+% \item Calcular la tasa de variación media de $f$ en los intervalos $[-1,3]$, $[-1,0]$ y $[-1,-0.5]$, y calcular las correspondientes rectas
+% secantes.
+% \begin{indicacion}
+% \begin{enumerate}
+% \item Para calcular la tasa de variación media, definir previamente la función, y luego, por ejemplo para el intervalo $[-1,3]$, aplicamos
+% la fórmula vista en la teoría:
+% \[
+% \textrm{TVM} f[-1,3]=\frac{\Delta y}{\Delta
+% x}=\frac{f(3)-f(-1)}{3-(-1)}.
+% \]
+% \item Para calcular la ecuación de la recta secante, podemos utilizar, por ejemplo, la ecuación de la recta de la que conocemos un punto por
+% el que pasa, $(x_0,y_0)$ y su pendiente, $m$:
+% \[
+% y - y_0  = m\left( {x - x_0 } \right)
+% \]
+% En nuestro caso, para el primero de los intervalos considerados, el punto puede ser, por ejemplo el $(-1,f(-1))$; y la pendiente viene dada
+% por la tasa de variación media de la función en dicho intervalo. Es decir, la recta que buscamos tendrá como ecuación:
+% \[
+% y - f( - 1) = \textrm {TVM} f[ - 1,3]\left( {x - ( - 1)} \right)
+% \]
+% \item Después de calcular la ecuación de la recta secante, podemos comprobar que la misma corta a la función en los puntos adecuados sin más
+% que representar en la misma gráfica tanto $f$ como la recta calculada.
+% \end{enumerate}
+% \end{indicacion}
+% 
+% 
+% \item Calcular la tasa de variación instantánea de $f$ en el punto $-1$ haciendo uso de límites, y calcular la correspondiente recta
+% tangente.
+% \begin{indicacion}
+% \begin{enumerate}
+% \item Como ya sabemos por la teoría, las tasa de variación instantánea de la función en un punto dado si existe, recibe el nombre de
+% derivada de la función en el punto, y se calcula mediante el límite:
+% \[
+% f'(a) = \mathop {\lim }\limits_{h \to 0} \frac{{f(a + h) - f(a)}}
+% {h}
+% \]
+% en donde, por aligerar la notación, hemos llamado $h$ a lo que en la teoría denominábamos $\Delta x$.
+% 
+% Por lo tanto, para calcular la derivada de la función $f$ en $a=-1$ mediante la definición, procedemos con:
+% \[
+% f'(-1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(-1 + h) - f(-1)}}
+% {h}
+% \]
+% Para calcular el límite, podemos utilizar el botón \boton{Calcular un límite} de la barra de botones.
+% \item Para el cálculo de la recta tangente, de nuevo sabemos que la misma pasa por el punto $(-1, f(-1))$, y que su pendiente vale $f'(-1)$.
+% Por lo tanto su ecuación es:
+% \[
+% y - f( - 1) = f'(-1)\left( {x - ( - 1)} \right)
+% \]
+% \item De nuevo, conviene representar en la misma gráfica tanto la función como la recta tangente en el punto considerado, para comprobar que
+% los cálculos han sido los correctos.
+% \end{enumerate}
+% \end{indicacion}
+% \end{enumerate}
+
+
+\item Estudiar mediante la definición de derivada la derivabilidad de las funciones siguientes:
+\[
+f(x)=|x-1| \quad \textrm{en $x=1$,}
+\]
+\[
+g(x)=\left\{
+\begin{array}{ll}
+x \sen\dfrac{1}{x}, & \hbox{si $x\neq 0$;} \\
+0, & \hbox{si $x=0$.} \\
+\end{array}
+\right. \quad \textrm{en $x=0$.}
+\]
+
+\begin{indicacion}
+\begin{enumerate}
+\item Para la función $f(x)$, podemos inicialmente definirla, teniendo en cuenta que la sintaxis de la función valor absoluto es
+$\comando{Abs}$, y después utilizar la definición de derivada en un punto dada en el problema anterior, y calcular el límite mediante el
+botón \boton{Calcular un límite}. Por lo tanto, si existe la derivada en $x=1$ su valor es:
+\[
+f'(1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(1 + h) - f(1)}}
+{h}
+\]
+\item Para la función $g(x)$, podemos, para su definición, utilizar la función condicional de Derive \comando{If(condición,opción 1,opción
+2)}, de tal forma que si se cumple la \comando{condición} el programa realizará la \comando{opción 1}, y si no se cumple realizará la
+\comando{opción 2}. La función condicional de Derive, \comando{If}, entre otras muchas posibilidades, sirve para introducir funciones
+definidas a trozos. En nuestro caso la \comando{condición} es $x\neq y$, la \comando{opción 1} es $x\sin(1/x)$, y la \comando{opción 2} es
+$0$.
+
+Así, la función $g(x)$ puede definirse mediante:
+\[
+g(x):=\comando{IF}(x\neq0,x\sin(1/x),0)
+\]
+Y con ello, para calcular la derivada en $x=0$, procedemos mediante la definición de derivada en un punto:
+\[
+g'(0) = \mathop {\lim }\limits_{h \to 0} \frac{{g(0 + h) - g(0)}}
+{h}
+\]
+\end{enumerate}
+\end{indicacion}
+
+
+
+
+\item  Calcular las derivadas de las siguientes funciones hasta el orden 4:
+\begin{enumerate}
+\item  $a^x\log a$.
+\item  $\dfrac{\sen x +\cos x}{2}$.
+\item  $\dfrac{1}{\sqrt{1+x}}$.
+\end{enumerate}
+
+A la vista de los resultados, ¿cual sería la expresión de la derivada $n$-ésima de cada una de estas funciones?
+
+\begin{indicacion}
+Para cada función repetir los siguientes pasos
+\begin{enumerate}
+\item Definir la función en la venta de Álgebra con el nombre \comando{f(x)}.
+\item Para la primera derivada introducir la expresión \comando{f'(x)} y hacer clic en el botón \boton{Simplificar}.
+\item Para la segunda derivada introducir la expresión \comando{f''(x)} y hacer clic en el botón \boton{Simplificar}.
+\item Para la tercera derivada introducir la expresión \comando{f'''(x)} y hacer clic en el botón \boton{Simplificar}.
+\item Para la cuarta derivada introducir la expresión \comando{f''''(x)} y hacer clic en el botón \boton{Simplificar}.
+\end{enumerate}
+\end{indicacion}
+
+
+\item Calcular la recta tangente a la gráfica de la función $f(x)=\log(\sqrt{x+1})$ en $x=1$.
+Dibujar el gráfico de la función y de la recta tangente.
+\begin{indicacion}
+\begin{enumerate}
+\item Definir la función en la venta de Álgebra con el nombre \comando{f(x)}.
+\item Abrir una nueva ventana gráfica con el menú \menu{Ventana > Nueva Ventana 2D} y seleccionar \menu{Ventana > Mosaico Vertical} para ver la ventana de Álgebra y la ventana gráfica al mismo tiempo.
+\item Hacer clic en el botón \boton{Representar Expresión} de la ventana gráfica.
+\item Introducir la expresión \comando{f(1)+f'(1)(x-1)}, correspondiente a la ecuación de la recta tangente a la gráfica de la función $f$ en $x=1$, en la ventana de Álgebra y hacer clic en el botón \boton{Simplificar}.
+\item Hacer clic en el botón \boton{Representar Expresión} de la ventana gráfica.
+\end{enumerate}
+\end{indicacion}
+
+
+
+\item Dada la función:
+\[
+g(x)=\dfrac{2x^{3}-3x}{x^{2}+1}
+\]
+
+\begin{enumerate}
+\item  Representar la gráfica de $g$.
+\begin{indicacion}
+Una vez introducida la función en Derive, utilizar el botón \boton{Ventana 2D} para pasar al entorno de dibujo de funciones de una única
+variable, y allí utilizar el botón \boton{Representar Expresión} para representar la gráfica. 
+\end{indicacion}
+
+\item  Calcular la función derivada $g^{\prime }(x),$ y representar su
+gráfica.
+\begin{indicacion}
+Marcar la expresión de la función y utilizar el botón \boton{Hallar una derivada} y escoger la variable $x$ y el orden 1. Para representar
+la gráfica de la función derivada, seguir el proceso del punto anterior.
+\end{indicacion}
+
+\item  Calcular las raíces de $g^{\prime }(x).$
+\begin{indicacion}
+Para calcular las raíces, marcar la expresión de la función derivada y utilizar el botón \boton{Resolver o despejar}, escogiendo la variable
+$x$, y conviene utilizar el dominio Real para obtener únicamente la raíces reales, que son las que nos interesan.
+\end{indicacion}
+
+\item  A la vista de las raíces y de la gráfica de la función derivada, determinar los extremos relativos de la función y los intervalos de
+crecimiento.
+\begin{indicacion}
+Tener en cuenta que la función es creciente en los puntos en los que la derivada es positiva, decreciente si la derivada es negativa, y
+aquellos puntos en los que la derivada vale cero (puntos críticos) serán extremos relativos si en ellos cambia el crecimiento de la función.
+\end{indicacion}
+
+\item Calcular la segunda derivada $g''(x),$ y representar su gráfica.
+\begin{indicacion}
+La podemos obtener derivando, mediante el botón \boton{Hallar una derivada}, la función de partida, y escogiendo como orden de derivación 2;
+o también podemos directamente derivar la función derivada escogiendo como orden de derivación 1. Para representar la gráfica seguimos los
+pasos de cualquier otra representación.
+\end{indicacion}
+
+\item  Calcular las raíces de $g''(x).$
+\begin{indicacion}
+Igual que en apartados anteriores, marcamos la expresión de la segunda derivada y utilizamos el botón \boton{Resolver o despejar}.
+\end{indicacion}
+
+\item  A la vista de las raíces y de la gráfica de la segunda derivada, determinar los intervalos de concavidad de la función y los puntos
+de inflexión.
+\begin{indicacion}
+Recordar que la función de partida es cóncava si la derivada segunda es mayor que 0, convexa si la derivada segunda es menor que 0, y en los
+puntos en los que valga cero hay un candidato a punto de inflexión, que confirmaremos si lo es viendo si la función cambia de concavidad en
+dicho punto.
+\end{indicacion}
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Ejercicios propuestos}
+\begin{enumerate}[leftmargin=*]
+\item  Probar que no es derivable en $x=0$ la siguiente función:
+\[ f(x)=\left\{
+\begin{array}{ccl}
+e^x-1 &  & \mbox{si } x\geq 0,  \\
+x^3 &  & \mbox{si } x<0.
+\end{array}\right.
+\]
+
+\item  Para cada una de las siguientes curvas, hallar las ecuaciones de las rectas tangente y normal en el punto $x_{0}$ indicado.
+\begin{enumerate}
+\item  $y=x^{\sen x},\quad x_{0}=\pi/2$.
+\item  $y=(3-x^2)^4\sqrt[3]{5x-4},\quad x_{0}=1$.
+\item  $y=\log \sqrt{\dfrac{1+x}{1-x}}+\arctg x, \quad x_{0}=0$.
+\end{enumerate}
+
+\item Estudiar el crecimiento, decrecimiento, extremos relativos, concavidad y puntos de inflexión de la función $f(x)=\dfrac{x}{x^2-2}$. 
+
+\item Se ha diseñado un envoltorio cilíndrico para cápsulas.
+Si el contenido de las cápsulas debe ser de $0.15$ ml, hallar las dimensiones del cilindro para que el material empleado en el envoltorio
+sea mínimo.
+
+\item La cantidad de trigo en una cosecha $C$ depende de la cantidad de nitrógeno en el suelo $n$ según la ecuación 
+\[
+C(n) = \frac{n}{1+n^2}, \quad n\geq0
+\]
+¿Para qué cantidad de nitrógeno se obtendrá la mayor cosecha de trigo? 
+\end{enumerate}
