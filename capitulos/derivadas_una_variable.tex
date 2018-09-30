@@ -277,7 +277,7 @@ función ya que se cumple:
 % f'(-1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(-1 + h) - f(-1)}}
 % {h}
 % \]
-% Para calcular el límite, podemos utilizar el botón \boton{Calcular un límite} de la barra de botones.
+% Para calcular el límite, podemos utilizar el botón \button{Calcular un límite} de la barra de botones.
 % \item Para el cálculo de la recta tangente, de nuevo sabemos que la misma pasa por el punto $(-1, f(-1))$, y que su pendiente vale $f'(-1)$.
 % Por lo tanto su ecuación es:
 % \[
@@ -306,21 +306,21 @@ x \sen\dfrac{1}{x}, & \hbox{si $x\neq 0$;} \\
 \begin{indicacion}
 \begin{enumerate}
 \item Para la función $f(x)$, podemos inicialmente definirla, teniendo en cuenta que la sintaxis de la función valor absoluto es
-$\comando{Abs}$, y después utilizar la definición de derivada en un punto dada en el problema anterior, y calcular el límite mediante el
-botón \boton{Calcular un límite}. Por lo tanto, si existe la derivada en $x=1$ su valor es:
+$\command{Abs}$, y después utilizar la definición de derivada en un punto dada en el problema anterior, y calcular el límite mediante el
+botón \button{Calcular un límite}. Por lo tanto, si existe la derivada en $x=1$ su valor es:
 \[
 f'(1) = \mathop {\lim }\limits_{h \to 0} \frac{{f(1 + h) - f(1)}}
 {h}
 \]
-\item Para la función $g(x)$, podemos, para su definición, utilizar la función condicional de Derive \comando{If(condición,opción 1,opción
-2)}, de tal forma que si se cumple la \comando{condición} el programa realizará la \comando{opción 1}, y si no se cumple realizará la
-\comando{opción 2}. La función condicional de Derive, \comando{If}, entre otras muchas posibilidades, sirve para introducir funciones
-definidas a trozos. En nuestro caso la \comando{condición} es $x\neq y$, la \comando{opción 1} es $x\sin(1/x)$, y la \comando{opción 2} es
+\item Para la función $g(x)$, podemos, para su definición, utilizar la función condicional de Derive \command{If(condición,opción 1,opción
+2)}, de tal forma que si se cumple la \command{condición} el programa realizará la \command{opción 1}, y si no se cumple realizará la
+\command{opción 2}. La función condicional de Derive, \command{If}, entre otras muchas posibilidades, sirve para introducir funciones
+definidas a trozos. En nuestro caso la \command{condición} es $x\neq y$, la \command{opción 1} es $x\sin(1/x)$, y la \command{opción 2} es
 $0$.
 
 Así, la función $g(x)$ puede definirse mediante:
 \[
-g(x):=\comando{IF}(x\neq0,x\sin(1/x),0)
+g(x):=\command{IF}(x\neq0,x\sin(1/x),0)
 \]
 Y con ello, para calcular la derivada en $x=0$, procedemos mediante la definición de derivada en un punto:
 \[
@@ -345,11 +345,11 @@ A la vista de los resultados, ¿cual sería la expresión de la derivada $n$-és
 \begin{indicacion}
 Para cada función repetir los siguientes pasos
 \begin{enumerate}
-\item Definir la función en la venta de Álgebra con el nombre \comando{f(x)}.
-\item Para la primera derivada introducir la expresión \comando{f'(x)} y hacer clic en el botón \boton{Simplificar}.
-\item Para la segunda derivada introducir la expresión \comando{f''(x)} y hacer clic en el botón \boton{Simplificar}.
-\item Para la tercera derivada introducir la expresión \comando{f'''(x)} y hacer clic en el botón \boton{Simplificar}.
-\item Para la cuarta derivada introducir la expresión \comando{f''''(x)} y hacer clic en el botón \boton{Simplificar}.
+\item Definir la función en la venta de Álgebra con el nombre \command{f(x)}.
+\item Para la primera derivada introducir la expresión \command{f'(x)} y hacer clic en el botón \button{Simplificar}.
+\item Para la segunda derivada introducir la expresión \command{f''(x)} y hacer clic en el botón \button{Simplificar}.
+\item Para la tercera derivada introducir la expresión \command{f'''(x)} y hacer clic en el botón \button{Simplificar}.
+\item Para la cuarta derivada introducir la expresión \command{f''''(x)} y hacer clic en el botón \button{Simplificar}.
 \end{enumerate}
 \end{indicacion}
 
@@ -358,11 +358,11 @@ Para cada función repetir los siguientes pasos
 Dibujar el gráfico de la función y de la recta tangente.
 \begin{indicacion}
 \begin{enumerate}
-\item Definir la función en la venta de Álgebra con el nombre \comando{f(x)}.
+\item Definir la función en la venta de Álgebra con el nombre \command{f(x)}.
 \item Abrir una nueva ventana gráfica con el menú \menu{Ventana > Nueva Ventana 2D} y seleccionar \menu{Ventana > Mosaico Vertical} para ver la ventana de Álgebra y la ventana gráfica al mismo tiempo.
-\item Hacer clic en el botón \boton{Representar Expresión} de la ventana gráfica.
-\item Introducir la expresión \comando{f(1)+f'(1)(x-1)}, correspondiente a la ecuación de la recta tangente a la gráfica de la función $f$ en $x=1$, en la ventana de Álgebra y hacer clic en el botón \boton{Simplificar}.
-\item Hacer clic en el botón \boton{Representar Expresión} de la ventana gráfica.
+\item Hacer clic en el botón \button{Representar Expresión} de la ventana gráfica.
+\item Introducir la expresión \command{f(1)+f'(1)(x-1)}, correspondiente a la ecuación de la recta tangente a la gráfica de la función $f$ en $x=1$, en la ventana de Álgebra y hacer clic en el botón \button{Simplificar}.
+\item Hacer clic en el botón \button{Representar Expresión} de la ventana gráfica.
 \end{enumerate}
 \end{indicacion}
 
@@ -376,20 +376,20 @@ g(x)=\dfrac{2x^{3}-3x}{x^{2}+1}
 \begin{enumerate}
 \item  Representar la gráfica de $g$.
 \begin{indicacion}
-Una vez introducida la función en Derive, utilizar el botón \boton{Ventana 2D} para pasar al entorno de dibujo de funciones de una única
-variable, y allí utilizar el botón \boton{Representar Expresión} para representar la gráfica. 
+Una vez introducida la función en Derive, utilizar el botón \button{Ventana 2D} para pasar al entorno de dibujo de funciones de una única
+variable, y allí utilizar el botón \button{Representar Expresión} para representar la gráfica. 
 \end{indicacion}
 
 \item  Calcular la función derivada $g^{\prime }(x),$ y representar su
 gráfica.
 \begin{indicacion}
-Marcar la expresión de la función y utilizar el botón \boton{Hallar una derivada} y escoger la variable $x$ y el orden 1. Para representar
+Marcar la expresión de la función y utilizar el botón \button{Hallar una derivada} y escoger la variable $x$ y el orden 1. Para representar
 la gráfica de la función derivada, seguir el proceso del punto anterior.
 \end{indicacion}
 
 \item  Calcular las raíces de $g^{\prime }(x).$
 \begin{indicacion}
-Para calcular las raíces, marcar la expresión de la función derivada y utilizar el botón \boton{Resolver o despejar}, escogiendo la variable
+Para calcular las raíces, marcar la expresión de la función derivada y utilizar el botón \button{Resolver o despejar}, escogiendo la variable
 $x$, y conviene utilizar el dominio Real para obtener únicamente la raíces reales, que son las que nos interesan.
 \end{indicacion}
 
@@ -402,14 +402,14 @@ aquellos puntos en los que la derivada vale cero (puntos críticos) serán extre
 
 \item Calcular la segunda derivada $g''(x),$ y representar su gráfica.
 \begin{indicacion}
-La podemos obtener derivando, mediante el botón \boton{Hallar una derivada}, la función de partida, y escogiendo como orden de derivación 2;
+La podemos obtener derivando, mediante el botón \button{Hallar una derivada}, la función de partida, y escogiendo como orden de derivación 2;
 o también podemos directamente derivar la función derivada escogiendo como orden de derivación 1. Para representar la gráfica seguimos los
 pasos de cualquier otra representación.
 \end{indicacion}
 
 \item  Calcular las raíces de $g''(x).$
 \begin{indicacion}
-Igual que en apartados anteriores, marcamos la expresión de la segunda derivada y utilizamos el botón \boton{Resolver o despejar}.
+Igual que en apartados anteriores, marcamos la expresión de la segunda derivada y utilizamos el botón \button{Resolver o despejar}.
 \end{indicacion}
 
 \item  A la vista de las raíces y de la gráfica de la segunda derivada, determinar los intervalos de concavidad de la función y los puntos

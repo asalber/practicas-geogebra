@@ -94,12 +94,12 @@ Para calcular Derivadas de Funciones Implícitas o Paramétricas es
 preciso:
 \begin{enumerate}
 \item Abrir previamente el archivo \variable{DifferentiationApplications} Para ello se ejecuta el menú \menu{Archivo > Abrir} y aparece un
-cuadro que en el campo \opcion{Buscar en} tiene \opcion{Users}. Se pulsa el botón \boton{Subir un nivel}, se selecciona \opcion{Math} y se
+cuadro que en el campo \option{Buscar en} tiene \option{Users}. Se pulsa el botón \button{Subir un nivel}, se selecciona \option{Math} y se
 abre el archivo \variable{DifferentiationApplications}.
 
-\item Una vez hecho esto, si se desea realizar una derivación implícita se empleará la función \comando{IMP\_DIF(u,x,y,n)} para calcular la
+\item Una vez hecho esto, si se desea realizar una derivación implícita se empleará la función \command{IMP\_DIF(u,x,y,n)} para calcular la
 derivada de orden $n$ de $y$ con respecto a $x$, siendo $u(x,y)=0$ la ecuación que expresa la relación entre $x$ e $y$ de manera implícita;
-y si se desea realizar una derivación en paramétricas, se utilizará la función \comando{PARA\_DIF(v,t,n)} para calcular la derivada de orden
+y si se desea realizar una derivación en paramétricas, se utilizará la función \command{PARA\_DIF(v,t,n)} para calcular la derivada de orden
 $n$ de $y$ con respecto a $x$ en términos del parámetro $t$, siendo $v$ un vector de la forma $v=[x(t),y(t)]$, donde $x(t)$ e $y(t)$ son
 expresiones que dependen del parámetro $t$.
 \end{enumerate} 
@@ -109,7 +109,7 @@ expresiones que dependen del parámetro $t$.
 \item Calcular la derivada de $y$ con respecto a $x$, sabiendo que $x^{2}+y^{2}=1$.
 \begin{indicacion}
 Según la indicación anterior, introducir sucesivamente en la línea de edición, $u:=x^{2}+y^{2}-1$ para definir la variable $u$ como
-$x^2+y^2-1$, y \comando{IMP\_DIF(u,x,y,1)} para calcular la derivada de orden 1 de $y$ con respecto a $x$, y aplicar el símbolo \boton{=}
+$x^2+y^2-1$, y \command{IMP\_DIF(u,x,y,1)} para calcular la derivada de orden 1 de $y$ con respecto a $x$, y aplicar el símbolo \button{=}
 para obtener el resultado. Una vez hecho esto, se introduce en la línea de edición $u:= $ para anular la definición de $u$.
 \end{indicacion}
 
@@ -125,11 +125,11 @@ Hacer lo mismo que en el ejercicio $1$ definiendo $u$ como $x^3-3xy^2+y^3-1$.
 \item En primer lugar se calcularía la derivada de $y$ con respecto a $x$, lo que ya se ha hecho en el ejercicio $2$.
 
 \item A continuación se calcula el valor de $y$ correspondiente a $x=0$. Para ello se introduce $x:=0$ en la línea de edición, se selecciona
-$x^{3}-3xy^{2}+y^{3}-1$ y se utiliza el menú \menu{Resolver > Expresión}, apareciendo un cuadro. En el campo \opcion{Variables} se deja $y$,
-en el \opcion{Método} se selecciona \opcion{Algebraico}, en el \opcion{Dominio} se elige \opcion{Real} y se pincha en el botón
-\boton{Resolver}.
+$x^{3}-3xy^{2}+y^{3}-1$ y se utiliza el menú \menu{Resolver > Expresión}, apareciendo un cuadro. En el campo \option{Variables} se deja $y$,
+en el \option{Método} se selecciona \option{Algebraico}, en el \option{Dominio} se elige \option{Real} y se pincha en el botón
+\button{Resolver}.
 \item A continuación se introduce $y:=$ al valor de $y$ obtenido en el punto anterior; y, una vez hecho esto, se selecciona la expresión
-obtenida de la derivada y se utiliza el botón \boton{$\approx$} para obtener el valor de la derivada en el punto deseado. Con esto se
+obtenida de la derivada y se utiliza el botón \button{$\approx$} para obtener el valor de la derivada en el punto deseado. Con esto se
 dispone de las coordenadas del punto y del valor de la derivada en dicho punto, y se puede escribir la ecuación de la tangente. Para anular
 la asignación de valores a $x$ e $y$ se introduce en la línea de edición sucesivamente $x:= $ e $y= $.
 \end{enumerate}
@@ -147,10 +147,10 @@ Se pide:
 \item Hallar la derivada de la función $y(x)$, es decir la derivada de $y$ con respecto a $x$, para $t=0$ y $t=2$.
 \begin{indicacion}
 \begin{enumerate}
-\item Introducir sucesivamente en la línea de edición $x:=\sin{t}$, $y:=t^{2}-1$, $v:=[x,y]$ y la función \comando{PARA\_DIF(v,t,1)} para
-calcular la derivada de $y$ con respecto a $x$ y pinchar en el símbolo \boton{=} para obtener el resultado.
+\item Introducir sucesivamente en la línea de edición $x:=\sin{t}$, $y:=t^{2}-1$, $v:=[x,y]$ y la función \command{PARA\_DIF(v,t,1)} para
+calcular la derivada de $y$ con respecto a $x$ y pinchar en el símbolo \button{=} para obtener el resultado.
 \item A continuación se introduce $t:=0$ en la línea de edición, se selecciona la expresión de la derivada obtenida y se aplica el símbolo
-\boton{$\approx$} para obtener el valor de la derivada en $t=0$, repitiéndose esto mismo para $t=2$. Una vez hecho esto escribir $t:= $ en
+\button{$\approx$} para obtener el valor de la derivada en $t=0$, repitiéndose esto mismo para $t=2$. Una vez hecho esto escribir $t:= $ en
 la línea de edición para eliminar las asignaciones de valores a $t$.
 \end{enumerate}
 \end{indicacion}
@@ -159,9 +159,9 @@ la línea de edición para eliminar las asignaciones de valores a $t$.
 \begin{indicacion}
 \begin{enumerate}
 \item Para calcular el valor de $t$ que corresponde al citado punto, se utiliza el menú \menu{Resolver > Sistema}. En el primer cuadro que
-aparece se introduce un $2$ en el campo \opcion{Número de Ecuaciones} y se pincha el botón \boton{Sí}, apareciendo otro cuadro en el que se
-escribe $x=0$ e $y=-1$ en las líneas $1$ y $2$ respectivamente y se pincha en el campo \opcion{Variable} apareciendo en el mismo la variable
-$t$. A continuación se pincha en \boton{Resolver} y se obtiene el valor de $t$ correspondiente al punto $(0,-1)$.
+aparece se introduce un $2$ en el campo \option{Número de Ecuaciones} y se pincha el botón \button{Sí}, apareciendo otro cuadro en el que se
+escribe $x=0$ e $y=-1$ en las líneas $1$ y $2$ respectivamente y se pincha en el campo \option{Variable} apareciendo en el mismo la variable
+$t$. A continuación se pincha en \button{Resolver} y se obtiene el valor de $t$ correspondiente al punto $(0,-1)$.
 \item Conocido el valor de $t$ en el punto, podemos calcular fácilmente el valor de la derivada de $y$ con respecto a $x$ aprovechando la
 derivada paramétrica obtenida en el primer apartado del problema, y con las coordenadas del punto y el valor de la derivada se puede
 escribir la ecuación de la tangente. Una vez hecho esto, se anulan las asignaciones de valores realizadas de la misma forma que se hizo en

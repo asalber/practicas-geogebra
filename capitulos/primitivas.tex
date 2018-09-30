@@ -157,23 +157,23 @@ logaritmos con arcotangentes.
 \begin{indicacion}
 {Para obtener primitivas de funciones se puede utilizar el menú
 \menu{Cálculo->Integrales}, en el que se selecciona
-\opcion{Indefinida} y se introduce el valor de la constante de
+\option{Indefinida} y se introduce el valor de la constante de
 integración deseado. En lugar de utilizar el menú indicado se puede
-pinchar en el botón \boton{Integrales}.
+pinchar en el botón \button{Integrales}.
 
 También se pueden obtener primitivas de funciones introduciendo en
-la línea de edición \comando{INT(u,x)}, que nos da la primitiva de
+la línea de edición \command{INT(u,x)}, que nos da la primitiva de
 la función $u$ respecto de la variable $x$ sin incluir constante de
-integración, o bien \comando{INT(u,x,c)}, que incluye dicha
+integración, o bien \command{INT(u,x,c)}, que incluye dicha
 constante.
 
 Aunque la mayor parte de las primitivas se pueden obtener con los
 procedimientos indicados, en algunas ocasiones puede ser necesario
 emplear procedimientos especiales de integración, como pueden ser la
 integración por partes o por sustitución. Para ello se pueden
-emplear las funciones:\comando{INT\_PARTS(u,v,x)}, que emplea la
+emplear las funciones:\command{INT\_PARTS(u,v,x)}, que emplea la
 integración por partes para encontrar la primitiva de $uv$ respecto
-a $x$; y \comando{INT\_SUBST(y,x,u)}, que obtiene la primitiva de la
+a $x$; y \command{INT\_SUBST(y,x,u)}, que obtiene la primitiva de la
 función $y(x)$ haciendo el cambio de variable $u=f(x)$, calculando
 la integral de $y(u)$ y sustituyendo $u$ por $f(x)$ en el resultado.
 
@@ -188,8 +188,8 @@ la integral de $y(u)$ y sustituyendo $u$ por $f(x)$ en el resultado.
 
 \begin{indicacion}
 {Introducir $x^{2}\log(x)$ en la línea de edición. Utilizar el menú
-\menu{Cálculo->Integrales}, eligiendo \opcion{Integral Indefinida},
-\opcion{Constante} $c$ y pinchar en el botón \boton{Simplificar}. }
+\menu{Cálculo->Integrales}, eligiendo \option{Integral Indefinida},
+\option{Constante} $c$ y pinchar en el botón \button{Simplificar}. }
 \end{indicacion}
 
 \item $ \int{\dfrac{5x^{2}+4x+1}{x^{5}-2x^{4}+2x^{3}-2x^{2}+x}\,dx}$
@@ -207,26 +207,26 @@ la integral de $y(u)$ y sustituyendo $u$ por $f(x)$ en el resultado.
 \begin{indicacion}
 {Introducir sucesivamente en la línea de edición $u:=x^{2}$ y
 $v:=\log(x)$, para definir $u$ y $v$ respectivamente y
-\comando{INT\_PARTS(u,v,x)}, para obtener mediante integración por
+\command{INT\_PARTS(u,v,x)}, para obtener mediante integración por
 partes la primitiva de $u \cdot v$ respecto a $x$, y aplicar el
 símbolo $=$ para obtener el resultado. Una vez hecho esto, se
 introduce sucesivamente en la línea de edición $u:=$ y $v:=$ para
 anular las definiciones de $u$ y $v$. También podía haberse hecho el
 cálculo deseado sin necesidad de definir $u$ y $v$, introduciendo
-\comando{INT\_PARTS}$(x^2,\log(x),x)$. }
+\command{INT\_PARTS}$(x^2,\log(x),x)$. }
 \end{indicacion}
 
 \item Calcular la primitiva de la función $g(x)=x\sen x^2$ mediante sustitución.
 \begin{indicacion}
 { Introducir sucesivamente en la línea de edición $y:=x\sin(x^{2})$
 y $u:=x^{2}$, para definir $y$ y $u$ respectivamente y
-\comando{INT\_SUBST(y,x,u)}, para obtener mediante integración por
+\command{INT\_SUBST(y,x,u)}, para obtener mediante integración por
 sustitución la primitiva de $y(x)$ respecto a $x$ haciendo el cambio
 $u=f(x)$, y aplicar el símbolo $=$ para obtener el resultado. Una
 vez hecho esto, se introduce sucesivamente en la línea de edición
 $y:=$ y $u:=$ para anular las definiciones de $y$ y $u$. También
 podía haberse hecho el cálculo deseado sin necesidad de definir $y$
-y $u$, introduciendo \comando{INT\_SUBST}$(x \sin(x^{2}),x,x^2)$. }
+y $u$, introduciendo \command{INT\_SUBST}$(x \sin(x^{2}),x,x^2)$. }
 \end{indicacion}
 \end{enumerate}
 

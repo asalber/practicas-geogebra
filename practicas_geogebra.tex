@@ -68,6 +68,9 @@
   \usepackage[shortlabels]{enumitem} % Customize lists
   %\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
   \setlist[description]{style=sameline,leftmargin=0cm}
+
+  % Columns
+  \usepackage{multicol}
   
   % \makeatletter
   % \let\savees@listquot\es@listquot
@@ -143,6 +146,7 @@
   %	COMMANDS FOR INDICATIONS
   %----------------------------------------------------------------------------------------
   \usepackage{menukeys}
+  \DeclareFontFamily{\encodingdefault}{\ttdefault}{\hyphenchar\font=`\-}
   \newmenucolortheme{mycolors}{named}{white}{color1}{black}
   \changemenucolortheme{menus}{mycolors}
   \renewmenumacro{\menu}[>]{menus}
@@ -198,12 +202,12 @@
 \tableofcontents\thispagestyle{empty}
 % Print the table of contents itself
 \cleardoublepage % Forces the first cxelatexhapter to start on an odd page so it's on the right
-}xelatex
-xelatex
-\mainmatter xelatex
-%------------------------------------xelatex----------------------------------------------------
-%	CHAPTERS xelatex
-%------------------------------------xelatex----------------------------------------------------
+}
+\mainmatter
+%----------------------------------------------------------------------------------------
+%	CHAPTERS
+%----------------------------------------------------------------------------------------
 \input{capitulos/introduccion_geogebra}
 \input{capitulos/funciones_elementales}
+\input{capitulos/limites_continuidad}
 \end{document}
