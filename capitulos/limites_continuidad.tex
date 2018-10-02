@@ -2,33 +2,33 @@
 % Author: Alfredo Sánchez Alberca (asalber@ceu.es)
 \chapter{Límites y Continuidad}
 
-\section{Fundamentos teóricos}
-En esta práctica se introducen los conceptos de límite y continuidad de una función real, ambos muy relacionados.
+% \section{Fundamentos teóricos}
+% En esta práctica se introducen los conceptos de límite y continuidad de una función real, ambos muy relacionados.
 
-\subsection{Límite de una función en un punto}
-El concepto de límite está muy relacionado con el de proximidad y tendencia de una serie de valores. De manera informal, diremos que $l\in \mathbb{R}$ es el \emph{límite} de una función $f(x)$ en un punto $a\in \mathbb{R}$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$, y se escribe
-\[ \lim_{x\rightarrow a} f(x)=l.\]
+% \subsection{Límite de una función en un punto}
+% El concepto de límite está muy relacionado con el de proximidad y tendencia de una serie de valores. De manera informal, diremos que $l\in \mathbb{R}$ es el \emph{límite} de una función $f(x)$ en un punto $a\in \mathbb{R}$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$, y se escribe
+% \[ \lim_{x\rightarrow a} f(x)=l.\]
 
-Si lo que nos interesa es la tendencia de $f(x)$ cuando nos aproximamos al punto $a$ sólo por un lado, hablamos de \emph{límites laterales}. Diremos que $l$ es el \emph{límite por la izquierda} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la izquierda, es decir con valores $x<a$, y se denota por
-\[ \lim_{x\rightarrow a^-} f(x)=l.\]
-Del mismo modo, diremos que $l$ es el \emph{límite por la derecha} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la derecha, es decir con valores $x>a$, y se denota por
-\[ \lim_{x\rightarrow a^+} f(x)=l.\]
+% Si lo que nos interesa es la tendencia de $f(x)$ cuando nos aproximamos al punto $a$ sólo por un lado, hablamos de \emph{límites laterales}. Diremos que $l$ es el \emph{límite por la izquierda} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la izquierda, es decir con valores $x<a$, y se denota por
+% \[ \lim_{x\rightarrow a^-} f(x)=l.\]
+% Del mismo modo, diremos que $l$ es el \emph{límite por la derecha} de una función $f(x)$ en un punto $a$, si $f(x)$ tiende o se aproxima cada vez más a $l$, a medida que $x$ se aproxima a $a$ por la derecha, es decir con valores $x>a$, y se denota por
+% \[ \lim_{x\rightarrow a^+} f(x)=l.\]
 
-Por supuesto, para que exista el límite global de la función $f(x)$ en el punto $a$, debe existir tanto el límite por la izquierda, como el límite por la derecha, y ser iguales, es decir
-\[
-\left.
-\begin{array}{l}
-\displaystyle \lim_{x\rightarrow a^-} f(x)=l \\
-\displaystyle \lim_{x\rightarrow a^+} f(x)=l
-\end{array}
-\right\}
-\Longrightarrow
-\lim_{x\rightarrow a} f(x)=l.
-\]
+% Por supuesto, para que exista el límite global de la función $f(x)$ en el punto $a$, debe existir tanto el límite por la izquierda, como el límite por la derecha, y ser iguales, es decir
+% \[
+% \left.
+% \begin{array}{l}
+% \displaystyle \lim_{x\rightarrow a^-} f(x)=l \\
+% \displaystyle \lim_{x\rightarrow a^+} f(x)=l
+% \end{array}
+% \right\}
+% \Longrightarrow
+% \lim_{x\rightarrow a} f(x)=l.
+% \]
 
-\subsection{Álgebra de límites}
-Para el cálculo práctico de límites, se utiliza el siguiente
-teorema, conocido como Teorema de \emph{Álgebra de Límites}.
+% \subsection{Álgebra de límites}
+% Para el cálculo práctico de límites, se utiliza el siguiente
+% teorema, conocido como Teorema de \emph{Álgebra de Límites}.
 % !TEX root = ../practicas_geogebra.tex
 
 % % !TEX root = ../practicas_geogebra.tex
@@ -254,7 +254,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
 
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=(1+2/x)\^{}(x/2)} en la barra de \field{Entrada} de la \field{Vista Algebraica} y activar la \field{Vista Gráfica}.
+            \item Para representarla gráficamente, introducir la función \command{f(x)=(1+2/x)\^{}(x/2)} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
             \item Para predecir cuáles pueden ser los valores de los límites pedidos, crear un deslizador introduciendo la constante \command{a} en la barra de \field{Entrada} y después introducir el punto \command{A=(a,f(a))} para dibujar el punto sobre la gráfica de la función. Desplazar el deslizador y observar el valor de la coordenada $y$ en el punto $A$ cuando $x$ tiende a cada uno de los valores de los límites.
             \end{enumerate}
             \end{indication}
@@ -282,7 +282,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
       \item Dibujar la gráfica de $g$ y determinar gráficamente si existen asíntotas.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{g(x)=Si(x<=0, x/(x-2), x\^{}2/(2x-6))} en la barra de \field{Entrada} de la \field{Vista Algebraica} y activar la \field{Vista Gráfica}.
+            \item Para representarla gráficamente, introducir la función \command{g(x)=Si(x<=0, x/(x-2), x\^{}2/(2x-6))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
             \item Para ver si existen asíntotas verticales, horizontales y oblicuas, hay que ver si existen rectas verticales, horizontales su oblicuas a las que la gráfica de $g$ se aproxima cada vez más (aunque nunca lleguen a tocarse).
             \end{enumerate}
             \end{indication}
@@ -332,7 +332,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
 
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista Algebraica} y activar la \field{Vista Gráfica}.
+            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^-}f(x)$ introducir el comando \command{LímiteIzquierda(f, 0)} en la barra de \field{Entrada}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^+}f(x)$ introducir el comando \command{LímiteDerecha(f, 0)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 0^-}f(x)=\lim_{x\rightarrow 0^+}f(x)=1$, $f$ tiene una discontinuidad evitable en $x=0$.
@@ -341,7 +341,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
       \item $g(x)=\dfrac{1}{2^{1/x}}$ en $x=0$.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista Algebraica}.
+            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^-}g(x)$ introducir el comando \command{LímiteIzquierda(g, 0)} en la barra de \field{Entrada}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^+}g(x)$ introducir el comando \command{LímiteDerecha(g, 0)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 0^-}g(x)=\infty$, $g$ tiene una discontinuidad evitable en $x=0$.
@@ -350,7 +350,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
       \item $h(x)=\dfrac{1}{1+e^{\frac{1}{1-x}}}$ en $x=1$.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista Algebraica}.
+            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS}.
             \item Para calcular el límite $\lim_{x\rightarrow 1^-}h(x)$ introducir el comando \command{LímiteIzquierda(f, 0)} en la barra de \field{Entrada}.
             \item Para calcular el límite $\lim_{x\rightarrow 1^+}h(x)$ introducir el comando \command{LímiteDerecha(f, 0)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 1^-}h(x)=0$ y $\lim_{x\rightarrow 1^+}f(x)=1$, $h$ tiene una discontinuidad de salto en $x=1$.
@@ -372,7 +372,7 @@ teorema, conocido como Teorema de \emph{Álgebra de Límites}.
 
       \begin{indication}
       \begin{enumerate}
-      \item Para representarla gráficamente, introducir la función \command{f(x)=Si(x<0, (x+1)/(x\^{}2-1), 1/e\^{}1/(x\^{}2-1))} en la barra de \field{Entrada} de la \field{Vista Algebraica} y activar la \field{Vista Gráfica}.
+      \item Para representarla gráficamente, introducir la función \command{f(x)=Si(x<0, (x+1)/(x\^{}2-1), 1/e\^{}1/(x\^{}2-1))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
       \item En primer lugar hay que encontrar los puntos que quedan fuera del dominio de cada uno de los tramos.
             Para ello, hay que analizar dónde se anulan los denominadores presentes en las definiciones de cada trozo.
             Para ver donde se anula $x^2-1$ introducir la ecuación $x^1-1=0$ en la barra de \field{Entrada} y hacer clic sobre el botón \button{Resolver}.
