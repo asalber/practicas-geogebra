@@ -243,32 +243,36 @@
       \item Dibujar su gráfica, y a la vista de misma conjeturar el resultado de los siguientes límites:
             \begin{multicols}{2}
             \begin{enumerate}
-            \item  $\lim\limits_{x\rightarrow -\,2^{-}}\ f(x)$
-            \item  $\lim\limits_{x\rightarrow -\,2^{+}}\ f(x)$
-            \item  $\lim\limits_{x\rightarrow -\,\infty }\ f(x)$
-            \item  $\lim\limits_{x\rightarrow +\,\infty }\ f(x)$
-            \item  $\lim\limits_{x\rightarrow 2}\ f(x)$
-            \item  $\lim\limits_{x\rightarrow 0}\ f(x)$
+            \item $\lim_{x\rightarrow -2^-} f(x)$
+            \item $\lim_{x\rightarrow -2^+} f(x)$
+            \item $\lim_{x\rightarrow -\infty} f(x)$
+            \item $\lim_{x\rightarrow +\infty} f(x)$
+            \item $\lim_{x\rightarrow 2} f(x)$
+            \item $\lim_{x\rightarrow 0} f(x)$
             \end{enumerate}
             \end{multicols}
 
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=(1+2/x)\^{}(x/2)} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
-            \item Para predecir cuáles pueden ser los valores de los límites pedidos, crear un deslizador introduciendo la constante \command{a} en la barra de \field{Entrada} y después introducir el punto \command{A=(a,f(a))} para dibujar el punto sobre la gráfica de la función. Desplazar el deslizador y observar el valor de la coordenada $y$ en el punto $A$ cuando $x$ tiende a cada uno de los valores de los límites.
+            \item Para representarla gráficamente, introducir la función \command{f(x):=(1+2/x)\^{}(x/2)} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+            \item Para predecir cuáles pueden ser los valores de los límites pedidos, crear un deslizador introduciendo la expresión \command{a:=0} en la barra de \field{Entrada}.
+            \item Introducir el punto \command{(a,f(a))} para dibujar el punto sobre la gráfica de la función.
+            \item Desplazar el deslizador y observar el valor de la coordenada $y$ en el punto $A$ cuando $x$ tiende a cada uno de los valores de los límites.
             \end{enumerate}
             \end{indication}
 
       \item Calcular los límites anteriores. ¿Coinciden los resultados con los conjeturados?.
             \begin{indication}
             \begin{enumerate}
-            \item Para calcular el límite por la izquierda introducir el comando \command{LímiteIzquierda(<funcion>,<valor>)} en la barra de \field{Entrada}.
-            \item Para calcular el límite por la derecha introducir el comando \command{LímiteDerecha(<funcion>,<valor>)} en la barra de \field{Entrada}.
-            \item Para calcular el límite global introducir el comando \command{Límite(<funcion>,<valor>)}en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow -2^-} f(x)$ introducir el comando \command{LímiteIzquierda(f(x), -2)} en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow -2^+} f(x)$ introducir el comando \command{LímiteDerecha(f(x), -2)} en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow -\infty} f(x)$ introducir el comando \command{Límite(f(x), -inf)} en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow \infty} f(x)$ introducir el comando \command{Límite(f(x), inf)} en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow 2} f(x)$ introducir el comando \command{Límite(f(x), 2)} en la barra de \field{Entrada}.
+            \item Para calcular $\lim_{x\rightarrow 0} f(x)$ introducir el comando \command{Límite(f(x), 0)} en la barra de \field{Entrada}.
             \end{enumerate}
             \end{indication}
       \end{enumerate}
-
 
 \item Dada la función
       \[
@@ -282,7 +286,7 @@
       \item Dibujar la gráfica de $g$ y determinar gráficamente si existen asíntotas.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{g(x)=Si(x<=0, x/(x-2), x\^{}2/(2x-6))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+            \item Para representarla gráficamente, introducir la función \command{g(x):=Si(x<=0, x/(x-2), x\^{}2/(2x-6))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
             \item Para ver si existen asíntotas verticales, horizontales y oblicuas, hay que ver si existen rectas verticales, horizontales su oblicuas a las que la gráfica de $g$ se aproxima cada vez más (aunque nunca lleguen a tocarse).
             \end{enumerate}
             \end{indication}
@@ -290,8 +294,12 @@
       \item Calcular las asíntotas verticales de $g$ y dibujarlas.
             \begin{indication}
             \begin{enumerate}
-            \item El único punto donde la función no está definida es $x=3$.
-                  Para ver si existe asíntota vertical en ese punto hay que calcular los límites laterales $\lim_{x\rightarrow 3^-}g(x)$ y $\lim_{x\rightarrow 3^+}g(x)$.
+            \item La función no está definida en los valores que anulen los denominadores en ambos trozos.
+                  Para ver las raíces del denominador del primer trozo introducir el comando \command{Raíz(x-2)} en la barra de \field{Entrada}.
+                  La única raíz es $x=2$ pero queda fuera de la región correspondiente a este trozo.
+            \item Para ver las raíces del denominador del segundo trozo introducir el comando \command{Raíz(2x-6)} en la barra de \field{Entrada}.
+                  La única raíz es $x=3$, así que la función $f$ no está definida en este punto y es un posible punto de asíntota vertical.
+            \item Para ver si existe asíntota vertical en ese punto hay que calcular los límites laterales $\lim_{x\rightarrow 3^-}g(x)$ y $\lim_{x\rightarrow 3^+}g(x)$.
             \item Para calcular el límite por la izquierda introducir el comando \command{LímiteIzquierda(g, 3)} en la barra de \field{Entrada}.
             \item Para calcular el límite por la derecha introducir el comando \command{LímiteDerecha(g, 3)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 3^-}g(x)=-\infty$ y $\lim_{x\rightarrow 3^+}g(x)=\infty$, existe una asíntota vertical en $x=3$.
@@ -306,7 +314,7 @@
             \item Para calcular el límite en $-\infty$ introducir el comando \command{Límite(g, -inf)} en la barra de \field{Entrada}.
             \item Para calcular el límite en $\infty$ introducir el comando \command{Límite(g, inf)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow -\infty} g(x)=1$, existe una asíntota horizontal $y=1$.
-                  Para dibujarla introducir la expresión \command{x=3} en la barra de \field{Entrada}.
+                  Para dibujarla introducir la expresión \command{y=1} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow \infty} g(x)=\infty$, no hay asíntota horizontal por la derecha.
             \end{enumerate}
             \end{indication}
@@ -319,7 +327,7 @@
                   Para ello introducir el comando \command{Límite(g/x, inf)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow \infty}\frac{g(x)}{x}=0.5$, existe asíntota oblicua por la derecha y su pendiente es $0.5$.
             \item Para determinar el término independiente hay que calcular el límite $\lim_{x\rightarrow \infty}g(x)-0.5x$.
-                  Para ello introducir el comando \command{Límite(g-0.5x, inf)} en la barra de \field{Entrada}.
+                  Para ello introducir el comando \command{Límite(g(x)-0.5x, inf)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow \infty}g(x)-0.5x=1.5$ entonces la ecuación de la asíntota oblicua es $y=0.5x+1.5$.
                   Para dibujarla introducir la expresión \command{y=0.5x+1.5} en la barra de \field{Entrada}.
             \end{enumerate}
@@ -332,7 +340,7 @@
 
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+            \item Para representarla gráficamente, introducir la función \command{f(x):=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^-}f(x)$ introducir el comando \command{LímiteIzquierda(f, 0)} en la barra de \field{Entrada}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^+}f(x)$ introducir el comando \command{LímiteDerecha(f, 0)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 0^-}f(x)=\lim_{x\rightarrow 0^+}f(x)=1$, $f$ tiene una discontinuidad evitable en $x=0$.
@@ -341,7 +349,7 @@
       \item $g(x)=\dfrac{1}{2^{1/x}}$ en $x=0$.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Para representarla gráficamente, introducir la función \command{g(x):=1/2\^{}(1/x)} en la barra de \field{Entrada} de la \field{Vista CAS}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^-}g(x)$ introducir el comando \command{LímiteIzquierda(g, 0)} en la barra de \field{Entrada}.
             \item Para calcular el límite $\lim_{x\rightarrow 0^+}g(x)$ introducir el comando \command{LímiteDerecha(g, 0)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 0^-}g(x)=\infty$, $g$ tiene una discontinuidad evitable en $x=0$.
@@ -350,9 +358,9 @@
       \item $h(x)=\dfrac{1}{1+e^{\frac{1}{1-x}}}$ en $x=1$.
             \begin{indication}
             \begin{enumerate}
-            \item Para representarla gráficamente, introducir la función \command{f(x)=sen(x)/x} en la barra de \field{Entrada} de la \field{Vista CAS}.
-            \item Para calcular el límite $\lim_{x\rightarrow 1^-}h(x)$ introducir el comando \command{LímiteIzquierda(f, 0)} en la barra de \field{Entrada}.
-            \item Para calcular el límite $\lim_{x\rightarrow 1^+}h(x)$ introducir el comando \command{LímiteDerecha(f, 0)} en la barra de \field{Entrada}.
+            \item Para representarla gráficamente, introducir la función \command{h(x):=1/(1+e\^{}(1/(1-x)))} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Para calcular el límite $\lim_{x\rightarrow 1^-}h(x)$ introducir el comando \command{LímiteIzquierda(h, 1)} en la barra de \field{Entrada}.
+            \item Para calcular el límite $\lim_{x\rightarrow 1^+}h(x)$ introducir el comando \command{LímiteDerecha(h, 1)} en la barra de \field{Entrada}.
             \item Como $\lim_{x\rightarrow 1^-}h(x)=0$ y $\lim_{x\rightarrow 1^+}f(x)=1$, $h$ tiene una discontinuidad de salto en $x=1$.
             \end{enumerate}
             \end{indication}
@@ -372,10 +380,10 @@
 
       \begin{indication}
       \begin{enumerate}
-      \item Para representarla gráficamente, introducir la función \command{f(x)=Si(x<0, (x+1)/(x\^{}2-1), 1/e\^{}1/(x\^{}2-1))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+      \item Para representarla gráficamente, introducir la función \command{f(x):=Si(x<0, (x+1)/(x\^{}2-1), 1/e\^{}(1/(x\^{}2-1)))} en la barra de \field{Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
       \item En primer lugar hay que encontrar los puntos que quedan fuera del dominio de cada uno de los tramos.
             Para ello, hay que analizar dónde se anulan los denominadores presentes en las definiciones de cada trozo.
-            Para ver donde se anula $x^2-1$ introducir la ecuación $x^1-1=0$ en la barra de \field{Entrada} y hacer clic sobre el botón \button{Resolver}.
+            Para ver donde se anula $x^2-1$ introducir el comando \command{Raíz(x\^{}2-1)} en la barra de \field{Entrada}.
       \item Como la ecuación anterior tiene soluciones $x=-1$ y $x=1$, en estos puntos la función no está definida y es, por tanto, discontinua.
             Además de estos dos puntos hay que estudiar la posible discontinuidad en $x=0$ que es donde cambia la definición de la función.
       \item Para calcular el límite $\lim_{x\rightarrow -1^-}f(x)$ introducir el comando \command{LímiteIzquierda(f, -1)} en la barra de \field{Entrada}.

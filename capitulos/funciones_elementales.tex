@@ -189,22 +189,31 @@
             \end{indication}
       \end{enumerate}
 
-\item Representar en una misma gráfica las funciones $2^{x}, e^{x}, 0.7^{x}, 0.5^{x}$. A la vista de las gráficas obtenidas, indicar cuáles
-      de las funciones anteriores son crecientes y cuáles son decrecientes.
+\item Representar en una misma gráfica las funciones $2^{x}, e^{x}, 0.7^{x}, 0.5^{x}$.
+      A la vista de las gráficas obtenidas, ¿para qué valores de $a$ será la función creciente? ¿Y para qué valores de $a$ será decreciente?
       \begin{indication}
-      Introducir cada función en la barra de \field{Entrada} de la \field{Vista CAS}.
+      \begin{enumerate}
+      \item Introducir la función \command{2\^{}x} en la barra de \field{Entrada} de la \field{Vista CAS}.
+      \item Introducir la función \command{e\^{}x} en la barra de \field{Entrada}.
+      \item Introducir la función \command{0.7\^{}x} en la barra de \field{Entrada}.
+      \item Introducir la función \command{0.5\^{}x} en la barra de \field{Entrada}.
+      \item La función exponencial $a^x$ será creciente cuando $a>0$ y decreciente cuando $0<a<1$.
+      \end{enumerate}
       \end{indication}
-
-      ¿En general, para qué valores de $a$ será la función creciente? ¿Y para qué valores de $a$ será decreciente? Probar con
-      distintos valores de $a$ representando gráficamente nuevas funciones si fuera necesario.
-
 
 \item Representar en una misma gráfica las funciones siguientes, indicando su período y amplitud.
       \begin{enumerate}
       \item $\sen{x}$, $\sen{x}+2$, $\sen{(x+2)}$.
       \item $\sen{2x}$, $2\sen{x}$, $\sen\frac{x}{2}$.
             \begin{indication}
-            Introducir cada función en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \begin{enumerate}
+            \item Introducir la función \command{sen(x)} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir la función \command{sen(x)+2} en la barra de \field{Entrada}.
+            \item Introducir la función \command{sen(x+2)} en la barra de \field{Entrada}.
+            \item Introducir la función \command{sen(2x)} en la barra de \field{Entrada}.
+            \item Introducir la función \command{2sen(x)} en la barra de \field{Entrada}.
+            \item Introducir la función \command{sen(x/2)} en la barra de \field{Entrada}.
+            \end{enumerate}
             \end{indication}
       \end{enumerate}
 
@@ -220,15 +229,7 @@
       \]
 
       \begin{indication}
-      Para representar funciones a trozos, Geogebra utiliza el comando
-      \begin{center}
-            \command{Si(<Condición>, <Entonces>, <Si no>)} 
-      \end{center}
-      y se pueden anidar varios comandos unos dentro de otros. 
-      Utilizando este comando para representar la función anterior, habría que introducir la expresión
-      \begin{center}
-        Si[x<=0, -2x, x\^2]    
-      \end{center}
+      Introducir la función \command{Si[x<=0, -2x, x\^{}2]} en la barra de \field{Entrada}.
       \end{indication}
 \end{enumerate}
 
