@@ -141,7 +141,7 @@
       \item $xdy=ydx$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(y'=y/x)} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(y'=y/x)} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \item Para hacer variar la constante de integración y obtener diferentes soluciones particulares abrir la \field{Vista de Álgebra} y mover el deslizador correspondiente a la constante.
             \end{enumerate}
@@ -150,7 +150,7 @@
       \item $-2x(1+e^y)+e^y(1+x^{2})y'=0$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(-2x(1+e\^{}y)+e\^{}y(1+x\^{}2)y'=0)} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(-2x(1+e\^{}y)+e\^{}y(1+x\^{}2)y'=0)} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \item Para hacer variar la constante de integración y obtener diferentes soluciones particulares abrir la \field{Vista de Álgebra} y mover el deslizador correspondiente a la constante.
             \end{enumerate}
@@ -159,7 +159,7 @@
       \item $y-xy'=1+x^2y'$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(y-xy'=1+x\^{}2y')} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(y-xy'=1+x\^{}2y')} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \item Para hacer variar la constante de integración y obtener diferentes soluciones particulares abrir la \field{Vista de Álgebra} y mover el deslizador correspondiente a la constante.
             \end{enumerate}
@@ -172,7 +172,7 @@
       \item $xdy=ydx$, con la condición inicial $y(1)=2$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(y'=y/x, (1,2))} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(y'=y/x, (1,2))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
@@ -180,7 +180,7 @@
       \item $x\sqrt{1-y^2}+y\sqrt{1-x^2} y'=0$, con la condición inicial $y(0)=1$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(xsqrt(1-y\^{}2)+ysqrt(1-x\^{}2)y'=0, (0,1))} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(xsqrt(1-y\^{}2)+ysqrt(1-x\^{}2)y'=0, (0,1))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
@@ -188,7 +188,7 @@
       \item $s'+s\cos t=\sen t\cos t$ con la condición inicial $s(0)=1$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(s'+s*cos(t)=sen(t)cos(t), s, t, (0,1))} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(s'+s*cos(t)=sen(t)cos(t), s, t, (0,1))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
@@ -196,13 +196,13 @@
       \item $(1+e^x)yy'=e^y$, con la condición inicial $y(0)=0$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO((1+e\^{}x)yy'=e\^{}y, (0,0))} en la barra de \field{Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO((1+e\^{}x)yy'=e\^{}y, (0,0))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item En este caso, Geogegra no es capaz de encontrar la solución particular de esta ecuación, pero podemos intentar resolverla separando las variables e integrando.
             \item Tras separar las variables se tiene la igualdad $\frac{y}{e^y}dy = \frac{1}{1+e^x}dx$, de manera que sólo hay que integrar a cada lado.
-                  Para ello introducir el comando \command{Integral(y/e\^{}y) - Integral(1/(1+e\^{}x))} en la barra de \field{Entrada}.
+                  Para ello introducir el comando \command{Integral(y/e\^{}y) - Integral(1/(1+e\^{}x))} en la \field{Barra de Entrada}.
             \item En la solución aparecen dos constantes $c_1$ y $c_2$, pero realmente se puede eliminar una pasándola al otro lado.
-                  Para ello introducir el comando \command{Sustituye(\$, c\_{}2=0)} en la barra de \field{Entrada}.
-            \item Para imponer la condición inicial introducir el comando \command{Sustituye(\$, x=0, y=0)} en la barra de \field{Entrada}.
+                  Para ello introducir el comando \command{Sustituye(\$, c\_{}2=0)} en la \field{Barra de Entrada}.
+            \item Para imponer la condición inicial introducir el comando \command{Sustituye(\$, x=0, y=0)} en la \field{Barra de Entrada}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
@@ -215,13 +215,13 @@
       \begin{indication}
       \begin{enumerate}
       \item La ecuación diferencial que explica la disolución del azúcar es $a'=ka$, donde $a$ es la cantidad de azúcar que queda por disolver, $t$ es el tiempo y $k$ es la constante de disolución del azúcar.
-      \item Para resolver la ecuación diferencial introducir el comando \command{ResuelveEDO(a'=k*a, a, t, (0, 13.6)} en la barra de \field{Entrada} de la \field{Vista CAS}.
-      \item Para imponer la segunda condición inicial introducir el comando \command{Sustituye(\$, t=4, a=4.5)} en la barra de \field{Entrada}.
-      \item Para obtener el valor de la constante de disolución introducir el comando \command{Resuelve(\$)} en la barra de \field{Entrada}.
-      \item Para sustituir el valor de la constante de disolución en la solución particular introducir el comando  \command{Sustituye(\$$n$,\$)} en la barra de \field{Entrada}, donde $n$ es el identificador de la expresión que contienen la solución de la ecuación diferencial.
+      \item Para resolver la ecuación diferencial introducir el comando \command{ResuelveEDO(a'=k*a, a, t, (0, 13.6)} en la \field{Barra de Entrada} de la \field{Vista CAS}.
+      \item Para imponer la segunda condición inicial introducir el comando \command{Sustituye(\$, t=4, a=4.5)} en la \field{Barra de Entrada}.
+      \item Para obtener el valor de la constante de disolución introducir el comando \command{Resuelve(\$)} en la \field{Barra de Entrada}.
+      \item Para sustituir el valor de la constante de disolución en la solución particular introducir el comando  \command{Sustituye(\$$n$,\$)} en la \field{Barra de Entrada}, donde $n$ es el identificador de la expresión que contienen la solución de la ecuación diferencial.
       \item El azúcar que quedará sin disolver tras disolverse el 95\% de la cantidad inicial es el 5\% de esta cantidad.
-            Para sustituir esta cantidad de azúcar en la solución de la ecuación diferencial introducir el comando \command{Sustituye(\$,13.6*0.05)} en la barra de \field{Entrada}.
-      \item Finalmente, para obtener la predicción del tiempo introducir el comando  \command{Resuelve(\$)} en la barra de \field{Entrada}.
+            Para sustituir esta cantidad de azúcar en la solución de la ecuación diferencial introducir el comando \command{Sustituye(\$,13.6*0.05)} en la \field{Barra de Entrada}.
+      \item Finalmente, para obtener la predicción del tiempo introducir el comando  \command{Resuelve(\$)} en la \field{Barra de Entrada}.
       \end{enumerate}
       \end{indication}
 
