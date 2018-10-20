@@ -66,6 +66,7 @@ Para introducir una expresión se utiliza \field{Barra de Entrada} de la \field{
 La \field{Barra de Entrada} permite introducir expresiones matemáticas, comandos y también anotaciones de texto.
 En estas expresiones podemos introducir números, letras romanas, letras griegas, operadores matemáticos y cualquier símbolo matemático que aparece en el teclado virtual.
 También permite la entrada de código \LaTeX\footnote{\url{https://www.latex-project.org/}} para formatear la expresiones.
+Por ejemplo es posible escribir superíndices con el comando \command{\^{}} y subíndices con el comando \command{\_}.
 
 Cuando se presiona la tecla \command{Enter} después de introducir una expresión matemática, Geogebra trata de evaluarla y muestra el resultado de la evaluación justo debajo de la expresión, o bien un aviso de error cuando hay algo mal escrito en la expresión.
 
@@ -75,11 +76,11 @@ Los operadores más habituales en la construcción de expresiones son los que ap
 \begin{tabular}{cc}
 \tcrule
 \textbf{Símbolo} & \textbf{Operador} \\
-\texttt{+}       & suma              \\
-\texttt{-}       & resta             \\
-\texttt{*}       & producto          \\
-\texttt{/}       & división          \\
-\texttt{\^{}}    & potencia          \\
+\command{+}      & suma              \\
+\command{-}      & resta             \\
+\command{*}      & producto          \\
+\command{/}      & división          \\
+\command{\^{}}   & potencia          \\
 \bcrule
 \end{tabular}
 \end{center}
@@ -248,8 +249,8 @@ Para ocultar de nuevo el objeto en la \field{Vista Gráfica} basta con volver a 
 \end{center}
 \end{figure}
 
-Geogebra permite también la representación de curvas paramétricas utilizando el comando \command{Curva(<Expresión>, <Expresión>, <Parámetro>, <Valor inicial>, <Valor final>)}, donde las dos primeras expresiones dan las coordenadas $x$ e $y$ de la curva en función del parámetro.
-Por ejemplo, el comando \command{Curva(cos(t), 2sen(t)cos(t), t, 0, 2pi)} dibuja la curva que se muestra en la figura~\ref{g:curva-parametrica}.
+Geogebra permite también la representación de funciones paramétricas definiendo el vector de las funciones coordenadas en función de un parámetro.
+Por ejemplo, el comando \command{g(t):=(cos(t), 2sen(t)cos(t))} dibuja la curva que se muestra en la figura~\ref{g:curva-parametrica}.
 
 \begin{figure}[h!]
 \begin{center}
@@ -280,8 +281,8 @@ Para ocultar de nuevo el objeto en la \field{Vista Gráfica} basta con volver a 
 \end{center}
 \end{figure}
 
-También es posible la representación de curvas paramétricas utilizando el comando \command{Curva(<Expresión>, <Expresión>, <Expresión>, <Parámetro>, <Valor inicial>, <Valor final>)}, donde las tres primeras expresiones dan las coordenadas $x$, $y$ y $z$ de la curva en función del parámetro.
-Por ejemplo, el comando \command{g(t):=Curva(cos(t), sen(t), t/2, t, 0, 2pi)} dibuja la curva que se muestra en la figura~\ref{g:curva-parametrica-3D}.
+También es posible la representación de curvas paramétricas al igual que en el plano real, pero introduciendo el vector con las tres funciones coordenadas en función de un parámetro.
+Por ejemplo, el comando \command{h(t):=(cos(t), sen(t), t/2)} dibuja la curva que se muestra en la figura~\ref{g:curva-parametrica-3D}.
 
 \begin{figure}[h!]
 \begin{center}
@@ -365,7 +366,7 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
             \end{indication}
       \end{enumerate}
 
-\item Definir las siguientes objetos matemáticos y dibujarlos.
+\item Definir los siguientes objetos matemáticos y dibujarlos.
       \begin{enumerate}
       \item Las constantes $a=2$ y $b=3$.
             \begin{indication}
@@ -387,4 +388,134 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
             Introducir el comando \command{a*x\^{}2+b*y\^{}2=8} en la \field{Barra de Entrada}.
             \end{indication}
       \end{enumerate}
+
+\item Definir las siguientes funciones y dibujarlas.
+      \begin{enumerate}
+      \item $f(x):=x^2$.
+            \begin{indication}
+            Introducir el comando \command{f(x):=x\^{}2} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+            \end{indication}
+      \item $g(x):=\log(x)$.
+            \begin{indication}
+            Introducir el comando \command{g(x):=log(x)} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item $h(x):=\sen(x)$.
+            \begin{indication}
+            Introducir el comando \command{g(x):=sen(x)} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item $g\circ f(x)$.
+            \begin{indication}
+            Introducir el comando \command{g(f(x))} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de la expresión.
+            \end{indication}
+      \item $h\circ g \circ f(x)$.
+            \begin{indication}
+            Introducir el comando \command{h(g(f(x)))} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de la expresión.
+            \end{indication}
+      \item $f\circ g \circ h(x)$.
+            \begin{indication}
+            Introducir el comando \command{f(g(h(x)))} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de la expresión.
+            \end{indication}
+      \end{enumerate}
+
+\item  Dadas las matrices
+      \[
+      A=\left(
+      \begin{array}{cc}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22} \\
+      a_{31} & a_{32}
+      \end{array}
+      \right)
+      \qquad
+      B=\left(
+      \begin{array}{ccc}
+      1 & 2 & 3 \\
+      4 & 5 & 6
+      \end{array}
+      \right)
+      \]
+      y el vector $v=(x, y, z)$, se pide:
+
+      \begin{enumerate}
+      \item Definir las matrices $A$ y $B$, y el vector $v$.
+            \begin{indication}
+            \begin{enumerate}
+            \item Introducir el comando \command{A:=\{\{a\_{11},a\_{12}\},\{a\_{21},a\_{22}\},\{a\_{31},a\_{32}\}\}} en la \field{Barra de Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{B:=\{\{1,2,3\},\{4,5,6\}\}} en la \field{Barra de Entrada}.
+            \item Introducir el comando \command{v:=(x,y,z)} en la \field{Barra de Entrada}.
+            \end{enumerate}
+            \end{indication}
+      \item Calcular $A\cdot B$.
+            \begin{indication}
+            Introducir el comando \command{A*B} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item Calcular $B\cdot A$.
+            \begin{indication}
+            Introducir el comando \command{B*A} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item Calcular $v\cdot A$.
+            \begin{indication}
+            Introducir el comando \command{v*A} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item Calcular $B\cdot v$.
+            \begin{indication}
+            Introducir el comando \command{B*v} en la \field{Barra de Entrada}.
+            \end{indication}
+      \item Sustituir $x=1$, $y=1$ y $z=0$ en el vector anterior y dibujarlo.
+            \begin{indication}
+            Introducir el comando \command{Sustituye(\$,\{x=1,y=1,z=0\})} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de la expresión.
+            \end{indication}
+      \item Calcular el módulo del vector anterior.
+            \begin{indication}
+            Introducir el comando \command{|\$|} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de la expresión.
+            \end{indication}
+      \item Cambiar la sustitución anterior por $x=0$, $y=0$ y $z=1$ y observar cómo cambia el módulo del vector resultante.
+            \begin{indication}
+            Editar la línea de la sustitución anterior y cambiarla por  \command{Sustituye(\$,\{x=0,y=0,z=1\})} en la \field{Barra de Entrada}.
+            \end{indication}
+      \end{enumerate}
+
+\item Encontrar los puntos donde se cortan las gráficas de las funciones $f(x)=x^2$ y $g(x)=\dfrac{x+1}{2}$ y dibujarlos.
+      \begin{enumerate}
+      \item Introducir el comando \command{f(x):=x\^{}2} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+      \item Introducir el comando \command{g(x):=(x+1)/2} en la \field{Barra de Entrada}.
+      \item Para resolver la ecuación, introducir el comando \command{Resuelve(f=g)} en la \field{Barra de Entrada}.
+      \item Para dibujar los puntos de intersección, introducir el comando \command{Interseca(f,g)} en la \field{Barra de Entrada} y hacer clic sobre el círculo que aparece a la izquierda de la expresión.
+      \end{enumerate}
+
+\item Dibujar la parametrizada
+      \[
+      g(t)=
+      \begin{cases}
+      \cos(t) \\
+      2\sen(t)\cos(t)
+      \end{cases}
+      t\in \mathbb{R}
+      \]
+
+      \begin{indication}
+      Introducir el comando \command{g(t):=(cos(t), 2sen(t)cos(t))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica}.
+      \end{indication}
+
+\item Representar gráficamente las siguientes superficies
+      \[
+            f(x,y)=\dfrac{\sen(x^2+y^2)}{\sqrt{x^2+y^2}}, \qquad x^2+y 2+(z-2)^2=1
+            \]
+      y la curva paramétrica
+      \[
+      h(t)=
+      \begin{cases}
+      \sen(t) \\
+      \cos(t) \\
+      t/2
+      \end{cases}
+      t\in \mathbb{R}
+      \]
+      \begin{indication}
+      \begin{enumerate}
+      \item Introducir el comando \command{f(x,y):=(sen(x\^{}2+y\^{}2/(sqrt(x\^{}2+y\^{}2)))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica 3D}.
+      \item Introducir el comando \command{x\^{}2+y\^{}2+(z-2)\^{}2=1}  en la \field{Barra de Entrada}.
+      \item Introducir el comando \command{h(t):=(sen(t),cos(t),t/2)}  en la \field{Barra de Entrada}.
+      \end{enumerate}
+      \end{indication}
 \end{enumerate}
