@@ -107,7 +107,7 @@ Cada vez que introducimos una expresión, esta aparece en la \field{Vista CAS} e
 Posteriormente, cada vez que queramos hacer referencia a dicha expresión podremos utilizar su identificador en lugar de volver a escribir la expresión.
 
 Existen dos formas de referirse a una expresión anterior, que son la referencia estática y la referencia dinámica.
-Para hacer una referencia estática debemos escribir el símbolo \# seguido el número que identifica la expresión, mientas que para hacer una referencia dinámica debemos escribir el símbolo \$ seguido del número que identifica la expresión.
+Para hacer una referencia estática debemos escribir el símbolo \# seguido del número que identifica la expresión, mientas que para hacer una referencia dinámica debemos escribir el símbolo \$ seguido del número que identifica la expresión.
 Una referencia estática no cambiará la expresión donde se hace la referencia aún cuando la expresión original cambie, mientras que en una referencia dinámica, cuando cambie la expresión original, la expresión donde se hace la referencia reflejará ese cambio.
 
 Es posible seleccionar cualquier expresión o subexpresión de la \field{Vista CAS} y copiarla y pegarla en la \field{Barra de Entrada}.
@@ -139,6 +139,13 @@ Por ejemplo para definir la constante de la aceleración de la gravedad, escribi
 
 Por otro lado, para definir una función se escribe el nombre de la función seguido de la lista de variables de la misma separadas por comas y entre paréntesis; después se escribe \command{:=} y por último la expresión que define la función.
 Así, por ejemplo, para definir la función que calcula el área de un triángulo de base $b$ y altura $h$, escribiríamos \command{a(b,h):=(b*h)/2} (ver figura~\ref{g:expresiones}).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6]{img/introduccion/math-expressions}
+\caption{Introducción de expresiones matemáticas en la \field{Barra de Entrada}.} \label{g:expresiones}
+\end{center}
+\end{figure}
 
 Si hemos definido una función o una constante, y posteriormente cambiamos la definición, los cambios se verán reflejados en cualquier expresión donde aparezca la constante o la función, a no ser que hayamos hecho una referencia estática a ella.
 
@@ -227,7 +234,7 @@ Se pueden indicar además restricciones para las variables.
 Por ejemplo, el comando \command{Resuelve(x\^{}2-5x+4=0, x>3)} devolverá únicamente la solución \result{\{x=4\}}.
 
 Para resolver sistemas de ecuaciones hay que poner la lista de ecuaciones entre llaves.
-Por ejemplo, el comando \command{Resuelve({2x+3=7, x-y=-1})} devolverá el resultado \result{\{x=3, y=2\}}.
+Por ejemplo, el comando \command{Resuelve(\{2x+3y=12, y-x=-1\})} devolverá el resultado \result{\{x=3, y=2\}}.
 
 Este comando también permite resolver inecuaciones.
 Por ejemplo, el comando \command{Resuelve(3x-2<1)} devolverá el resultado \result{\{x<1\}}.
@@ -383,7 +390,7 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
             Introducir el comando \command{f(x):=a+b*x} en la \field{Barra de Entrada}.
             \end{indication}
       \item La ecuación $ax^2+by^2=8$.
-            Utilizar los deslizadores de las constantes para ver cómo cambia la recta.
+            Utilizar los deslizadores de las constantes para ver cómo cambia la cónica.
             \begin{indication}
             Introducir el comando \command{a*x\^{}2+b*y\^{}2=8} en la \field{Barra de Entrada}.
             \end{indication}
@@ -499,8 +506,8 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
 
 \item Representar gráficamente las siguientes superficies
       \[
-            f(x,y)=\dfrac{\sen(x^2+y^2)}{\sqrt{x^2+y^2}}, \qquad x^2+y 2+(z-2)^2=1
-            \]
+      f(x,y)=\dfrac{2\sen(x^2+y^2)}{\sqrt{x^2+y^2}}, \qquad x^2+y 2+(z-2)^2=1
+      \]
       y la curva paramétrica
       \[
       h(t)=
@@ -513,7 +520,7 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
       \]
       \begin{indication}
       \begin{enumerate}
-      \item Introducir el comando \command{f(x,y):=(sen(x\^{}2+y\^{}2/(sqrt(x\^{}2+y\^{}2)))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica 3D}.
+      \item Introducir el comando \command{f(x,y):=(2sen(x\^{}2+y\^{}2/(sqrt(x\^{}2+y\^{}2)))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica 3D}.
       \item Introducir el comando \command{x\^{}2+y\^{}2+(z-2)\^{}2=1}  en la \field{Barra de Entrada}.
       \item Introducir el comando \command{h(t):=(sen(t),cos(t),t/2)}  en la \field{Barra de Entrada}.
       \end{enumerate}
