@@ -128,7 +128,8 @@ Si cometemos un error introduciendo una expresión o eliminándola, es posible d
 
 \subsection*{Definición de variables}
 Para definir variables se pueden utilizar letras romanas o griegas.
-Geogebra permite definir variables de más de una letra, de manera que la expresión \texttt{xy}, no se interpreta como el producto de la variable $x$ por la variable $y$, sino como la variable $xy$.
+Los nombres de las variables pueden contener más de una letra y, en tal caso, pueden usarse también números, pero siempre debe comenzar por una letra. 
+Así, para Geogebra, la expresión \texttt{xy}, no se interpreta como el producto de la variable $x$ por la variable $y$, sino como la variable $xy$.
 Además, distingue entre mayúsculas y minúsculas, así que no es lo mismo $xy$ que $xY$.
 
 
@@ -490,7 +491,7 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
       \item Para dibujar los puntos de intersección, introducir el comando \command{Interseca(f,g)} en la \field{Barra de Entrada} y hacer clic sobre el círculo que aparece a la izquierda de la expresión.
       \end{enumerate}
 
-\item Dibujar la parametrizada
+\item Dibujar la función paramétrica
       \[
       g(t)=
       \begin{cases}
@@ -520,7 +521,7 @@ Esto genera una página web que puede abrirse con cualquier navegador y después
       \]
       \begin{indication}
       \begin{enumerate}
-      \item Introducir el comando \command{f(x,y):=(2sen(x\^{}2+y\^{}2/(sqrt(x\^{}2+y\^{}2)))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica 3D}.
+      \item Introducir el comando \command{f(x,y):=2sen(x\^{}2+y\^{}2)/sqrt(x\^{}2+y\^{}2)} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráfica 3D}.
       \item Introducir el comando \command{x\^{}2+y\^{}2+(z-2)\^{}2=1}  en la \field{Barra de Entrada}.
       \item Introducir el comando \command{h(t):=(sen(t),cos(t),t/2)}  en la \field{Barra de Entrada}.
       \end{enumerate}
