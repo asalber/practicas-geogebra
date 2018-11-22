@@ -290,8 +290,7 @@ innerbottommargin=5pt]{iBox}
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
 \newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}		
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}	
-\newenvironment{indication}{\begin{iBox}\begin{indicationT}}{\end{indicationT}\end{iBox}}	
-
+\newenvironment{indication}{\begin{iBox}\begin{indicationT} \renewcommand{\theenumii}{\arabic{enumii}}\renewcommand{\labelenumii}{\sffamily\theenumii)}\renewcommand{\theenumiii}{\arabic{enumiii}}\renewcommand{\labelenumiii}{\sffamily\theenumiii)}}{\end{indicationT}\end{iBox}}
 %----------------------------------------------------------------------------------------
 %	REMARK ENVIRONMENT
 %----------------------------------------------------------------------------------------
