@@ -136,7 +136,7 @@
 \section{Ejercicios resueltos}
 
 \begin{enumerate}[leftmargin=*]
-\item Resolver las siguientes ecuaciones diferenciales de variables separables y dibujar sus curvas integrales para distintos valores de la constante de integración:
+\item Resolver las siguientes ecuaciones diferenciales de variables separables y dibujar sus curvas integrales para distintos valores de la constante de integración.
       \begin{enumerate}
       \item $xdy=ydx$.
             \begin{indication}
@@ -180,7 +180,7 @@
       \item $x\sqrt{1-y^2}+y\sqrt{1-x^2} y'=0$, con la condición inicial $y(0)=1$.
             \begin{indication}
             \begin{enumerate}
-            \item Introducir el comando \command{ResuelveEDO(xsqrt(1-y\^{}2)+ysqrt(1-x\^{}2)y'=0, (0,1))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
+            \item Introducir el comando \command{ResuelveEDO(x*sqrt(1-y\^{}2)+y*sqrt(1-x\^{}2)y'=0, (0,1))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
@@ -199,11 +199,13 @@
             \item Introducir el comando \command{ResuelveEDO((1+e\^{}x)yy'=e\^{}y, (0,0))} en la \field{Barra de Entrada} de la \field{Vista CAS}.
             \item En este caso, Geogegra no es capaz de encontrar la solución particular de esta ecuación, pero podemos intentar resolverla separando las variables e integrando.
             \item Tras separar las variables se tiene la igualdad $\frac{y}{e^y}dy = \frac{1}{1+e^x}dx$, de manera que sólo hay que integrar a cada lado.
-                  Para ello introducir el comando \command{Integral(y/e\^{}y) - Integral(1/(1+e\^{}x))} en la \field{Barra de Entrada}.
+                  Para ello introducir el comando \command{Integral(y/e\^{}y) = Integral(1/(1+e\^{}x))} en la \field{Barra de Entrada}.
             \item En la solución aparecen dos constantes $c_1$ y $c_2$, pero realmente se puede eliminar una pasándola al otro lado.
-                  Para ello introducir el comando \command{Sustituye(\$, c\_{}2=0)} en la \field{Barra de Entrada}.
+                  Para ello introducir el comando \command{Sustituye(\$, c\_{}1=c, c\_{}2=0)} en la \field{Barra de Entrada}.
             \item Para imponer la condición inicial introducir el comando \command{Sustituye(\$, x=0, y=0)} en la \field{Barra de Entrada}.
-            \item Para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
+            \item Para obtener el valor de la constante, introducir el comando \command{Resuelve(\$)} en la \field{Barra de Entrada}.
+            \item Para sustituir el valor de la constante en la solución particular introducir el comando \command{Sustituye(\$n, \$)} en la \field{Barra de Entrada}, donde \command{n} es el número de la fila donde aparece la solución particular de la ecuación.
+            \item Finalmente, para dibujar la solución de la ecuación diferencial, hacer clic en el círculo que aparece a la izquierda de la expresión anterior.
             \end{enumerate}
             \end{indication}
       \end{enumerate}
@@ -218,7 +220,7 @@
       \item Para resolver la ecuación diferencial introducir el comando \command{ResuelveEDO(a'=k*a, a, t, (0, 13.6)} en la \field{Barra de Entrada} de la \field{Vista CAS}.
       \item Para imponer la segunda condición inicial introducir el comando \command{Sustituye(\$, t=4, a=4.5)} en la \field{Barra de Entrada}.
       \item Para obtener el valor de la constante de disolución introducir el comando \command{Resuelve(\$)} en la \field{Barra de Entrada}.
-      \item Para sustituir el valor de la constante de disolución en la solución particular introducir el comando  \command{Sustituye(\$$n$,\$)} en la \field{Barra de Entrada}, donde $n$ es el identificador de la expresión que contienen la solución de la ecuación diferencial.
+      \item Para sustituir el valor de la constante de disolución en la solución particular introducir el comando  \command{Sustituye(\$$n$,\$)} en la \field{Barra de Entrada}, donde $n$ es el número de la fila que contiene la solución particular de la ecuación diferencial.
       \item El azúcar que quedará sin disolver tras disolverse el 95\% de la cantidad inicial es el 5\% de esta cantidad.
             Para sustituir esta cantidad de azúcar en la solución de la ecuación diferencial introducir el comando \command{Sustituye(\$,13.6*0.05)} en la \field{Barra de Entrada}.
       \item Finalmente, para obtener la predicción del tiempo introducir el comando  \command{Resuelve(\$)} en la \field{Barra de Entrada}.

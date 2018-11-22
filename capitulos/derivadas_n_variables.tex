@@ -304,7 +304,7 @@
 
       \begin{indication}
       \begin{enumerate}
-      \item Introducir el comando \command{f(t):=(sen(t),cos(t),sqrt(t))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar a \field{Vista Gráficas 3D}.
+      \item Introducir el comando \command{f(t):=(sen(t),cos(t),sqrt(t))} en la \field{Barra de Entrada} de la \field{Vista CAS} y activar la \field{Vista Gráficas 3D}.
       \item Para dibujar el punto de tangencia en la trayectoria, introducir el comando \command{f(pi)} en la \field{Barra de Entrada} y hacer clic en el círculo que aparece a la izquierda de esta expresión.
       \item Para calcular y dibujar la recta tangente a la trayectoria, introducir el comando \command{g(t):=f(pi)+f'(pi)t} en la \field{Barra de Entrada}.
       \item Para calcular el plano normal a la trayectoria, introducir el comando \command{((x,y,z)-f(pi))f'(pi)=0} en la \field{Barra de Entrada}.
@@ -361,9 +361,9 @@
       \item Calcular la derivadas parciales de $f$ en el punto $(1,2)$. ¿Qué conclusiones sacas?
             \begin{indication}
             \begin{enumerate}
-            \item Para calcular la derivada parcial con respecto a $x$, introducir el comando \command{f'\_x(x,y):=Derivada(f, x)} en la \field{Barra de Entrada}.
+            \item Para calcular la derivada parcial con respecto a $x$, introducir el comando \command{f'\_x(x,y):= Derivada(f, x)} en la \field{Barra de Entrada}.
             \item Para calcular el valor de la derivada parcial con respecto a $x$ en el punto $(1,2)$, introducir la función \command{f'\_x(1,2)} en la \field{Barra de Entrada}.
-            \item Para calcular la derivada parcial con respecto a $y$, introducir el comando \command{f'\_y(x,y):=Derivada(f, y)} en la \field{Barra de Entrada}.
+            \item Para calcular la derivada parcial con respecto a $y$, introducir el comando \command{f'\_y(x,y):= Derivada(f, y)} en la \field{Barra de Entrada}.
             \item Para calcular el valor de la derivada parcial con respecto a $y$ en el punto $(1,2)$, introducir la función \command{f'\_y(1,2)} en la \field{Barra de Entrada}.
             \end{enumerate}
             \end{indication}
@@ -389,8 +389,8 @@
             \begin{indication}
             \begin{enumerate}
             \item Introducir la función \command{f(x,y):=20-4x\^{}2-y\^{}2} en la \field{Barra de Entrada} de la \field{Vista CAS}.
-            \item Para calcular la derivada parcial con respecto a $x$, introducir el comando \command{f'\_x(x,y):=Derivada(f, x)} en la \field{Barra de Entrada}.
-            \item Para calcular la derivada parcial con respecto a $y$, introducir el comando \command{f'\_y(x,y):=Derivada(f, x)} en la \field{Barra de Entrada}.
+            \item Para calcular la derivada parcial con respecto a $x$, introducir el comando \command{f'\_x(x,y):= Derivada(f, x)} en la \field{Barra de Entrada}.
+            \item Para calcular la derivada parcial con respecto a $y$, introducir el comando \command{f'\_y(x,y):= Derivada(f, y)} en la \field{Barra de Entrada}.
             \item Para calcular el vector gradiente, introducir el comando \command{f'(x,y):=(f'\_x, f'\_y)} en la \field{Barra de Entrada}.
             \item Para calcular el vector gradiente en el punto $(2,-3)$, introducir la función \command{f'(2,-3)}.
             \end{enumerate}
@@ -408,7 +408,7 @@
             \end{enumerate}
             \end{indication}
 
-      \item Calcular el hessiano en el punto $(2,-3)$.
+      \item Hessiano.
             \begin{indication}
             Introducir la expresión \command{Determinante(\$)} en la \field{Barra de Entrada}.
             \end{indication}
