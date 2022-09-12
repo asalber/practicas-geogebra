@@ -23,7 +23,7 @@
   % Font settings
   \usepackage{unicode-math}
   \setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
-  \setmathfont{TG Pagella Math}
+  \setmathfont[math-style=ISO, bold-style=ISO]{texgyrepagella-math.otf}
   % \setmathfont[math-style=ISO, bold-style=ISO]{texgyrepagella-math.otf}
   
   % Color
@@ -167,15 +167,14 @@
   \newcommand{\resetcounters}{\setcounter{page}{1} \setcounter{section}{0} \setcounter{footnote}{0} \setcounter{figure}{0} \setcounter{table}{0}}
   
 % MATH OPERATORS IN SPANISH
-\newcommand{\sen}{\operatorname{sen}}
-\newcommand{\arcsen}{\operatorname{arcsen}}
-\newcommand{\tg}{\operatorname{tg}}
-\newcommand{\arctg}{\operatorname{arctg}}
-\newcommand{\cosec}{\operatorname{cosec}}
-\newcommand{\cotg}{\operatorname{cotg}}
-\newcommand{\dom}{\operatorname{Dom}}
-\newcommand{\im}{\operatorname{Im}}
-\newcommand{\dint}{\displaystyle \int}
+\DeclareMathOperator{\seno}{sen}
+\DeclareMathOperator{\arcseno}{arcsen}
+\DeclareMathOperator{\tang}{tg}
+\DeclareMathOperator{\arctang}{arctg}
+\DeclareMathOperator{\cosec}{cosec}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\im}{Im}
   
   %========================================================================================
   %   DOCUMENT BODY
